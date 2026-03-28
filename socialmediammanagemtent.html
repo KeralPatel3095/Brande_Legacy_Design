@@ -1,0 +1,781 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Social Media Management | Brande Legacy Design</title>
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/KeralPatel3095/Brande_Images/9cf67e094aeaa130865a33879009bbd9b97c3873/Brand%C3%A9.png" />
+    <link rel="stylesheet" href="includes/site-layout.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Inter:wght@300;400;500;600&family=Poppins:wght@400;500;600&display=swap");
+
+      :root{
+        --main:#D6E3CE;
+        --bg:#D6E3CE;
+        --text:#636466;
+        --muted:#636466;
+        --border:#C7D7BE;
+        --surface:#EFEEEE;
+        --cream:#EFEEEE;
+        --cream2:#F7F7F7;
+        --accent:#636466;
+        --accentText:#ffffff;
+        --container:1120px;
+        --font-sans:"Inter", "Poppins", "DM Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      }
+
+      *{box-sizing:border-box}
+      html{scroll-behavior:smooth}
+      body{
+        margin:0;
+        font-family:var(--font-sans);
+        font-size:17px;
+        color:var(--text);
+        line-height:1.6;
+        background:linear-gradient(180deg, #D6E3CE 0%, #EFEEEE 58%, #ffffff 100%);
+      }
+      .container{max-width:var(--container); margin:0 auto; padding:0 20px}
+      section{padding:88px 0}
+      main > section{
+        min-height:100svh;
+        display:flex;
+        align-items:center;
+        width:100%;
+      }
+      main > section > .container{
+        width:100%;
+      }
+
+      /* same reveal transitions pattern as about page */
+      main > section h1,
+      main > section .sectionTitle,
+      main > section .kicker,
+      main > section .pillarCard h3,
+      main > section .tierName,
+      main > section .tierPrice{
+        opacity:0;
+        transform:translateY(28px);
+        transition:
+          opacity 1.05s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+          transform 1.05s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      main > section .sectionLead,
+      main > section .pillarCard p,
+      main > section .pillarBulletList li,
+      main > section .tierDesc,
+      main > section .btn{
+        opacity:0;
+        transform:translateY(24px);
+        transition:
+          opacity 1.05s cubic-bezier(0.25, 0.46, 0.45, 0.94) .16s,
+          transform 1.05s cubic-bezier(0.25, 0.46, 0.45, 0.94) .16s;
+      }
+      main > section .heroVisual,
+      main > section .pillarCard,
+      main > section .tierCard{
+        opacity:0;
+        transform:translateY(30px) scale(.985);
+        transition:
+          opacity 1.05s cubic-bezier(0.25, 0.46, 0.45, 0.94) .12s,
+          transform 1.05s cubic-bezier(0.25, 0.46, 0.45, 0.94) .12s;
+      }
+      main > section.inView h1,
+      main > section.inView .sectionTitle,
+      main > section.inView .kicker,
+      main > section.inView .pillarCard h3,
+      main > section.inView .tierName,
+      main > section.inView .tierPrice,
+      main > section.inView .sectionLead,
+      main > section.inView .pillarCard p,
+      main > section.inView .pillarBulletList li,
+      main > section.inView .tierDesc,
+      main > section.inView .btn,
+      main > section.inView .heroVisual,
+      main > section.inView .pillarCard,
+      main > section.inView .tierCard{
+        opacity:1;
+        transform:translateY(0) scale(1);
+      }
+
+      .kicker{
+        margin:0 0 12px;
+        font-size:12px;
+        letter-spacing:.12em;
+        font-weight:700;
+        color: #a9be9f;
+      }
+      .sectionTitle{
+        margin:0 0 16px;
+        font-size:44px;
+        line-height:1.08;
+        letter-spacing:-.02em;
+        color:var(--text);
+        font-weight:600;
+      }
+      h1, h2, h3{
+        text-transform:lowercase;
+      }
+      .sectionLead{
+        margin:0;
+        font-size:17px;
+        line-height:1.75;
+        color:var(--text);
+        max-width:74ch;
+      }
+
+      .hero{
+        min-height:100svh;
+        display:flex;
+        align-items:center;
+        border-top:1px solid var(--border);
+        border-bottom:1px solid var(--border);
+        padding:0;
+      }
+      .hero > .container{
+        max-width:100%;
+        padding:0;
+        height:100%;
+      }
+      .preIntroNote{
+        background:#f4f4f4;
+        border-top:1px solid var(--border);
+        border-bottom:1px solid var(--border);
+      }
+      .preIntroWrap{
+        max-width:78ch;
+        margin:0 auto;
+        text-align:center;
+      }
+      .preIntroWrap .kicker{
+        margin-bottom:14px;
+        text-align:center;
+      }
+      .preIntroWrap .sectionTitle{
+        margin:0 auto 14px;
+        max-width:32ch;
+        text-align:center;
+      }
+      .preIntroWrap .sectionLead{
+        margin:0 auto;
+        max-width:56ch;
+        text-align:center;
+      }
+      .preIntroWrap .ctaRow{
+        margin-top:24px;
+        justify-content:center;
+      }
+      .heroLayout{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:0;
+        align-items:stretch;
+        min-height:100svh;
+      }
+      .heroCopy{
+        background:rgba(255,255,255,.62);
+        border-right:1px solid var(--border);
+        padding:clamp(28px, 4vw, 62px);
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+      }
+      .heroCopy h1{
+        margin:0 0 16px;
+        font-size:64px;
+        line-height:1.02;
+        letter-spacing:-.03em;
+        font-weight:600;
+      }
+      .heroVisual{
+        min-height:100svh;
+        position:relative;
+        overflow:hidden;
+      }
+      .heroVisual .heroImg{
+        position:absolute;
+        inset:0;
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        display:block;
+        transition:opacity .6s ease-out, transform .6s ease-out;
+      }
+      .heroVisual .heroImgDefault{
+        opacity:1;
+        transform:scale(1);
+      }
+      .heroVisual .heroImgHover{
+        opacity:0;
+        transform:scale(1.04);
+      }
+      .heroVisual:hover .heroImgDefault{
+        opacity:0;
+        transform:scale(1.05);
+      }
+      .heroVisual:hover .heroImgHover{
+        opacity:1;
+        transform:scale(1);
+      }
+
+      .pillars{
+        background:#ffffff;
+        border-top:1px solid #ecece8;
+        border-bottom:1px solid #ecece8;
+      }
+      .pillarsLayout{
+        display:grid;
+        grid-template-columns:.9fr 1.1fr;
+        gap:clamp(18px,2.6vw,34px);
+        align-items:start;
+      }
+      .pillarsHead{
+        border-left:2px solid #d6d5cb;
+        padding-left:14px;
+      }
+      .pillarsGrid{
+        display:grid;
+        grid-template-columns:1fr;
+        gap:0;
+      }
+      .pillarCard{
+        border:none;
+        border-bottom:1px solid var(--border);
+        background:transparent;
+        padding:18px 0;
+      }
+      .pillarCard:first-child{border-top:1px solid var(--border)}
+      .pillarCard h3{
+        margin:0 0 10px;
+        font-size:22px;
+        line-height:1.15;
+        font-weight:600;
+      }
+      .pillarCard p{
+        margin:0;
+        font-size:16px;
+        line-height:1.7;
+      }
+      .pillarBulletList{
+        margin:0;
+        padding:0;
+        list-style:none;
+        display:grid;
+        gap:0;
+      }
+      .pillarBulletList li{
+        margin:0;
+        padding:16px 0;
+        border-bottom:1px solid var(--border);
+        font-size:16px;
+        line-height:1.65;
+        padding-left:1.15em;
+        text-indent:-1.15em;
+      }
+      .pillarBulletList li::before{
+        content:"•";
+        margin-right:.5em;
+        font-weight:600;
+      }
+      .pillarBulletList li:first-child{
+        border-top:1px solid var(--border);
+      }
+
+      .tiers{
+        min-height:100svh;
+        display:flex;
+        align-items:center;
+        background:linear-gradient(180deg, #eef3eb 0%, #e4ebdf 52%, #eef3eb 100%);
+        border-top:1px solid var(--border);
+        border-bottom:1px solid var(--border);
+      }
+      .tiersLayout{
+        display:grid;
+        grid-template-columns:1fr;
+        gap:clamp(24px,3.4vw,40px);
+      }
+      .tiersHead{
+        margin:0 auto 28px;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        text-align:center;
+        max-width:82ch;
+      }
+      .tiersHead .sectionTitle{
+        margin:0 auto 14px;
+        max-width:28ch;
+      }
+      .tiersHead .sectionLead{
+        margin:0 auto;
+        max-width:46ch;
+      }
+      .tiersGrid{
+        display:grid;
+        grid-template-columns:repeat(3, minmax(0, 1fr));
+        gap:clamp(16px,2.2vw,24px);
+      }
+      .tierCard{
+        background:transparent;
+        border:1px solid rgba(199,215,190,.95);
+        padding:28px 22px;
+        display:flex;
+        flex-direction:column;
+        gap:13px;
+        position:relative;
+        box-shadow:none;
+        transition:transform .24s ease, box-shadow .24s ease, border-color .24s ease;
+      }
+      .tierCard:hover{
+        transform:translateY(-3px);
+        border-color:#b9cfad;
+        box-shadow:0 10px 24px rgba(84,97,81,.12);
+      }
+      .tierTag{
+        display:inline-flex;
+        width:max-content;
+        padding:7px 12px;
+        background:#D6E3CE;
+        border:none;
+        font-size:11px;
+        letter-spacing:.06em;
+        font-weight:600;
+      }
+      .tierName{
+        margin:0;
+        font-size:22px;
+        line-height:1.12;
+        font-weight:600;
+      }
+      .tierPrice{
+        margin:0;
+        font-size:44px;
+        line-height:1.05;
+        font-weight:600;
+      }
+      .tierPrice .per{
+        font-size:clamp(18px,2.2vw,22px);
+        font-weight:600;
+        margin-left:.12em;
+      }
+      .tierDesc{
+        margin:0;
+        font-size:16px;
+        line-height:1.7;
+      }
+      .tierList{
+        margin:6px 0 0;
+        padding:0;
+        list-style:none;
+        display:grid;
+        gap:10px;
+      }
+      .tierList li{
+        padding:8px 0 0;
+        border-top:1px solid rgba(99,100,102,.2);
+        font-size:15px;
+        line-height:1.5;
+      }
+      .tiersGrid .tierCard:nth-child(2){
+        transform:translateY(-12px);
+        background:rgba(255,255,255,.34);
+        border-color:#b3c9a7;
+      }
+
+      .ctaBand{
+        background:#f4f4f4;
+        border-top:1px solid var(--border);
+        border-bottom:1px solid var(--border);
+      }
+      .faqSection{
+        background:#ffffff;
+        border-top:1px solid var(--border);
+        border-bottom:1px solid var(--border);
+      }
+      .faqWrap{
+        max-width:74ch;
+        margin:0 auto;
+      }
+      .faqItem{
+        padding:0;
+        border-top:1px solid rgba(99,100,102,.2);
+      }
+      .faqItem:last-child{
+        border-bottom:1px solid rgba(99,100,102,.2);
+      }
+      .faqQ{
+        margin:0;
+        padding:18px 34px 18px 0;
+        font-size:22px;
+        line-height:1.2;
+        font-weight:600;
+        list-style:none;
+        cursor:pointer;
+        position:relative;
+      }
+      .faqQ::-webkit-details-marker{
+        display:none;
+      }
+      .faqQ::after{
+        content:"+";
+        position:absolute;
+        right:0;
+        top:50%;
+        transform:translateY(-50%);
+        font-size:24px;
+        font-weight:400;
+        line-height:1;
+        color:#D6E3CE;
+      }
+      .faqItem[open] .faqQ::after{
+        content:"-";
+        color:#D6E3CE;
+      }
+      .faqA{
+        margin:0;
+        padding:0 14px 0;
+        background:transparent;
+        font-size:17px;
+        line-height:1.7;
+        max-height:0;
+        opacity:0;
+        overflow:hidden;
+        transition:max-height .28s ease, opacity .2s ease, padding .2s ease;
+      }
+      .faqItem:hover .faqA,
+      .faqItem[open] .faqA{
+        max-height:420px;
+        opacity:1;
+        padding:0 14px 14px;
+      }
+      .ctaBandInner{
+        text-align:center;
+        max-width:72ch;
+        margin:0 auto;
+      }
+      .ctaBandInner .sectionTitle{
+        margin:0 auto 14px;
+        max-width:30ch;
+      }
+      .ctaRow{
+        margin-top:22px;
+        display:flex;
+        justify-content:center;
+        gap:12px;
+        flex-wrap:wrap;
+      }
+      .btn{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        padding:12px 18px;
+        border:1px solid var(--border);
+        color:var(--text);
+        text-decoration:none;
+        font-weight:600;
+        font-size:15px;
+      }
+      .btnPrimary{
+        background:var(--accent);
+        color:var(--accentText);
+        border-color:var(--accent);
+      }
+
+      @media (max-width: 980px){
+        main > section{min-height:100svh}
+        .heroLayout,
+        .pillarsLayout,
+        .tiersLayout,
+        .tiersGrid{grid-template-columns:1fr}
+        .hero > .container{padding:0}
+        .heroCopy{border-right:none; border-bottom:1px solid var(--border)}
+        .heroVisual{min-height:420px}
+        .heroCopy h1{font-size:52px}
+        .tiersGrid{display:grid}
+        .tiersGrid .tierCard:nth-child(2){
+          transform:none;
+          background:transparent;
+          border-color:rgba(199,215,190,.95);
+        }
+        .tiersHead{order:-1}
+      }
+      @media (max-width: 768px){
+        .heroCopy h1{
+          max-width:22ch;
+          font-size:clamp(34px,8.8vw,46px);
+          line-height:1.12;
+          letter-spacing:-.015em;
+        }
+      }
+      @media (max-width: 620px){
+        section{padding:64px 0}
+        .container{padding:0 14px}
+        .heroCopy{padding:22px 16px}
+        .pillarCard, .tierCard{padding:18px 14px}
+        .sectionTitle{font-size:34px}
+        .sectionLead{font-size:16px}
+        .heroCopy h1{
+          font-size:clamp(30px,9.6vw,40px);
+          line-height:1.14;
+          max-width:24ch;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="layout-header"></div>
+    <!--hero-section-->
+    <main>
+      
+
+      <!--overview-->
+      <section class="preIntroNote" aria-label="Overview">
+        <div class="container">
+          <div class="preIntroWrap">
+            <p class="kicker">Social media, elevated.</p>
+            <h2 class="sectionTitle">more than posts and likes</h2>
+            <p class="sectionLead">Social media is more than posts and likes—it’s a powerful tool to build awareness, engage your audience, and establish authority. Our Social Media Management services create consistent, high-quality content that elevates your brand, drives engagement, and keeps your audience connected.</p>
+            <div class="ctaRow">
+              <a class="btn btnPrimary" href="index.html#final-cta">book a discovery call</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--hero-->
+      <section class="hero" aria-label="Social media management hero">
+        <div class="container">
+          <div class="heroLayout">
+            <div class="heroCopy">
+              <p class="kicker">360° social media management</p>
+              <h1>reclaim your time. amplify your influence.</h1>
+              <p class="sectionLead">You are building a legacy; you shouldn’t be bogged down by hashtags. I provide a 360° social media management solution that treats your presence as the high-value asset it is.</p>
+            </div>
+            <figure class="heroVisual" aria-label="Social media strategy and content">
+              <img class="heroImg heroImgDefault" src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1400&h=1800&fit=crop" alt="Phone showing social media feed and brand content" loading="lazy" />
+              <img class="heroImg heroImgHover" src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1400&h=1800&fit=crop" alt="Team collaborating on social media and marketing strategy" loading="lazy" />
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!--what we provide-->
+      <section class="pillars" aria-label="What we provide">
+        <div class="container">
+          <div class="pillarsLayout">
+            <div class="pillarsHead">
+              <p class="kicker">What we provide</p>
+              <h2 class="sectionTitle">full-stack support for your social presence</h2>
+              <p class="sectionLead">Strategy through reporting—so your channels stay active, on-brand, and working toward real business outcomes.</p>
+            </div>
+            <div class="pillarsGrid">
+              <ul class="pillarBulletList">
+                <li>Social media content strategy</li>
+                <li>Content calendar planning</li>
+                <li>Custom-designed posts (static, motion graphics, and reels)</li>
+                <li>Caption writing and messaging</li>
+                <li>Scheduling and publishing at peak times</li>
+                <li>Audience engagement and community management</li>
+                <!-- <li>Monthly performance analytics and health checks</li> -->
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--ideal for-->
+      <section class="pillars" aria-label="Who this is for">
+        <div class="container">
+          <div class="pillarsLayout">
+            <div class="pillarsHead">
+              <p class="kicker">Ideal for</p>
+              <h2 class="sectionTitle">brands that need consistency without the daily grind</h2>
+              <p class="sectionLead">If you’re ready to delegate the feed while keeping a premium look and voice, this service is built for you.</p>
+            </div>
+            <div class="pillarsGrid">
+              <ul class="pillarBulletList">
+                <li>Small and medium-sized businesses</li>
+                <li>Healthcare and dental clinics</li>
+                <li>Personal brands and entrepreneurs</li>
+                <li>Construction / Real Estate / Property Management</li>
+                <li>Professional service providers</li>
+                <li>E-commerce / Product Brands</li>
+                <li>Restaurants / Food Businesses</li>
+                <li>Beauty / Fashion / Personal Care</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--service tiers-->
+      <section class="tiers" aria-label="Service tiers">
+        <div class="container">
+          <div class="tiersLayout">
+            <div class="tiersHead">
+              <p class="kicker">Service tiers</p>
+              <h2 class="sectionTitle">choose the level of support you need</h2>
+              <p class="sectionLead">Starter, Growth, and Premium scale volume, creative formats, and hands-on management—so you only pay for the engine you actually need.</p>
+            </div>
+            <div class="tiersGrid">
+              <article class="tierCard">
+                <span class="tierTag">starter plan</span>
+                <h3 class="tierName">Starter</h3>
+                <p class="tierPrice">$500<span class="per">/mo</span></p>
+                <p class="tierDesc">A focused monthly rhythm for brands getting serious about showing up consistently.</p>
+                <ul class="tierList">
+                  <li>8 high-fidelity posts per month</li>
+                  <li>Signature captions</li>
+                  <li>Content scheduling</li>
+                  <li>Basic performance analytics</li>
+                </ul>
+              </article>
+              <article class="tierCard">
+                <span class="tierTag">growth plan</span>
+                <h3 class="tierName">Growth</h3>
+                <p class="tierPrice">$900<span class="per">/mo</span></p>
+                <p class="tierDesc">More volume, richer storytelling, and active engagement support.</p>
+                <ul class="tierList">
+                  <li>12 posts per month</li>
+                  <li>Mix of educational and brand-storytelling content</li>
+                  <li>Interactive story sets</li>
+                  <li>Engagement management</li>
+                  <li>Monthly performance report</li>
+                </ul>
+              </article>
+              <article class="tierCard">
+                <span class="tierTag">premium plan</span>
+                <h3 class="tierName">Premium</h3>
+                <p class="tierPrice">$1,500<span class="per">/mo</span></p>
+                <p class="tierDesc">Full-scale creative and community oversight for brands that live on social.</p>
+                <ul class="tierList">
+                  <li>20 posts per month</li>
+                  <li>Full-scale content engine including reels</li>
+                  <li>Motion graphics &amp; GIFs</li>
+                  <li>Community management and comment/DM oversight</li>
+                  <li>1:1 strategy consultation</li>
+                  <li>Advanced performance reporting</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--our process-->
+      <section class="pillars" aria-label="Our process">
+        <div class="container">
+          <div class="pillarsLayout">
+            <div class="pillarsHead">
+              <p class="kicker">Our process</p>
+              <h2 class="sectionTitle">from audit to always-on relevance</h2>
+              <p class="sectionLead">Three phases keep your social presence aligned with your legacy goals—not just this week’s trends.</p>
+            </div>
+            <div class="pillarsGrid">
+              <article class="pillarCard">
+                <h3>Phase 1: The brand audit</h3>
+                <p>We deconstruct your current social presence, identify gaps in your visual storytelling, and align strategy with your “Legacy Design” goals.</p>
+              </article>
+              <article class="pillarCard">
+                <h3>Phase 2: Aesthetic curation</h3>
+                <p>Using the Linen &amp; Layout philosophy, we design a full month of content in advance. Every post, motion graphic, and caption feels like a high-end editorial.</p>
+              </article>
+              <article class="pillarCard">
+                <h3>Phase 3: The pulse check</h3>
+                <p>Social media is an ecosystem. We monitor trends and audience behavior daily, keeping your brand relevant, respected, and responsive.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--why this works-->
+      <section class="pillars" aria-label="Why this approach works">
+        <div class="container">
+          <div class="pillarsLayout">
+            <div class="pillarsHead">
+              <p class="kicker">Why this approach works</p>
+              <h2 class="sectionTitle">authority, ease, and motion that still feels refined</h2>
+              <p class="sectionLead">The goal isn’t noise—it’s a feed that compounds trust every time someone scrolls.</p>
+            </div>
+            <div class="pillarsGrid">
+              <article class="pillarCard">
+                <h3>Quality over volume</h3>
+                <p>Every asset is a building block for your brand’s authority.</p>
+              </article>
+              <article class="pillarCard">
+                <h3>Consistency without effort</h3>
+                <p>Stay in your “zone of genius” while your digital storefront never goes dark.</p>
+              </article>
+              <article class="pillarCard">
+                <h3>Animated engagement</h3>
+                <p>Motion graphics and GIFs capture attention without sacrificing the sophisticated aesthetic.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--faq-->
+      <section class="faqSection" aria-label="Frequently asked questions">
+        <div class="container">
+          <div class="faqWrap">
+            <p class="kicker">FAQ</p>
+            <h2 class="sectionTitle">frequently asked questions</h2>
+            <details class="faqItem">
+              <summary class="faqQ">How is social media management different from just scheduling posts?</summary>
+              <p class="faqA">Scheduling is the final step. Before that comes strategy: goals, audience, positioning, and content pillars—so each post earns its place in the calendar and supports awareness, trust, or conversion—not filler.</p>
+            </details>
+            <!-- <details class="faqItem">
+              <summary class="faqQ">What metrics matter beyond likes and follower count?</summary>
+              <p class="faqA">We look at behavior that maps to your business: saves and shares, profile visits, link taps, story completion, replies and DMs, and the quality of engagement—not just volume—so optimizations reflect real interest, not empty reach.</p>
+            </details> -->
+            <details class="faqItem">
+              <summary class="faqQ">What is a content pillar, and why use them?</summary>
+              <p class="faqA">Pillars are a small set of recurring themes—education, proof, culture, offers, and the like—that rotate through your feed. They keep the grid varied but intentional, so followers learn what you stand for and what to expect from you.</p>
+            </details>
+            <details class="faqItem">
+              <summary class="faqQ">How do you keep feed posts, stories, and reels feeling like one brand?</summary>
+              <p class="faqA">We work from a shared visual and verbal system: typography, color, pacing, and the Linen &amp; Layout editorial standard. Motion and static assets are designed against that system so nothing reads as a random trend bolted onto your identity.</p>
+            </details>
+            <details class="faqItem">
+              <summary class="faqQ">How do you decide what to publish and when?</summary>
+              <p class="faqA">We align your real-world rhythm—launches, seasons, appointments, campaigns—with how your audience actually behaves on each surface, then sequence topics so they build on each other instead of competing for the same moment.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!--cta-->
+      <section class="ctaBand" aria-label="Call to action">
+        <div class="container">
+          <div class="ctaBandInner">
+            <p class="kicker">Ready to reclaim your time?</p>
+            <h2 class="sectionTitle">let’s run your social like the asset it is</h2>
+            <p class="sectionLead">Book a call to choose Starter, Growth, or Premium—or pair management with custom posts and stories designed for your brand.</p>
+            <div class="ctaRow">
+              <a class="btn btnPrimary" href="index.html#final-cta">book a discovery call</a>
+              <a class="btn" href="instagramstoriesandpost.html">instagram posts &amp; stories</a>
+              <a class="btn" href="index.html#value">view all services</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div id="layout-footer"></div>
+    <script src="includes/load-includes.js"></script>
+    <script>
+      (function () {
+        var sections = document.querySelectorAll("main > section");
+        if (!sections.length) return;
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("inView");
+            }
+          });
+        }, { threshold: 0.18 });
+        sections.forEach(function (section) { observer.observe(section); });
+      })();
+    </script>
+  </body>
+</html>

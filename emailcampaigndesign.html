@@ -1,0 +1,659 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Email Campaign Design | Brande Legacy Design</title>
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/KeralPatel3095/Brande_Images/9cf67e094aeaa130865a33879009bbd9b97c3873/Brand%C3%A9.png" />
+    <link rel="stylesheet" href="includes/site-layout.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Inter:wght@300;400;500;600&family=Poppins:wght@400;500;600&display=swap");
+
+      :root{
+        --main:#D6E3CE;
+        --bg:#D6E3CE;
+        --text:#636466;
+        --muted:#636466;
+        --border:#C7D7BE;
+        --surface:#EFEEEE;
+        --cream:#EFEEEE;
+        --cream2:#F7F7F7;
+        --accent:#636466;
+        --accentText:#ffffff;
+        --container:1120px;
+        --font-sans:"Inter", "Poppins", "DM Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      }
+
+      *{box-sizing:border-box}
+      html{scroll-behavior:smooth}
+      body{
+        margin:0;
+        font-family:var(--font-sans);
+        font-size:17px;
+        color:var(--text);
+        line-height:1.6;
+        background:linear-gradient(180deg, #D6E3CE 0%, #EFEEEE 58%, #ffffff 100%);
+      }
+      .container{max-width:var(--container); margin:0 auto; padding:0 20px}
+      section{padding:88px 0}
+      main > section{
+        min-height:100svh;
+        display:flex;
+        align-items:center;
+        width:100%;
+      }
+      main > section > .container{
+        width:100%;
+      }
+
+      /* same reveal transitions pattern as about page */
+      main > section h1,
+      main > section .sectionTitle,
+      main > section .kicker,
+      main > section .pillarCard h3,
+      main > section .tierName,
+      main > section .tierPrice{
+        opacity:0;
+        transform:translateY(28px);
+        transition:
+          opacity 1.05s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+          transform 1.05s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      main > section .sectionLead,
+      main > section .pillarCard p,
+      main > section .tierDesc,
+      main > section .btn{
+        opacity:0;
+        transform:translateY(24px);
+        transition:
+          opacity 1.05s cubic-bezier(0.25, 0.46, 0.45, 0.94) .16s,
+          transform 1.05s cubic-bezier(0.25, 0.46, 0.45, 0.94) .16s;
+      }
+      main > section .heroVisual,
+      main > section .pillarCard,
+      main > section .tierCard{
+        opacity:0;
+        transform:translateY(30px) scale(.985);
+        transition:
+          opacity 1.05s cubic-bezier(0.25, 0.46, 0.45, 0.94) .12s,
+          transform 1.05s cubic-bezier(0.25, 0.46, 0.45, 0.94) .12s;
+      }
+      main > section.inView h1,
+      main > section.inView .sectionTitle,
+      main > section.inView .kicker,
+      main > section.inView .pillarCard h3,
+      main > section.inView .tierName,
+      main > section.inView .tierPrice,
+      main > section.inView .sectionLead,
+      main > section.inView .pillarCard p,
+      main > section.inView .tierDesc,
+      main > section.inView .btn,
+      main > section.inView .heroVisual,
+      main > section.inView .pillarCard,
+      main > section.inView .tierCard{
+        opacity:1;
+        transform:translateY(0) scale(1);
+      }
+
+      .kicker{
+        margin:0 0 12px;
+        font-size:12px;
+        letter-spacing:.18em;
+        font-weight:800;
+        color: #a9be9f;
+      }
+      .sectionTitle{
+        font-family:var(--font-sans);
+        margin:0 0 10px;
+        font-size:44px;
+        line-height:1.1;
+        letter-spacing:-.02em;
+        color:var(--text);
+        font-weight:600;
+      }
+      h1, h2, h3{
+        text-transform:lowercase;
+      }
+      .sectionLead{
+        margin:0;
+        font-size:17px;
+        line-height:1.75;
+        color:var(--text);
+        max-width:74ch;
+      }
+
+      .hero{
+        min-height:100svh;
+        display:flex;
+        align-items:center;
+        border-top:1px solid var(--border);
+        border-bottom:1px solid var(--border);
+        padding:0;
+      }
+      .hero > .container{
+        max-width:100%;
+        padding:0;
+        height:100%;
+      }
+      .preIntroNote{
+        background:#f4f4f4;
+        border-top:1px solid var(--border);
+        border-bottom:1px solid var(--border);
+      }
+      .preIntroWrap{
+        max-width:78ch;
+        margin:0 auto;
+        text-align:center;
+      }
+      .preIntroWrap .kicker{
+        margin-bottom:14px;
+        text-align:center;
+      }
+      .preIntroWrap .sectionTitle{
+        margin:0 auto 14px;
+        max-width:18ch;
+        text-align:center;
+      }
+      .preIntroWrap .sectionLead{
+        margin:0 auto;
+        max-width:56ch;
+        text-align:center;
+      }
+      .heroLayout{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:0;
+        align-items:stretch;
+        min-height:100svh;
+      }
+      .heroCopy{
+        background:rgba(255,255,255,.62);
+        border-right:1px solid var(--border);
+        padding:clamp(28px, 4vw, 62px);
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+      }
+      .heroCopy h1{
+        margin:0 0 16px;
+        font-size:64px;
+        line-height:1.02;
+        letter-spacing:-.03em;
+        font-weight:600;
+      }
+      .heroVisual{
+        min-height:100svh;
+        position:relative;
+        overflow:hidden;
+      }
+      .heroVisual .heroImg{
+        position:absolute;
+        inset:0;
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        display:block;
+        transition:opacity .6s ease-out, transform .6s ease-out;
+      }
+      .heroVisual .heroImgDefault{
+        opacity:1;
+        transform:scale(1);
+      }
+      .heroVisual .heroImgHover{
+        opacity:0;
+        transform:scale(1.04);
+      }
+      .heroVisual:hover .heroImgDefault{
+        opacity:0;
+        transform:scale(1.05);
+      }
+      .heroVisual:hover .heroImgHover{
+        opacity:1;
+        transform:scale(1);
+      }
+
+      .pillars{
+        background:#ffffff;
+        border-top:1px solid #ecece8;
+        border-bottom:1px solid #ecece8;
+      }
+      .pillarsLayout{
+        display:grid;
+        grid-template-columns:.9fr 1.1fr;
+        gap:clamp(18px,2.6vw,34px);
+        align-items:start;
+      }
+      .pillarsHead{
+        border-left:2px solid #d6d5cb;
+        padding-left:14px;
+      }
+      .pillarsGrid{
+        display:grid;
+        grid-template-columns:1fr;
+        gap:0;
+      }
+      .pillarCard{
+        border:none;
+        border-bottom:1px solid var(--border);
+        background:transparent;
+        padding:18px 0;
+      }
+      .pillarCard:first-child{border-top:1px solid var(--border)}
+      .pillarCard h3{
+        margin:0 0 10px;
+        font-size:22px;
+        line-height:1.15;
+        font-weight:600;
+      }
+      .pillarCard p{
+        margin:0;
+        font-size:16px;
+        line-height:1.7;
+      }
+
+      .tiers{
+        min-height:100svh;
+        display:flex;
+        align-items:center;
+        background:linear-gradient(180deg, #eef3eb 0%, #e4ebdf 52%, #eef3eb 100%);
+        border-top:1px solid var(--border);
+        border-bottom:1px solid var(--border);
+      }
+      .tiersLayout{
+        display:grid;
+        grid-template-columns:1fr;
+        gap:clamp(24px,3.4vw,40px);
+      }
+      .tiersHead{
+        margin:0 auto 28px;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        text-align:center;
+        max-width:82ch;
+      }
+      .tiersHead .sectionTitle{
+        margin:0 auto 14px;
+        max-width:26ch;
+      }
+      .tiersHead .sectionLead{
+        margin:0 auto;
+        max-width:46ch;
+      }
+      .tiersGrid{
+        display:grid;
+        grid-template-columns:repeat(3, minmax(0, 1fr));
+        gap:clamp(16px,2.2vw,24px);
+      }
+      .tierCard{
+        background:transparent;
+        border:1px solid rgba(199,215,190,.95);
+        padding:28px 22px;
+        display:flex;
+        flex-direction:column;
+        gap:13px;
+        position:relative;
+        box-shadow:none;
+        transition:transform .24s ease, box-shadow .24s ease, border-color .24s ease;
+      }
+      .tierCard:hover{
+        transform:translateY(-3px);
+        border-color:#b9cfad;
+        box-shadow:0 10px 24px rgba(84,97,81,.12);
+      }
+      .tierTag{
+        display:inline-flex;
+        width:max-content;
+        padding:7px 12px;
+        background:#D6E3CE;
+        border:none;
+        font-size:11px;
+        letter-spacing:.06em;
+        font-weight:600;
+      }
+      .tierName{
+        margin:0;
+        font-size:22px;
+        line-height:1.12;
+        font-weight:600;
+      }
+      .tierPrice{
+        margin:0;
+        font-size:44px;
+        line-height:1.05;
+        font-weight:600;
+      }
+      .tierDesc{
+        margin:0;
+        font-size:16px;
+        line-height:1.7;
+      }
+      .tierList{
+        margin:6px 0 0;
+        padding:0;
+        list-style:none;
+        display:grid;
+        gap:10px;
+      }
+      .tierList li{
+        padding:8px 0 0;
+        border-top:1px solid rgba(99,100,102,.2);
+        font-size:15px;
+        line-height:1.5;
+      }
+      .tiersGrid .tierCard:nth-child(2){
+        transform:translateY(-12px);
+        background:rgba(255,255,255,.34);
+        border-color:#b3c9a7;
+      }
+
+      .ctaBand{
+        background:#f4f4f4;
+        border-top:1px solid var(--border);
+        border-bottom:1px solid var(--border);
+      }
+      .faqSection{
+        background:#ffffff;
+        border-top:1px solid var(--border);
+        border-bottom:1px solid var(--border);
+      }
+      .faqWrap{
+        max-width:74ch;
+        margin:0 auto;
+      }
+      .faqItem{
+        padding:0;
+        border-top:1px solid rgba(99,100,102,.2);
+      }
+      .faqItem:last-child{
+        border-bottom:1px solid rgba(99,100,102,.2);
+      }
+      .faqQ{
+        margin:0;
+        padding:18px 34px 18px 0;
+        font-size:22px;
+        line-height:1.2;
+        font-weight:600;
+        list-style:none;
+        cursor:pointer;
+        position:relative;
+      }
+      .faqQ::-webkit-details-marker{
+        display:none;
+      }
+      .faqQ::after{
+        content:"+";
+        position:absolute;
+        right:0;
+        top:50%;
+        transform:translateY(-50%);
+        font-size:24px;
+        font-weight:400;
+        line-height:1;
+        color:#D6E3CE;
+      }
+      .faqItem[open] .faqQ::after{
+        content:"-";
+        color:#D6E3CE;
+      }
+      .faqA{
+        margin:0;
+        padding:0 14px 0;
+        background:transparent;
+        font-size:17px;
+        line-height:1.7;
+        max-height:0;
+        opacity:0;
+        overflow:hidden;
+        transition:max-height .28s ease, opacity .2s ease, padding .2s ease;
+      }
+      .faqItem:hover .faqA,
+      .faqItem[open] .faqA{
+        max-height:220px;
+        opacity:1;
+        padding:0 14px 14px;
+      }
+      .ctaBandInner{
+        text-align:center;
+        max-width:72ch;
+        margin:0 auto;
+      }
+      .ctaBandInner .sectionTitle{
+        margin:0 auto 14px;
+        max-width:16ch;
+      }
+      .ctaRow{
+        margin-top:22px;
+        display:flex;
+        justify-content:center;
+        gap:12px;
+        flex-wrap:wrap;
+      }
+      .btn{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        padding:12px 18px;
+        border:1px solid var(--border);
+        color:var(--text);
+        text-decoration:none;
+        font-weight:600;
+        font-size:15px;
+      }
+      .btnPrimary{
+        background:var(--accent);
+        color:var(--accentText);
+        border-color:var(--accent);
+      }
+
+      @media (max-width: 980px){
+        main > section{min-height:100svh}
+        .heroLayout,
+        .pillarsLayout,
+        .tiersLayout,
+        .tiersGrid{grid-template-columns:1fr}
+        .hero > .container{padding:0}
+        .heroCopy{border-right:none; border-bottom:1px solid var(--border)}
+        .heroVisual{min-height:420px}
+        .heroCopy h1{font-size:52px}
+        .tiersGrid{display:grid}
+        .tiersGrid .tierCard:nth-child(2){
+          transform:none;
+        }
+        .tiersHead{order:-1}
+      }
+      @media (max-width: 768px){
+        .heroCopy h1{
+          max-width:20ch;
+          font-size:clamp(34px,8.8vw,46px);
+          line-height:1.12;
+          letter-spacing:-.015em;
+        }
+      }
+      @media (max-width: 620px){
+        section{padding:64px 0}
+        .container{padding:0 14px}
+        .heroCopy{padding:22px 16px}
+        .pillarCard, .tierCard{padding:18px 14px}
+        .sectionTitle{font-size:34px}
+        .sectionLead{font-size:16px}
+        .heroCopy h1{
+          font-size:clamp(30px,9.6vw,40px);
+          line-height:1.14;
+          max-width:22ch;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="layout-header"></div>
+    <!--hero-section-->
+    <main>
+      <section class="preIntroNote" aria-label="Email campaign design introduction">
+        <div class="container">
+          <div class="preIntroWrap">
+            <p class="kicker">Strategy That Converts</p>
+            <h2 class="sectionTitle">Designed to Engage. Built to Convert.</h2>
+            <p class="sectionLead">Email is where trust grows fastest. This service is built to help you turn attention into action through strategic campaign design, clear messaging, and conversion-led delivery.</p>
+            <div class="ctaRow">
+              <a class="btn" href="index.html#portfolio">see email examples</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--hero-section-2-->
+      <section class="hero" aria-label="Email campaign design hero">
+        <div class="container">
+          <div class="heroLayout">
+            <div class="heroCopy">
+              <p class="kicker">Newsletters &amp; automations</p>
+              <h1>direct access to your audience’s inbox.</h1>
+              <p class="sectionLead">Social feeds rent you attention; email is permission-based and yours to nurture. I design email campaigns—from one-off sends and reusable templates to monthly programs and welcome flows—so subscribers see something worth opening, not another generic blast.</p>
+            </div>
+            <figure class="heroVisual" aria-label="Email campaign design visual">
+              <img class="heroImg heroImgDefault" src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?w=1400&h=1800&fit=crop" alt="Email design and campaign planning on laptop screen" loading="lazy" />
+              <img class="heroImg heroImgHover" src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1400&h=1800&fit=crop" alt="Email performance dashboard and campaign reporting view" loading="lazy" />
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!--pillars-section-->
+      <section class="pillars" aria-label="Deliverability matters">
+        <div class="container">
+          <div class="pillarsLayout">
+            <div class="pillarsHead">
+              <p class="kicker">Deliverability Matters</p>
+              <h2 class="sectionTitle">designed to land in inboxes and look right everywhere</h2>
+              <p class="sectionLead">Every email campaign is built with technical and visual standards that protect deliverability and keep your message readable across devices and inbox themes.</p>
+            </div>
+            <div class="pillarsGrid">
+              <article class="pillarCard">
+                <h3>Dark Mode Ready</h3>
+                <p>Layouts, color contrast, and image treatments are tested to maintain brand clarity and legibility in dark mode inboxes.</p>
+              </article>
+              <article class="pillarCard">
+                <h3>Mobile Responsive</h3>
+                <p>Your campaign structure is optimized for phone-first reading with clean spacing, scalable type, and clear CTA visibility.</p>
+              </article>
+              <article class="pillarCard">
+                <h3>Spam-Filter Conscious</h3>
+                <p>I design with deliverability best practices, balancing visuals and text to help your campaigns avoid spam and promo tab issues.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--tiers-section-->
+      <section class="tiers" aria-label="Investment tiers">
+        <div class="container">
+          <div class="tiersLayout">
+            <div class="tiersHead">
+              <p class="kicker">Email service tiers</p>
+              <h2 class="sectionTitle">choose your email campaign package</h2>
+              <p class="sectionLead">Pick the level of email support that fits how you market today: a single campaign and template, steady monthly campaigns with automations, or full strategy with segmentation and reporting—all focused on list health and conversion.</p>
+            </div>
+            <div class="tiersGrid">
+              <article class="tierCard">
+                <span class="tierTag">starter focus</span>
+                <h3 class="tierName">Starter</h3>
+                <p class="tierPrice">$300/month</p>
+                <p class="tierDesc">Perfect if you are just getting started with email marketing.</p>
+                <ul class="tierList">
+                  <li>1 email campaign designed for your brand</li>
+                  <li>A reusable email template you can use anytime</li>
+                  <li>Ready-to-send setup</li>
+                </ul>
+              </article>
+              <article class="tierCard">
+                <span class="tierTag">growth system</span>
+                <h3 class="tierName">Growth</h3>
+                <p class="tierPrice">$700/month</p>
+                <p class="tierDesc">Ideal for businesses that want consistent communication and lead nurturing.</p>
+                <ul class="tierList">
+                  <li>4 email campaigns per month</li>
+                  <li>Automated welcome emails for new subscribers</li>
+                  <li>Ongoing improvements to help your emails perform better</li>
+                </ul>
+              </article>
+              <article class="tierCard">
+                <span class="tierTag">premium scale</span>
+                <h3 class="tierName">Premium</h3>
+                <p class="tierPrice">$1,200/month</p>
+                <p class="tierDesc">Best for brands ready to scale with a complete email strategy.</p>
+                <ul class="tierList">
+                  <li>Full email marketing strategy tailored to your business</li>
+                  <li>Targeted emails for different audience groups</li>
+                  <li>Monthly performance insights and growth tracking</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--cta-section-->
+      <section class="faqSection" aria-label="Frequently asked questions">
+        <div class="container">
+          <div class="faqWrap">
+            <p class="kicker">FAQ</p>
+            <h2 class="sectionTitle">frequently asked questions</h2>
+            <details class="faqItem">
+              <summary class="faqQ">How long does an email setup take?</summary>
+              <p class="faqA">Starter setups are typically completed within 3 to 5 business days. Monthly packages begin immediately after strategy approval.</p>
+            </details>
+            <details class="faqItem">
+              <summary class="faqQ">Do you provide email copy as well?</summary>
+              <p class="faqA">Yes. I can write or refine conversion-focused copy so your campaigns stay on-brand and clear with strong call-to-action flow.</p>
+            </details>
+            <details class="faqItem">
+              <summary class="faqQ">Are campaigns tested for mobile and dark mode?</summary>
+              <p class="faqA">Absolutely. Every email is designed and tested for mobile responsiveness and dark mode readability before launch.</p>
+            </details>
+            <details class="faqItem">
+              <summary class="faqQ">Can you work with my current email platform?</summary>
+              <p class="faqA">Yes. I can work within your existing stack (such as Mailchimp, Klaviyo, or similar tools) and improve current templates and flows.</p>
+            </details>
+            <details class="faqItem">
+              <summary class="faqQ">Do you include reporting and optimization?</summary>
+              <p class="faqA">Yes. Growth includes ongoing performance review and refinements. Premium adds deeper segmentation work and monthly ROI-focused reporting so you can see what each campaign is driving.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!--cta-section-->
+      <section class="ctaBand" aria-label="Call to action">
+        <div class="container">
+          <div class="ctaBandInner">
+            <p class="kicker">Ready to send better email?</p>
+            <h2 class="sectionTitle">let your next campaign earn the open</h2>
+            <p class="sectionLead">If you want email that matches your brand, lands in the inbox, and nudges people toward your offer—not spammy blasts or broken templates—let’s talk about Starter, Growth, or Premium.</p>
+            <div class="ctaRow">
+              <a class="btn btnPrimary" href="index.html#final-cta">book an email consult</a>
+              <a class="btn" href="index.html#value">view all services</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div id="layout-footer"></div>
+    <script src="includes/load-includes.js"></script>
+    <script>
+      (function () {
+        var sections = document.querySelectorAll("main > section");
+        if (!sections.length) return;
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("inView");
+            }
+          });
+        }, { threshold: 0.18 });
+        sections.forEach(function (section) { observer.observe(section); });
+      })();
+    </script>
+  </body>
+</html>

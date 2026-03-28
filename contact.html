@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact | Brand&eacute; Legacy Design</title>
+    <meta
+      name="description"
+      content="Get in touch with Brandé Legacy Design for website design, social media management, email campaigns, and brand identity support."
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="https://raw.githubusercontent.com/KeralPatel3095/Brande_Images/9cf67e094aeaa130865a33879009bbd9b97c3873/Brand%C3%A9.png"
+    />
+    <link rel="stylesheet" href="includes/site-layout.css" />
+    <style>
+      :root {
+        --contact-shell: min(1120px, 100%);
+      }
+      body {
+        background:
+          radial-gradient(900px 320px at 8% 2%, rgba(214, 227, 206, 0.72), transparent 58%),
+          radial-gradient(760px 280px at 94% 24%, rgba(99, 100, 102, 0.08), transparent 62%),
+          linear-gradient(180deg, #d6e3ce 0%, #efeeee 45%, #ffffff 100%);
+      }
+      main > section {
+        width: 100%;
+      }
+      .contactHero {
+        padding: clamp(78px, 10vw, 116px) 0 clamp(46px, 6vw, 62px);
+      }
+      .contactHeroInner {
+        max-width: 760px;
+        text-align: center;
+        margin: 0 auto;
+      }
+      .kicker {
+        margin: 0 0 10px;
+        font-size: 12px;
+        letter-spacing: 0.18em;
+        font-weight: 800;
+        text-transform: uppercase;
+        color: #6f7274;
+      }
+      .contactTitle {
+        margin: 0 0 12px;
+        font-size: clamp(34px, 5.3vw, 58px);
+        line-height: 1.07;
+        letter-spacing: -0.03em;
+        color: #45484a;
+        font-weight: 600;
+      }
+      .contactLead {
+        margin: 0 auto;
+        max-width: 60ch;
+        font-size: 18px;
+        line-height: 1.72;
+        color: #5a5d5f;
+      }
+
+      .contactSection {
+        padding: 0 0 clamp(68px, 8vw, 96px);
+      }
+      .contactShell {
+        width: var(--contact-shell);
+        margin: 0 auto;
+        padding: 0 18px;
+        display: grid;
+        grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+        gap: clamp(20px, 3vw, 34px);
+        align-items: start;
+      }
+      .contactCard {
+        border: none;
+        background: transparent;
+        backdrop-filter: none;
+        box-shadow: none;
+        padding: clamp(8px, 1.2vw, 14px) 0;
+      }
+      .contactCardTitle {
+        margin: 0 0 8px;
+        font-size: clamp(26px, 3.8vw, 34px);
+        line-height: 1.15;
+        color: #4b4e50;
+        letter-spacing: -0.02em;
+        font-weight: 600;
+      }
+      .contactCardText {
+        margin: 0 0 18px;
+        color: #5a5d5f;
+        font-size: 16px;
+        line-height: 1.65;
+      }
+      .contactMetaList {
+        margin: 0 0 30px;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 18px;
+      }
+      .contactMetaList li {
+        display: grid;
+        gap: 6px;
+      }
+      .metaLabel {
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        font-weight: 800;
+        color: #7a7d7f;
+      }
+      .metaValue {
+        font-size: 16px;
+        color: #4b4e50;
+      }
+      .metaValue a {
+        color: #636466;
+        text-decoration: underline;
+        text-underline-offset: 3px;
+        text-decoration-color: #c7d7be;
+      }
+
+      .contactForm {
+        display: grid;
+        gap: 14px;
+      }
+      .field {
+        display: grid;
+        gap: 6px;
+      }
+      .fieldLabel {
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-weight: 800;
+        color: #636466;
+      }
+      .field input,
+      .field textarea {
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid rgba(99, 100, 102, 0.34);
+        border-radius: 0;
+        background: transparent;
+        color: #4b4e50;
+        font: inherit;
+        font-size: 15px;
+        padding: 12px 0;
+        transition: border-color 0.2s ease, background-color 0.2s ease;
+      }
+      .field input:focus,
+      .field textarea:focus {
+        outline: none;
+        border-bottom-color: #c7d7be;
+        box-shadow: none;
+        background: transparent;
+      }
+      .field input:-webkit-autofill,
+      .field input:-webkit-autofill:hover,
+      .field input:-webkit-autofill:focus,
+      .field textarea:-webkit-autofill,
+      .field textarea:-webkit-autofill:hover,
+      .field textarea:-webkit-autofill:focus {
+        -webkit-text-fill-color: #4b4e50;
+        box-shadow: 0 0 0 1000px #c7d7be inset;
+        -webkit-box-shadow: 0 0 0 1000px #c7d7be inset;
+        transition: background-color 9999s ease-out 0s;
+      }
+      .customSelect {
+        position: relative;
+      }
+      .customSelectTrigger {
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid rgba(99, 100, 102, 0.34);
+        border-radius: 0;
+        background: transparent;
+        color: #636466;
+        font: inherit;
+        font-size: 15px;
+        text-align: left;
+        padding: 12px 0;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .customSelectTrigger:focus {
+        outline: none;
+        border-bottom-color: #c7d7be;
+      }
+      .customSelectValue.is-placeholder {
+        color: #6f7274;
+      }
+      .customSelectChevron {
+        color: #636466;
+        font-size: 11px;
+        margin-left: 12px;
+      }
+      .customSelectMenu {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: calc(100% + 6px);
+        margin: 0;
+        padding: 6px 0;
+        list-style: none;
+        border: 1px solid rgba(99, 100, 102, 0.22);
+        background: #efeeee;
+        max-height: 220px;
+        overflow: auto;
+        z-index: 50;
+        display: none;
+      }
+      .customSelect.is-open .customSelectMenu {
+        display: block;
+      }
+      .customSelectOption {
+        width: 100%;
+        border: none;
+        background: transparent;
+        color: #4b4e50;
+        font: inherit;
+        font-size: 15px;
+        text-align: left;
+        padding: 9px 12px;
+        cursor: pointer;
+      }
+      .customSelectOption:hover,
+      .customSelectOption:focus,
+      .customSelectOption.is-selected {
+        outline: none;
+        background: #c7d7be;
+      }
+      .customSelectInput {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+        width: 1px;
+        height: 1px;
+      }
+      .field textarea {
+        min-height: 140px;
+        resize: vertical;
+      }
+      .submitBtn {
+        margin-top: 4px;
+        border: 1px solid #5b5e60;
+        background: linear-gradient(180deg, #66686a 0%, #5a5d5f 100%);
+        color: #fff;
+        font: inherit;
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 0.09em;
+        text-transform: uppercase;
+        padding: 13px 18px;
+        cursor: pointer;
+        box-shadow: 0 8px 18px rgba(45, 55, 48, 0.14);
+        transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+      }
+      .submitBtn:hover {
+        opacity: 0.96;
+        transform: translateY(-1px);
+        box-shadow: 0 12px 24px rgba(45, 55, 48, 0.18);
+      }
+      .formNote {
+        margin: 14px 0 0;
+        font-size: 13px;
+        line-height: 1.6;
+        color: #6d7072;
+      }
+      .formNote a {
+        color: #636466;
+        text-decoration-color: #c7d7be;
+      }
+      .formStatus {
+        margin: 8px 0 0;
+        font-size: 14px;
+        color: #4b4e50;
+        min-height: 1.2em;
+      }
+
+      @media (max-width: 900px) {
+        .contactShell {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 620px) {
+        .contactHero {
+          padding-top: 56px;
+        }
+        .contactLead {
+          font-size: 16px;
+        }
+        .contactShell {
+          padding: 0 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="layout-header"></div>
+
+    <main>
+      <section class="contactHero" aria-labelledby="contact-title">
+        <div class="container contactHeroInner">
+          <p class="kicker">Contact</p>
+          <h1 class="contactTitle" id="contact-title">Let&apos;s build your next brand move</h1>
+          <p class="contactLead">
+            Tell me what you are building, where you feel stuck, and what support you need. I will reply with a clear,
+            practical next step.
+          </p>
+        </div>
+      </section>
+
+      <section class="contactSection" aria-label="Contact form and details">
+        <div class="contactShell">
+          <article class="contactCard">
+            <h2 class="contactCardTitle">Start your inquiry</h2>
+            <p class="contactCardText">
+              Share a few project details below so I can understand your goals and recommend the right service mix.
+            </p>
+            <form
+              class="contactForm"
+              id="contactForm"
+              action="https://formsubmit.co/ajax/brandelegacydesign@gmail.com"
+              method="POST"
+              novalidate
+            >
+              <input type="hidden" name="_subject" value="New Contact Inquiry - Brandé Legacy Design" />
+              <input type="hidden" name="_template" value="table" />
+              <input type="hidden" name="_captcha" value="false" />
+              <div class="field">
+                <label class="fieldLabel" for="name">Name</label>
+                <input id="name" name="name" type="text" autocomplete="name" required />
+              </div>
+              <div class="field">
+                <label class="fieldLabel" for="email">Email</label>
+                <input id="email" name="email" type="email" autocomplete="email" required />
+              </div>
+              <div class="field">
+                <label class="fieldLabel" for="service">Service Needed</label>
+                <div class="customSelect" id="serviceSelect">
+                  <button
+                    type="button"
+                    class="customSelectTrigger"
+                    id="serviceTrigger"
+                    aria-haspopup="listbox"
+                    aria-expanded="false"
+                    aria-controls="serviceMenu"
+                  >
+                    <span class="customSelectValue is-placeholder" id="serviceValue">Select a service</span>
+                    <span class="customSelectChevron" aria-hidden="true">▾</span>
+                  </button>
+                  <ul class="customSelectMenu" id="serviceMenu" role="listbox" aria-label="Service Needed">
+                    <li><button type="button" class="customSelectOption" data-value="website">Static Website Design</button></li>
+                    <li><button type="button" class="customSelectOption" data-value="email">Email Campaign Design</button></li>
+                    <li><button type="button" class="customSelectOption" data-value="social-creative">Instagram Posts & Stories</button></li>
+                    <li><button type="button" class="customSelectOption" data-value="branding">Brand Identity</button></li>
+                    <li><button type="button" class="customSelectOption" data-value="social-management">Social Media Management</button></li>
+                    <li><button type="button" class="customSelectOption" data-value="other">Not sure yet</button></li>
+                  </ul>
+                  <input class="customSelectInput" id="service" name="service" type="text" readonly required />
+                </div>
+              </div>
+              <div class="field">
+                <label class="fieldLabel" for="message">Project Details</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Tell me about your brand, timeline, and goals..."
+                  required
+                ></textarea>
+              </div>
+              <button class="submitBtn" type="submit">Send inquiry</button>
+              <p class="formStatus" id="formStatus" aria-live="polite"></p>
+              <p class="formNote">This form is demo-ready. Connect your email/API endpoint to receive submissions live.</p>
+            </form>
+          </article>
+
+          <aside class="contactCard" aria-label="Contact details">
+            <h2 class="contactCardTitle">Contact details</h2>
+            <p class="contactCardText">
+              Prefer direct contact? Reach out by email and I will typically reply within two business days.
+            </p>
+            <ul class="contactMetaList">
+              <li>
+                <span class="metaLabel">Email</span>
+                <span class="metaValue"><a href="mailto:hello@yourdomain.com">brandelegacydesign@gmail.com</a></span>
+              </li>
+              <li>
+                <span class="metaLabel">Location</span>
+                <span class="metaValue">Available for remote projects worldwide</span>
+              </li>
+              <li>
+                <span class="metaLabel">Working Style</span>
+                <span class="metaValue">Strategy + design + execution support</span>
+              </li>
+            </ul>
+            <p class="formNote">
+              Not ready to inquire yet? Browse the <a href="portfolio.html">portfolio</a> to review recent project styles.
+            </p>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <div id="layout-footer"></div>
+
+    <script src="includes/load-includes.js"></script>
+    <script>
+      (function () {
+        var form = document.getElementById("contactForm");
+        var status = document.getElementById("formStatus");
+        var selectWrap = document.getElementById("serviceSelect");
+        var trigger = document.getElementById("serviceTrigger");
+        var valueEl = document.getElementById("serviceValue");
+        var menu = document.getElementById("serviceMenu");
+        var serviceInput = document.getElementById("service");
+        if (!form || !status || !selectWrap || !trigger || !valueEl || !menu || !serviceInput) return;
+
+        function setSelectOpen(isOpen) {
+          selectWrap.classList.toggle("is-open", isOpen);
+          trigger.setAttribute("aria-expanded", isOpen ? "true" : "false");
+        }
+
+        function setServiceOption(optionBtn) {
+          var value = optionBtn.getAttribute("data-value") || "";
+          var label = optionBtn.textContent || "Select a service";
+          serviceInput.value = value;
+          valueEl.textContent = label;
+          valueEl.classList.remove("is-placeholder");
+          menu.querySelectorAll(".customSelectOption").forEach(function (btn) {
+            btn.classList.toggle("is-selected", btn === optionBtn);
+          });
+          setSelectOpen(false);
+        }
+
+        trigger.addEventListener("click", function () {
+          setSelectOpen(!selectWrap.classList.contains("is-open"));
+        });
+
+        menu.querySelectorAll(".customSelectOption").forEach(function (btn) {
+          btn.addEventListener("click", function () {
+            setServiceOption(btn);
+          });
+        });
+
+        document.addEventListener("click", function (e) {
+          if (!selectWrap.contains(e.target)) setSelectOpen(false);
+        });
+
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape") setSelectOpen(false);
+        });
+
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          if (!form.checkValidity() || !serviceInput.value) {
+            status.textContent = "Please complete all required fields, including service needed.";
+            return;
+          }
+          status.textContent = "Sending your inquiry...";
+
+          var data = new FormData(form);
+          var payload = {};
+          data.forEach(function (value, key) {
+            payload[key] = value;
+          });
+
+          fetch(form.action, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Accept: "application/json",
+            },
+            body: JSON.stringify(payload),
+          })
+            .then(function (res) {
+              if (!res.ok) throw new Error("Submission failed");
+              return res.json();
+            })
+            .then(function () {
+              status.textContent = "Thank you. Your inquiry has been sent successfully.";
+              form.reset();
+              serviceInput.value = "";
+              valueEl.textContent = "Select a service";
+              valueEl.classList.add("is-placeholder");
+              menu.querySelectorAll(".customSelectOption").forEach(function (btn) {
+                btn.classList.remove("is-selected");
+              });
+            })
+            .catch(function () {
+              status.textContent = "Could not send right now. Please try again or email brandelegacydesign@gmail.com.";
+            });
+        });
+      })();
+    </script>
+  </body>
+</html>

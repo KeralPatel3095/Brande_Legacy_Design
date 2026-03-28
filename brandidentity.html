@@ -1,0 +1,985 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Brand Identity &amp; Design | Brande Legacy Design</title>
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/KeralPatel3095/Brande_Images/9cf67e094aeaa130865a33879009bbd9b97c3873/Brand%C3%A9.png" />
+    <link rel="stylesheet" href="includes/site-layout.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Inter:wght@300;400;500;600&family=Poppins:wght@400;500;600&display=swap");
+
+      :root{
+        --main:#D6E3CE;
+        --bg:#D6E3CE;
+        --text:#636466;
+        --muted:#636466;
+        --border:#C7D7BE;
+        --surface:#EFEEEE;
+        --cream:#EFEEEE;
+        --cream2:#F7F7F7;
+        --accent:#636466;
+        --accentText:#ffffff;
+        --container:1120px;
+        --font-sans:"Inter", "Poppins", "DM Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      }
+
+      *{box-sizing:border-box}
+      html{scroll-behavior:smooth}
+      body{
+        margin:0;
+        font-family:var(--font-sans);
+        font-size:17px;
+        color:var(--text);
+        line-height:1.6;
+        background:linear-gradient(180deg, #D6E3CE 0%, #EFEEEE 58%, #ffffff 100%);
+      }
+      .container{max-width:var(--container); margin:0 auto; padding:0 20px}
+      section{padding:88px 0}
+      main > section{
+        min-height:100svh;
+        display:flex;
+        align-items:center;
+        width:100%;
+      }
+      main > section > .container{
+        width:100%;
+      }
+
+      /* same reveal transitions pattern as about page */
+      main > section h1,
+      main > section .sectionTitle,
+      main > section .kicker,
+      main > section .startingAt,
+      main > section .pillarCard h3,
+      main > section .industryCard h3,
+      main > section .tierName,
+      main > section .tierPrice{
+        opacity:0;
+        transform:translateY(28px);
+        transition:
+          opacity 1.05s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+          transform 1.05s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      main > section .sectionLead,
+      main > section .pillarCard p,
+      main > section .industryCardReveal,
+      main > section .tierDesc,
+      main > section .btn{
+        opacity:0;
+        transform:translateY(24px);
+        transition:
+          opacity 1.05s cubic-bezier(0.25, 0.46, 0.45, 0.94) .16s,
+          transform 1.05s cubic-bezier(0.25, 0.46, 0.45, 0.94) .16s;
+      }
+      main > section .heroVisual,
+      main > section .pillarCard,
+      main > section .industryCard,
+      main > section .tierCard{
+        opacity:0;
+        transform:translateY(30px) scale(.985);
+        transition:
+          opacity 1.05s cubic-bezier(0.25, 0.46, 0.45, 0.94) .12s,
+          transform 1.05s cubic-bezier(0.25, 0.46, 0.45, 0.94) .12s;
+      }
+      main > section.inView h1,
+      main > section.inView .sectionTitle,
+      main > section.inView .kicker,
+      main > section.inView .startingAt,
+      main > section.inView .pillarCard h3,
+      main > section.inView .industryCard h3,
+      main > section.inView .tierName,
+      main > section.inView .tierPrice,
+      main > section.inView .sectionLead,
+      main > section.inView .pillarCard p,
+      main > section.inView .industryCardReveal,
+      main > section.inView .tierDesc,
+      main > section.inView .btn,
+      main > section.inView .heroVisual,
+      main > section.inView .pillarCard,
+      main > section.inView .industryCard,
+      main > section.inView .tierCard{
+        opacity:1;
+        transform:translateY(0) scale(1);
+      }
+
+      .kicker{
+        margin:0 0 12px;
+        font-size:12px;
+        letter-spacing:.12em;
+        font-weight:700;
+        color: #a9be9f;      }
+      .sectionTitle{
+        margin:0 0 16px;
+        font-size:44px;
+        line-height:1.08;
+        letter-spacing:-.02em;
+        color:var(--text);
+        font-weight:600;
+      }
+      h1, h2, h3{
+        text-transform:lowercase;
+      }
+      .sectionLead{
+        margin:0;
+        font-size:17px;
+        line-height:1.75;
+        color:var(--text);
+        max-width:74ch;
+      }
+
+      .hero{
+        min-height:100svh;
+        display:flex;
+        align-items:center;
+        border-top:1px solid var(--border);
+        border-bottom:1px solid var(--border);
+        padding:0;
+      }
+      .hero > .container{
+        max-width:100%;
+        padding:0;
+        height:100%;
+      }
+      .preIntroNote{
+        background:#f4f4f4;
+        border-top:1px solid var(--border);
+        border-bottom:1px solid var(--border);
+      }
+      .preIntroWrap{
+        max-width:78ch;
+        margin:0 auto;
+        text-align:center;
+      }
+      .preIntroWrap .kicker{
+        margin-bottom:14px;
+        text-align:center;
+      }
+      .preIntroWrap .sectionTitle{
+        margin:0 auto 14px;
+        max-width:36ch;
+        text-align:center;
+      }
+      .preIntroWrap .sectionLead{
+        margin:0 auto;
+        max-width:56ch;
+        text-align:center;
+      }
+      .preIntroWrap .ctaRow{
+        margin-top:24px;
+        justify-content:center;
+      }
+      .heroLayout{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:0;
+        align-items:stretch;
+        min-height:100svh;
+      }
+      .heroCopy{
+        background:rgba(255,255,255,.62);
+        border-right:1px solid var(--border);
+        padding:clamp(28px, 4vw, 62px);
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+      }
+      .heroCopy h1{
+        margin:0 0 16px;
+        font-size:64px;
+        line-height:1.02;
+        letter-spacing:-.03em;
+        font-weight:600;
+      }
+      .heroVisual{
+        min-height:100svh;
+        position:relative;
+        overflow:hidden;
+      }
+      .heroVisual .heroImg{
+        position:absolute;
+        inset:0;
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        display:block;
+        transition:opacity .6s ease-out, transform .6s ease-out;
+      }
+      .heroVisual .heroImgDefault{
+        opacity:1;
+        transform:scale(1);
+      }
+      .heroVisual .heroImgHover{
+        opacity:0;
+        transform:scale(1.04);
+      }
+      .heroVisual:hover .heroImgDefault{
+        opacity:0;
+        transform:scale(1.05);
+      }
+      .heroVisual:hover .heroImgHover{
+        opacity:1;
+        transform:scale(1);
+      }
+
+      .pillars{
+        background:#ffffff;
+        border-top:1px solid #ecece8;
+        border-bottom:1px solid #ecece8;
+      }
+      .pillarsLayout{
+        display:grid;
+        grid-template-columns:.9fr 1.1fr;
+        gap:clamp(18px,2.6vw,34px);
+        align-items:start;
+      }
+      .pillarsHead{
+        border-left:2px solid #d6d5cb;
+        padding-left:14px;
+      }
+      .pillarsGrid{
+        display:grid;
+        grid-template-columns:1fr;
+        gap:0;
+      }
+      .pillarCard{
+        border:none;
+        border-bottom:1px solid var(--border);
+        background:transparent;
+        padding:18px 0;
+      }
+      .pillarCard:first-child{border-top:1px solid var(--border)}
+      .pillarCard h3{
+        margin:0 0 10px;
+        font-size:22px;
+        line-height:1.15;
+        font-weight:600;
+      }
+      .pillarCard p{
+        margin:0;
+        font-size:16px;
+        line-height:1.7;
+      }
+
+      .industrySection{
+        background:linear-gradient(180deg, #fafbf8 0%, #ffffff 50%, #f7f8f4 100%);
+        border-top:1px solid #ecece8;
+        border-bottom:1px solid #ecece8;
+      }
+      .industryHead{
+        max-width:72ch;
+        margin:0 auto clamp(36px,5vw,56px);
+        text-align:center;
+      }
+      .industryHead .sectionLead{
+        margin:0 auto;
+        max-width:62ch;
+      }
+      .industryGrid{
+        width:100%;
+        max-width:min(920px, 100%);
+        margin:0 auto;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        gap:0;
+      }
+      .industryCard{
+        position:relative;
+        width:100%;
+        max-width:100%;
+        border:none;
+        border-bottom:1px solid rgba(99,100,102,.12);
+        padding:0;
+        margin:0;
+        background:transparent;
+        cursor:default;
+        outline:none;
+        transition:background .35s ease;
+      }
+      .industryCard:first-of-type{
+        border-top:1px solid rgba(99,100,102,.12);
+      }
+      .industryCardInner{
+        position:relative;
+        padding:clamp(22px,3.2vw,34px) clamp(12px,2vw,20px);
+        text-align:center;
+      }
+      .industryCardTop{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+        gap:14px;
+        text-align:center;
+      }
+      .industryCardTitleBlock{
+        width:100%;
+        max-width:min(42ch, 100%);
+        margin:0 auto;
+      }
+      .industryCard h3{
+        margin:0;
+        font-size:clamp(18px,2.1vw,24px);
+        line-height:1.2;
+        font-weight:600;
+        letter-spacing:-.02em;
+        text-align:center;
+      }
+      .industryCard .emoji{
+        margin-right:.35em;
+        font-style:normal;
+      }
+      .industryCardMark{
+        flex:0 0 auto;
+        display:block;
+        height:1px;
+        width:clamp(48px,8vw,96px);
+        background:linear-gradient(90deg, rgba(214,227,206,.2) 0%, #D6E3CE 50%, rgba(214,227,206,.2) 100%);
+        margin:0 auto;
+        opacity:.55;
+        transition:opacity .35s ease, width .4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      .industryCardHint{
+        margin:8px 0 0;
+        font-size:11px;
+        letter-spacing:.16em;
+        font-weight:700;
+        text-transform:uppercase;
+        color:rgba(99,100,102,.4);
+        text-align:center;
+        transition:opacity .3s ease, transform .3s ease;
+      }
+      .industryCardReveal{
+        margin:0 auto;
+        max-width:min(68ch, 100%);
+        font-size:15px;
+        line-height:1.72;
+        color:rgba(99,100,102,.9);
+        text-align:center;
+        border-top:1px solid transparent;
+        padding-left:0;
+        padding-right:0;
+        max-height:0;
+        opacity:0;
+        transform:translateY(8px);
+        overflow:hidden;
+        transition:
+          max-height .5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+          opacity .42s ease,
+          transform .45s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+          padding-top .42s ease,
+          margin-top .42s ease,
+          border-color .35s ease;
+      }
+      @media (hover: hover) and (pointer: fine){
+        .industryCard:hover,
+        .industryCard:focus-within{
+          background:rgba(214,227,206,.1);
+        }
+        .industryCard:hover .industryCardMark,
+        .industryCard:focus-within .industryCardMark{
+          opacity:1;
+          width:clamp(72px,14vw,140px);
+        }
+        .industryCard:hover .industryCardHint,
+        .industryCard:focus-within .industryCardHint{
+          opacity:0;
+          transform:translateY(-3px);
+          pointer-events:none;
+        }
+        .industryCard:hover .industryCardReveal,
+        .industryCard:focus-within .industryCardReveal{
+          max-height:440px;
+          opacity:1;
+          transform:translateY(0);
+          padding-top:20px;
+          margin-top:8px;
+          border-top-color:rgba(214,227,206,.9);
+        }
+      }
+      @media (hover: none), (pointer: coarse){
+        .industryCardHint{
+          display:none;
+        }
+        .industryCardReveal{
+          max-height:none;
+          opacity:1;
+          transform:none;
+          padding-top:16px;
+          margin-top:8px;
+          border-top:1px solid rgba(214,227,206,.75);
+        }
+      }
+      .industryCard:focus-visible{
+        outline:2px solid var(--accent);
+        outline-offset:4px;
+      }
+      .industryCard:focus:not(:focus-visible){
+        outline:none;
+      }
+
+      .tiers{
+        min-height:100svh;
+        display:flex;
+        align-items:center;
+        background:linear-gradient(180deg, #eef3eb 0%, #e4ebdf 52%, #eef3eb 100%);
+        border-top:1px solid var(--border);
+        border-bottom:1px solid var(--border);
+      }
+      .tiersLayout{
+        display:grid;
+        grid-template-columns:1fr;
+        gap:clamp(24px,3.4vw,40px);
+      }
+      .tiersHead{
+        margin:0 auto 28px;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        text-align:center;
+        max-width:82ch;
+      }
+      .tiersHead .sectionTitle{
+        margin:0 auto 14px;
+        max-width:32ch;
+      }
+      .tiersHead .sectionLead{
+        margin:0 auto;
+        max-width:48ch;
+      }
+      .tiersHead .startingAt{
+        margin:6px 0 0;
+        font-size:14px;
+        letter-spacing:.08em;
+        font-weight:700;
+        text-transform:uppercase;
+        color:var(--text);
+      }
+      .tiersGrid{
+        display:grid;
+        grid-template-columns:repeat(3, minmax(0, 1fr));
+        gap:clamp(16px,2.2vw,24px);
+      }
+      .tierCard{
+        background:transparent;
+        border:1px solid rgba(199,215,190,.95);
+        padding:28px 22px;
+        display:flex;
+        flex-direction:column;
+        gap:13px;
+        position:relative;
+        box-shadow:none;
+        transition:transform .24s ease, box-shadow .24s ease, border-color .24s ease;
+      }
+      .tierCard:hover{
+        transform:translateY(-3px);
+        border-color:#b9cfad;
+        box-shadow:0 10px 24px rgba(84,97,81,.12);
+      }
+      .tierTag{
+        display:inline-flex;
+        width:max-content;
+        padding:7px 12px;
+        background:#D6E3CE;
+        border:none;
+        font-size:11px;
+        letter-spacing:.06em;
+        font-weight:600;
+      }
+      .tierName{
+        margin:0;
+        font-size:22px;
+        line-height:1.12;
+        font-weight:600;
+      }
+      .tierPrice{
+        margin:0;
+        font-size:44px;
+        line-height:1.05;
+        font-weight:600;
+      }
+      .tierPrice .per{
+        font-size:clamp(18px,2.2vw,22px);
+        font-weight:600;
+        margin-left:.12em;
+      }
+      .tierDesc{
+        margin:0;
+        font-size:16px;
+        line-height:1.7;
+      }
+      .tierList{
+        margin:6px 0 0;
+        padding:0;
+        list-style:none;
+        display:grid;
+        gap:10px;
+      }
+      .tierList li{
+        padding:8px 0 0;
+        border-top:1px solid rgba(99,100,102,.2);
+        font-size:15px;
+        line-height:1.5;
+      }
+      .tiersGrid .tierCard:nth-child(2){
+        transform:translateY(-12px);
+        background:rgba(255,255,255,.34);
+        border-color:#b3c9a7;
+      }
+
+      .ctaBand{
+        background:#f4f4f4;
+        border-top:1px solid var(--border);
+        border-bottom:1px solid var(--border);
+      }
+      .faqSection{
+        background:#ffffff;
+        border-top:1px solid var(--border);
+        border-bottom:1px solid var(--border);
+      }
+      .faqWrap{
+        max-width:74ch;
+        margin:0 auto;
+      }
+      .faqItem{
+        padding:0;
+        border-top:1px solid rgba(99,100,102,.2);
+      }
+      .faqItem:last-child{
+        border-bottom:1px solid rgba(99,100,102,.2);
+      }
+      .faqQ{
+        margin:0;
+        padding:18px 34px 18px 0;
+        font-size:22px;
+        line-height:1.2;
+        font-weight:600;
+        list-style:none;
+        cursor:pointer;
+        position:relative;
+      }
+      .faqQ::-webkit-details-marker{
+        display:none;
+      }
+      .faqQ::after{
+        content:"+";
+        position:absolute;
+        right:0;
+        top:50%;
+        transform:translateY(-50%);
+        font-size:24px;
+        font-weight:400;
+        line-height:1;
+        color:#D6E3CE;
+      }
+      .faqItem[open] .faqQ::after{
+        content:"-";
+        color:#D6E3CE;
+      }
+      .faqA{
+        margin:0;
+        padding:0 14px 0;
+        background:transparent;
+        font-size:17px;
+        line-height:1.7;
+        max-height:0;
+        opacity:0;
+        overflow:hidden;
+        transition:max-height .28s ease, opacity .2s ease, padding .2s ease;
+      }
+      .faqItem:hover .faqA,
+      .faqItem[open] .faqA{
+        max-height:420px;
+        opacity:1;
+        padding:0 14px 14px;
+      }
+      .ctaBandInner{
+        text-align:center;
+        max-width:72ch;
+        margin:0 auto;
+      }
+      .ctaBandInner .sectionTitle{
+        margin:0 auto 14px;
+        max-width:30ch;
+      }
+      .ctaRow{
+        margin-top:22px;
+        display:flex;
+        justify-content:center;
+        gap:12px;
+        flex-wrap:wrap;
+      }
+      .btn{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        padding:12px 18px;
+        border:1px solid var(--border);
+        color:var(--text);
+        text-decoration:none;
+        font-weight:600;
+        font-size:15px;
+      }
+      .btnPrimary{
+        background:var(--accent);
+        color:var(--accentText);
+        border-color:var(--accent);
+      }
+
+      @media (max-width: 980px){
+        main > section{min-height:100svh}
+        .heroLayout,
+        .pillarsLayout,
+        .tiersLayout,
+        .tiersGrid{grid-template-columns:1fr}
+        .hero > .container{padding:0}
+        .heroCopy{border-right:none; border-bottom:1px solid var(--border)}
+        .heroVisual{min-height:420px}
+        .heroCopy h1{font-size:52px}
+        .tiersGrid{display:grid}
+        .tiersGrid .tierCard:nth-child(2){
+          transform:none;
+          background:transparent;
+          border-color:rgba(199,215,190,.95);
+        }
+        .tiersHead{order:-1}
+      }
+      @media (max-width: 768px){
+        .heroCopy h1{
+          max-width:22ch;
+          font-size:clamp(34px,8.8vw,46px);
+          line-height:1.12;
+          letter-spacing:-.015em;
+        }
+      }
+      @media (max-width: 620px){
+        section{padding:64px 0}
+        .container{padding:0 14px}
+        .heroCopy{padding:22px 16px}
+        .pillarCard, .tierCard{padding:18px 14px}
+        .industryCardInner{
+          padding:18px 4px;
+        }
+        .sectionTitle{font-size:34px}
+        .sectionLead{font-size:16px}
+        .heroCopy h1{
+          font-size:clamp(30px,9.6vw,40px);
+          line-height:1.14;
+          max-width:24ch;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="layout-header"></div>
+    <!--hero-section-->
+    <main>
+      <section class="preIntroNote" aria-label="Introduction">
+        <div class="container">
+          <div class="preIntroWrap">
+            <p class="kicker">A different perspective</p>
+            <h2 class="sectionTitle">your brand should work before you speak.</h2>
+            <p class="sectionLead">This service is designed for businesses and personal brands that need more than visuals. We create strategic, conversion-led design experiences—across digital, print, and professional assets—that communicate authority, attract the right audience, and drive measurable results.</p>
+            <div class="ctaRow">
+              <a class="btn btnPrimary" href="index.html#portfolio">view work</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!--hero-section-2-->
+      <section class="hero" aria-label="Brand identity and design hero">
+        <div class="container">
+          <div class="heroLayout">
+            <div class="heroCopy">
+              <p class="kicker">Brand identity &amp; ongoing design</p>
+              <h1>one system for every touchpoint clients see.</h1>
+              <p class="sectionLead">From social and email to decks, menus, and print—your assets stay coherent, polished, and built to convert so you never look pieced together.</p>
+            </div>
+            <figure class="heroVisual" aria-label="Brand design and creative direction">
+              <img class="heroImg heroImgDefault" src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1400&h=1800&fit=crop" alt="Brand guidelines and layout design on desk" loading="lazy" />
+              <img class="heroImg heroImgHover" src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=1400&h=1800&fit=crop" alt="Creative brand mockups and visual identity work" loading="lazy" />
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!--why this works-->
+      <section class="pillars" aria-label="Why this approach works">
+        <div class="container">
+          <div class="pillarsLayout">
+            <div class="pillarsHead">
+              <p class="kicker">Why this works</p>
+              <h2 class="sectionTitle">flexible scope, high-impact output, niche-aware design</h2>
+              <p class="sectionLead">You get a retainer that scales with you—not a one-size template that ignores how your industry actually markets.</p>
+            </div>
+            <div class="pillarsGrid">
+              <article class="pillarCard">
+                <h3>Flexible pricing</h3>
+                <p>Pay for what fits your brand size and goals—Starter, Growth, or Premium—without paying for assets you will not use.</p>
+              </article>
+              <article class="pillarCard">
+                <h3>High-impact assets</h3>
+                <p>From print to digital to LinkedIn infographics, each design is crafted to elevate your brand and support real business moves.</p>
+              </article>
+              <article class="pillarCard">
+                <h3>Industry expertise</h3>
+                <p>We understand what visuals and messaging resonate in each niche—so your deliverables feel native to your market, not generic.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--tiers-section-->
+      <section class="tiers" aria-label="Service tiers and pricing">
+        <div class="container">
+          <div class="tiersLayout">
+            <div class="tiersHead">
+              <p class="kicker">Service tiers &amp; pricing</p>
+              <p class="startingAt">Starting at</p>
+              <h2 class="sectionTitle">monthly design retainers by asset volume</h2>
+              <p class="sectionLead">Choose the tier that matches how many high-fidelity assets you need each month—static, motion, print-ready files, and presentation design included by scope.</p>
+            </div>
+            <div class="tiersGrid">
+              <article class="tierCard">
+                <span class="tierTag">starter plan</span>
+                <h3 class="tierName">Starter</h3>
+                <p class="tierPrice">$500<span class="per">/mo</span></p>
+                <p class="tierDesc">Steady creative support for brands building a consistent look across channels.</p>
+                <ul class="tierList">
+                  <li>5–8 design assets per month</li>
+                  <li>Social posts (static)</li>
+                  <li>Basic flyers</li>
+                  <li>Email graphics</li>
+                  <li>Presentation templates</li>
+                </ul>
+              </article>
+              <article class="tierCard">
+                <span class="tierTag">growth plan</span>
+                <h3 class="tierName">Growth</h3>
+                <p class="tierPrice">$900<span class="per">/mo</span></p>
+                <p class="tierDesc">More formats and motion for teams that live in both feed and boardroom.</p>
+                <ul class="tierList">
+                  <li>10–12 design assets per month</li>
+                  <li>Brochures &amp; catalogs</li>
+                  <li>Social media visuals (stories)</li>
+                  <li>Presentation decks</li>
+                  <li>Motion graphics</li>
+                </ul>
+              </article>
+              <article class="tierCard">
+                <span class="tierTag">premium plan</span>
+                <h3 class="tierName">Premium</h3>
+                <p class="tierPrice">$1,500<span class="per">/mo</span></p>
+                <p class="tierDesc">Full brand-forward output: kits, reels, print suites, and investor-ready decks.</p>
+                <ul class="tierList">
+                  <li>15–20+ design assets per month</li>
+                  <li>Full brand kits (logos, colors, templates)</li>
+                  <li>Reels &amp; motion graphics</li>
+                  <li>Print materials (menus, posters, brochures)</li>
+                  <li>Pitch decks &amp; professional presentations</li>
+                </ul>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--industry-section-->
+      <section class="industrySection" aria-label="Industry-specific design examples">
+        <div class="container">
+          <header class="industryHead">
+            <p class="kicker">Industry-specific design examples</p>
+            <h2 class="sectionTitle">creative that fits how your business actually shows up</h2>
+            <p class="sectionLead">Below are sample deliverables by sector—each can be mixed into Starter, Growth, or Premium depending on your tier and goals.</p>
+          </header>
+          <div class="industryGrid">
+            <article class="industryCard" tabindex="0">
+              <div class="industryCardInner">
+                <div class="industryCardTop">
+                  <div class="industryCardTitleBlock">
+                    <h3><span class="emoji" aria-hidden="true">🦷</span>Healthcare / dental</h3>
+                    <p class="industryCardHint">Hover to reveal</p>
+                  </div>
+                  <span class="industryCardMark" aria-hidden="true"></span>
+                </div>
+                <p class="industryCardReveal">Patient education posts, before &amp; after templates, clinic branding (logo, colors, signage), treatment brochures, waiting room posters, email newsletters, presentation decks.</p>
+              </div>
+            </article>
+            <article class="industryCard" tabindex="0">
+              <div class="industryCardInner">
+                <div class="industryCardTop">
+                  <div class="industryCardTitleBlock">
+                    <h3><span class="emoji" aria-hidden="true">🏗️</span>Construction / real estate</h3>
+                    <p class="industryCardHint">Hover to reveal</p>
+                  </div>
+                  <span class="industryCardMark" aria-hidden="true"></span>
+                </div>
+                <p class="industryCardReveal">Project showcase posts (before/after builds), property listing flyers, brochures, company presentations, site banners &amp; signage, investment pitch decks.</p>
+              </div>
+            </article>
+            <article class="industryCard" tabindex="0">
+              <div class="industryCardInner">
+                <div class="industryCardTop">
+                  <div class="industryCardTitleBlock">
+                    <h3><span class="emoji" aria-hidden="true">🛍️</span>E-commerce / product brands</h3>
+                    <p class="industryCardHint">Hover to reveal</p>
+                  </div>
+                  <span class="industryCardMark" aria-hidden="true"></span>
+                </div>
+                <p class="industryCardReveal">Product posts, packaging design, catalogs, website banners, email marketing graphics, influencer kits, seasonal campaign creatives.</p>
+              </div>
+            </article>
+            <article class="industryCard" tabindex="0">
+              <div class="industryCardInner">
+                <div class="industryCardTop">
+                  <div class="industryCardTitleBlock">
+                    <h3><span class="emoji" aria-hidden="true">🍽️</span>Restaurants / food businesses</h3>
+                    <p class="industryCardHint">Hover to reveal</p>
+                  </div>
+                  <span class="industryCardMark" aria-hidden="true"></span>
+                </div>
+                <p class="industryCardReveal">Menu design, social media food posts, promotional flyers, table tent cards, packaging (takeout boxes, labels), Google/Instagram ads.</p>
+              </div>
+            </article>
+            <article class="industryCard" tabindex="0">
+              <div class="industryCardInner">
+                <div class="industryCardTop">
+                  <div class="industryCardTitleBlock">
+                    <h3><span class="emoji" aria-hidden="true">💼</span>Corporate / professional services</h3>
+                    <p class="industryCardHint">Hover to reveal</p>
+                  </div>
+                  <span class="industryCardMark" aria-hidden="true"></span>
+                </div>
+                <p class="industryCardReveal">LinkedIn posts &amp; banners, presentation decks, reports &amp; data visuals, proposals, brand identity kits, email templates, infographics for LinkedIn.</p>
+              </div>
+            </article>
+            <article class="industryCard" tabindex="0">
+              <div class="industryCardInner">
+                <div class="industryCardTop">
+                  <div class="industryCardTitleBlock">
+                    <h3><span class="emoji" aria-hidden="true">🎓</span>Education / coaching</h3>
+                    <p class="industryCardHint">Hover to reveal</p>
+                  </div>
+                  <span class="industryCardMark" aria-hidden="true"></span>
+                </div>
+                <p class="industryCardReveal">Course PDFs/workbooks, presentation slides, social media educational carousels, webinar graphics, certificates, lead magnets.</p>
+              </div>
+            </article>
+            <article class="industryCard" tabindex="0">
+              <div class="industryCardInner">
+                <div class="industryCardTop">
+                  <div class="industryCardTitleBlock">
+                    <h3><span class="emoji" aria-hidden="true">🎉</span>Events / weddings</h3>
+                    <p class="industryCardHint">Hover to reveal</p>
+                  </div>
+                  <span class="industryCardMark" aria-hidden="true"></span>
+                </div>
+                <p class="industryCardReveal">Invitation cards, event posters &amp; flyers, social media countdown posts, welcome boards, event programs, photo booth props.</p>
+              </div>
+            </article>
+            <article class="industryCard" tabindex="0">
+              <div class="industryCardInner">
+                <div class="industryCardTop">
+                  <div class="industryCardTitleBlock">
+                    <h3><span class="emoji" aria-hidden="true">💄</span>Beauty / fashion</h3>
+                    <p class="industryCardHint">Hover to reveal</p>
+                  </div>
+                  <span class="industryCardMark" aria-hidden="true"></span>
+                </div>
+                <p class="industryCardReveal">Instagram aesthetic posts, brand identity, product promotions, influencer media kits, packaging design, lookbooks.</p>
+              </div>
+            </article>
+            <article class="industryCard" tabindex="0">
+              <div class="industryCardInner">
+                <div class="industryCardTop">
+                  <div class="industryCardTitleBlock">
+                    <h3><span class="emoji" aria-hidden="true">🏋️</span>Fitness / wellness</h3>
+                    <p class="industryCardHint">Hover to reveal</p>
+                  </div>
+                  <span class="industryCardMark" aria-hidden="true"></span>
+                </div>
+                <p class="industryCardReveal">Workout guides (PDFs), transformation posts, meal plan templates, motivational content, coaching packages, app/social ads.</p>
+              </div>
+            </article>
+            <article class="industryCard" tabindex="0">
+              <div class="industryCardInner">
+                <div class="industryCardTop">
+                  <div class="industryCardTitleBlock">
+                    <h3><span class="emoji" aria-hidden="true">🚀</span>Startups / tech</h3>
+                    <p class="industryCardHint">Hover to reveal</p>
+                  </div>
+                  <span class="industryCardMark" aria-hidden="true"></span>
+                </div>
+                <p class="industryCardReveal">Pitch decks, app UI mockups, explainer graphics, social media launch campaigns, website banners, investor presentations.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!--faq-section-->
+      <section class="faqSection" aria-label="Frequently asked questions">
+        <div class="container">
+          <div class="faqWrap">
+            <p class="kicker">FAQ</p>
+            <h2 class="sectionTitle">frequently asked questions</h2>
+            <details class="faqItem">
+              <summary class="faqQ">What does &ldquo;design assets&rdquo; include?</summary>
+              <p class="faqA">Design assets can include social media visuals, brochures, presentations, email graphics, packaging, and infographics&mdash;tailored to your needs.</p>
+            </details>
+            <details class="faqItem">
+              <summary class="faqQ">How does pricing work?</summary>
+              <p class="faqA">Pricing is flexible and based on the volume and type of design work. Plans start at a base rate and are customized per brand.</p>
+            </details>
+            <details class="faqItem">
+              <summary class="faqQ">Can I mix different types of design work?</summary>
+              <p class="faqA">Yes. Your plan can include a combination of digital, print, and presentation designs each month.</p>
+            </details>
+            <details class="faqItem">
+              <summary class="faqQ">Will I be able to review designs before final delivery?</summary>
+              <p class="faqA">Absolutely. All designs are shared for review and feedback before finalization.</p>
+            </details>
+            <details class="faqItem">
+              <summary class="faqQ">Do you create LinkedIn and professional content?</summary>
+              <p class="faqA">Yes. This includes LinkedIn visuals, banners, and clean, high-end infographics for professional use.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!--cta-section-->
+
+      <section class="ctaBand" aria-label="Call to action">
+        <div class="container">
+          <div class="ctaBandInner">
+            <p class="kicker">Ready when you are</p>
+            <h2 class="sectionTitle">let’s align your brand across every asset</h2>
+            <p class="sectionLead">Book a call to choose a tier or mix industry-specific deliverables into your monthly plan.</p>
+            <div class="ctaRow">
+              <a class="btn btnPrimary" href="index.html#final-cta">book a project call</a>
+              <a class="btn" href="index.html#value">view all services</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div id="layout-footer"></div>
+    <script src="includes/load-includes.js"></script>
+    <script>
+      (function () {
+        var sections = document.querySelectorAll("main > section");
+        if (!sections.length) return;
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("inView");
+            }
+          });
+        }, { threshold: 0.18 });
+        sections.forEach(function (section) { observer.observe(section); });
+      })();
+    </script>
+  </body>
+</html>

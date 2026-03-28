@@ -1,0 +1,683 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Instagram Posts &amp; Stories | Brande Legacy Design</title>
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/KeralPatel3095/Brande_Images/9cf67e094aeaa130865a33879009bbd9b97c3873/Brand%C3%A9.png" />
+    <link rel="stylesheet" href="includes/site-layout.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Inter:wght@300;400;500;600&family=Poppins:wght@400;500;600&display=swap");
+
+      :root{
+        --main:#D6E3CE;
+        --bg:#D6E3CE;
+        --text:#636466;
+        --muted:#636466;
+        --border:#C7D7BE;
+        --surface:#EFEEEE;
+        --cream:#EFEEEE;
+        --cream2:#F7F7F7;
+        --accent:#636466;
+        --accentText:#ffffff;
+        --container:1120px;
+        --font-sans:"Inter", "Poppins", "DM Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      }
+
+      *{box-sizing:border-box}
+      html{scroll-behavior:smooth}
+      body{
+        margin:0;
+        font-family:var(--font-sans);
+        font-size:17px;
+        color:var(--text);
+        line-height:1.6;
+        background:linear-gradient(180deg, #D6E3CE 0%, #EFEEEE 58%, #ffffff 100%);
+      }
+      .container{max-width:var(--container); margin:0 auto; padding:0 20px}
+      section{padding:88px 0}
+      main > section{
+        min-height:100svh;
+        display:flex;
+        align-items:center;
+        width:100%;
+      }
+      main > section > .container{
+        width:100%;
+      }
+
+      /* same reveal transitions pattern as about page */
+      main > section h1,
+      main > section .sectionTitle,
+      main > section .kicker,
+      main > section .pillarCard h3,
+      main > section .tierName,
+      main > section .tierPrice{
+        opacity:0;
+        transform:translateY(28px);
+        transition:
+          opacity 1.05s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+          transform 1.05s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      main > section .sectionLead,
+      main > section .pillarCard p,
+      main > section .tierDesc,
+      main > section .btn{
+        opacity:0;
+        transform:translateY(24px);
+        transition:
+          opacity 1.05s cubic-bezier(0.25, 0.46, 0.45, 0.94) .16s,
+          transform 1.05s cubic-bezier(0.25, 0.46, 0.45, 0.94) .16s;
+      }
+      main > section .heroVisual,
+      main > section .pillarCard,
+      main > section .tierCard{
+        opacity:0;
+        transform:translateY(30px) scale(.985);
+        transition:
+          opacity 1.05s cubic-bezier(0.25, 0.46, 0.45, 0.94) .12s,
+          transform 1.05s cubic-bezier(0.25, 0.46, 0.45, 0.94) .12s;
+      }
+      main > section.inView h1,
+      main > section.inView .sectionTitle,
+      main > section.inView .kicker,
+      main > section.inView .pillarCard h3,
+      main > section.inView .tierName,
+      main > section.inView .tierPrice,
+      main > section.inView .sectionLead,
+      main > section.inView .pillarCard p,
+      main > section.inView .tierDesc,
+      main > section.inView .btn,
+      main > section.inView .heroVisual,
+      main > section.inView .pillarCard,
+      main > section.inView .tierCard{
+        opacity:1;
+        transform:translateY(0) scale(1);
+      }
+
+      .kicker{
+        margin:0 0 12px;
+        font-size:12px;
+        letter-spacing:.18em;
+        font-weight:800;
+        color: #a9be9f;
+      }
+      .sectionTitle{
+        font-family:var(--font-sans);
+        margin:0 0 10px;
+        font-size:44px;
+        line-height:1.1;
+        letter-spacing:-.02em;
+        color:var(--text);
+        font-weight:600;
+      }
+      h1, h2, h3{
+        text-transform:lowercase;
+      }
+      .sectionLead{
+        margin:0;
+        font-size:17px;
+        line-height:1.75;
+        color:var(--text);
+        max-width:74ch;
+      }
+
+      .hero{
+        min-height:100svh;
+        display:flex;
+        align-items:center;
+        border-top:1px solid var(--border);
+        border-bottom:1px solid var(--border);
+        padding:0;
+      }
+      .hero > .container{
+        max-width:100%;
+        padding:0;
+        height:100%;
+      }
+      .preIntroNote{
+        background:#f4f4f4;
+        border-top:1px solid var(--border);
+        border-bottom:1px solid var(--border);
+      }
+      .preIntroWrap{
+        max-width:78ch;
+        margin:0 auto;
+        text-align:center;
+      }
+      .preIntroWrap .kicker{
+        margin-bottom:14px;
+        text-align:center;
+      }
+      .preIntroWrap .sectionTitle{
+        margin:0 auto 14px;
+        max-width:36ch;
+        text-align:center;
+      }
+      .preIntroWrap .sectionLead{
+        margin:0 auto;
+        max-width:56ch;
+        text-align:center;
+      }
+      .heroLayout{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:0;
+        align-items:stretch;
+        min-height:100svh;
+      }
+      .heroCopy{
+        background:rgba(255,255,255,.62);
+        border-right:1px solid var(--border);
+        padding:clamp(28px, 4vw, 62px);
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+      }
+      .heroCopy h1{
+        margin:0 0 16px;
+        font-size:64px;
+        line-height:1.02;
+        letter-spacing:-.03em;
+        font-weight:600;
+      }
+      .heroVisual{
+        min-height:100svh;
+        position:relative;
+        overflow:hidden;
+      }
+      .heroVisual .heroImg{
+        position:absolute;
+        inset:0;
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        display:block;
+        transition:opacity .6s ease-out, transform .6s ease-out;
+      }
+      .heroVisual .heroImgDefault{
+        opacity:1;
+        transform:scale(1);
+      }
+      .heroVisual .heroImgHover{
+        opacity:0;
+        transform:scale(1.04);
+      }
+      .heroVisual:hover .heroImgDefault{
+        opacity:0;
+        transform:scale(1.05);
+      }
+      .heroVisual:hover .heroImgHover{
+        opacity:1;
+        transform:scale(1);
+      }
+
+      .pillars{
+        background:#ffffff;
+        border-top:1px solid #ecece8;
+        border-bottom:1px solid #ecece8;
+      }
+      .pillarsLayout{
+        display:grid;
+        grid-template-columns:.9fr 1.1fr;
+        gap:clamp(18px,2.6vw,34px);
+        align-items:start;
+      }
+      .pillarsHead{
+        border-left:2px solid #d6d5cb;
+        padding-left:14px;
+      }
+      .pillarsGrid{
+        display:grid;
+        grid-template-columns:1fr;
+        gap:0;
+      }
+      .pillarCard{
+        border:none;
+        border-bottom:1px solid var(--border);
+        background:transparent;
+        padding:18px 0;
+      }
+      .pillarCard:first-child{border-top:1px solid var(--border)}
+      .pillarCard h3{
+        margin:0 0 10px;
+        font-size:22px;
+        line-height:1.15;
+        font-weight:600;
+      }
+      .pillarCard p{
+        margin:0;
+        font-size:16px;
+        line-height:1.7;
+      }
+
+      .tiers{
+        min-height:100svh;
+        display:flex;
+        align-items:center;
+        background:linear-gradient(180deg, #eef3eb 0%, #e4ebdf 52%, #eef3eb 100%);
+        border-top:1px solid var(--border);
+        border-bottom:1px solid var(--border);
+      }
+      .tiersLayout{
+        display:grid;
+        grid-template-columns:1fr;
+        gap:clamp(24px,3.4vw,40px);
+      }
+      .tiersHead{
+        margin:0 auto 28px;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        text-align:center;
+        max-width:82ch;
+      }
+      .tiersHead .sectionTitle{
+        margin:0 auto 14px;
+        max-width:26ch;
+      }
+      .tiersHead .sectionLead{
+        margin:0 auto;
+        max-width:46ch;
+      }
+      .tiersGrid{
+        display:grid;
+        grid-template-columns:repeat(3, minmax(0, 1fr));
+        gap:clamp(16px,2.2vw,24px);
+      }
+      .tierCard{
+        background:transparent;
+        border:1px solid rgba(199,215,190,.95);
+        padding:28px 22px;
+        display:flex;
+        flex-direction:column;
+        gap:13px;
+        position:relative;
+        box-shadow:none;
+        transition:transform .24s ease, box-shadow .24s ease, border-color .24s ease;
+      }
+      .tierCard:hover{
+        transform:translateY(-3px);
+        border-color:#b9cfad;
+        box-shadow:0 10px 24px rgba(84,97,81,.12);
+      }
+      .tierTag{
+        display:inline-flex;
+        width:max-content;
+        padding:7px 12px;
+        background:#D6E3CE;
+        border:none;
+        font-size:11px;
+        letter-spacing:.06em;
+        font-weight:600;
+      }
+      .tierName{
+        margin:0;
+        font-size:22px;
+        line-height:1.12;
+        font-weight:600;
+      }
+      .tierPrice{
+        margin:0;
+        font-size:44px;
+        line-height:1.05;
+        font-weight:600;
+      }
+      .tierDesc{
+        margin:0;
+        font-size:16px;
+        line-height:1.7;
+      }
+      .tierList{
+        margin:6px 0 0;
+        padding:0;
+        list-style:none;
+        display:grid;
+        gap:10px;
+      }
+      .tierList li{
+        padding:8px 0 0;
+        border-top:1px solid rgba(99,100,102,.2);
+        font-size:15px;
+        line-height:1.5;
+      }
+      .tiersGrid .tierCard:nth-child(2){
+        transform:translateY(-12px);
+        background:rgba(255,255,255,.34);
+        border-color:#b3c9a7;
+      }
+      .tiersGrid.tiersGrid--two{
+        grid-template-columns:repeat(2, minmax(0, 1fr));
+        max-width:920px;
+        margin:0 auto;
+      }
+      .tiersGrid.tiersGrid--two .tierCard:nth-child(2){
+        transform:translateY(-12px);
+        background:rgba(255,255,255,.34);
+        border-color:#b3c9a7;
+      }
+      .tiersGrid.tiersGrid--two .tierCard:first-child{
+        transform:none;
+        background:transparent;
+        border-color:rgba(199,215,190,.95);
+      }
+      .tiers--packages .tierPrice{
+        font-size:clamp(26px,3.6vw,34px);
+      }
+      .packagesSectionFoot{
+        margin-top:clamp(32px,4vw,48px);
+        padding-top:8px;
+        display:flex;
+        justify-content:center;
+      }
+      .packagesSectionFoot .btn{
+        min-width:min(100%, 280px);
+      }
+
+      .ctaBand{
+        background:#f4f4f4;
+        border-top:1px solid var(--border);
+        border-bottom:1px solid var(--border);
+      }
+      .faqSection{
+        background:#ffffff;
+        border-top:1px solid var(--border);
+        border-bottom:1px solid var(--border);
+      }
+      .faqWrap{
+        max-width:74ch;
+        margin:0 auto;
+      }
+      .faqItem{
+        padding:0;
+        border-top:1px solid rgba(99,100,102,.2);
+      }
+      .faqItem:last-child{
+        border-bottom:1px solid rgba(99,100,102,.2);
+      }
+      .faqQ{
+        margin:0;
+        padding:18px 34px 18px 0;
+        font-size:22px;
+        line-height:1.2;
+        font-weight:600;
+        list-style:none;
+        cursor:pointer;
+        position:relative;
+      }
+      .faqQ::-webkit-details-marker{
+        display:none;
+      }
+      .faqQ::after{
+        content:"+";
+        position:absolute;
+        right:0;
+        top:50%;
+        transform:translateY(-50%);
+        font-size:24px;
+        font-weight:400;
+        line-height:1;
+        color:#D6E3CE;
+      }
+      .faqItem[open] .faqQ::after{
+        content:"-";
+        color:#D6E3CE;
+      }
+      .faqA{
+        margin:0;
+        padding:0 14px 0;
+        background:transparent;
+        font-size:17px;
+        line-height:1.7;
+        max-height:0;
+        opacity:0;
+        overflow:hidden;
+        transition:max-height .28s ease, opacity .2s ease, padding .2s ease;
+      }
+      .faqItem:hover .faqA,
+      .faqItem[open] .faqA{
+        max-height:320px;
+        opacity:1;
+        padding:0 14px 14px;
+      }
+      .ctaBandInner{
+        text-align:center;
+        max-width:72ch;
+        margin:0 auto;
+      }
+      .ctaBandInner .sectionTitle{
+        margin:0 auto 14px;
+        max-width:28ch;
+      }
+      .ctaRow{
+        margin-top:22px;
+        display:flex;
+        justify-content:center;
+        gap:12px;
+        flex-wrap:wrap;
+      }
+      .btn{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        padding:12px 18px;
+        border:1px solid var(--border);
+        color:var(--text);
+        text-decoration:none;
+        font-weight:600;
+        font-size:15px;
+      }
+      .btnPrimary{
+        background:var(--accent);
+        color:var(--accentText);
+        border-color:var(--accent);
+      }
+
+      @media (max-width: 980px){
+        main > section{min-height:100svh}
+        .heroLayout,
+        .pillarsLayout,
+        .tiersLayout,
+        .tiersGrid{grid-template-columns:1fr}
+        .hero > .container{padding:0}
+        .heroCopy{border-right:none; border-bottom:1px solid var(--border)}
+        .heroVisual{min-height:420px}
+        .heroCopy h1{font-size:52px}
+        .tiersGrid{display:grid}
+        .tiersGrid .tierCard:nth-child(2),
+        .tiersGrid.tiersGrid--two .tierCard:nth-child(2){
+          transform:none;
+          background:transparent;
+          border-color:rgba(199,215,190,.95);
+        }
+        .tiersGrid.tiersGrid--two{grid-template-columns:1fr; max-width:none}
+        .tiersHead{order:-1}
+      }
+      @media (max-width: 768px){
+        .heroCopy h1{
+          max-width:20ch;
+          font-size:clamp(34px,8.8vw,46px);
+          line-height:1.12;
+          letter-spacing:-.015em;
+        }
+      }
+      @media (max-width: 620px){
+        section{padding:64px 0}
+        .container{padding:0 14px}
+        .heroCopy{padding:22px 16px}
+        .pillarCard, .tierCard{padding:18px 14px}
+        .sectionTitle{font-size:34px}
+        .sectionLead{font-size:16px}
+        .heroCopy h1{
+          font-size:clamp(30px,9.6vw,40px);
+          line-height:1.14;
+          max-width:22ch;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="layout-header"></div>
+    <!--hero-section-->
+    <main>
+      <section class="preIntroNote" aria-label="Instagram posts and stories introduction">
+        <div class="container">
+          <div class="preIntroWrap">
+            <p class="kicker">Instagram posts &amp; stories</p>
+            <h2 class="sectionTitle">stop the scroll. start the conversation.</h2>
+            <p class="sectionLead">In a world of noise, intentional design stands out. I create visuals that reflect your brand’s soul, not just trends.</p>
+            <div class="ctaRow">
+              <a class="btn" href="index.html#portfolio">see feed &amp; story work</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--hero-section-2-->
+      <section class="hero" aria-label="Instagram creative hero">
+        <div class="container">
+          <div class="heroLayout">
+            <div class="heroCopy">
+              <p class="kicker">Feed, carousels &amp; stories</p>
+              <h1>built to stop thumbs—and start real replies.</h1>
+              <p class="sectionLead">Your grid and stories are daily touchpoints with your people. I design post and story systems that feel unmistakably you: clear hierarchy, bold or soft aesthetics as your brand demands, and motion-friendly layouts so every slide earns the next tap.</p>
+            </div>
+            <figure class="heroVisual" aria-label="Instagram content and phone mockups">
+              <img class="heroImg heroImgDefault" src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1400&h=1800&fit=crop" alt="Phone showing social media feed and creative content" loading="lazy" />
+              <img class="heroImg heroImgHover" src="https://images.unsplash.com/photo-1611926653458-09294b3142bf?w=1400&h=1800&fit=crop" alt="Creative workspace with design tools for social content" loading="lazy" />
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!--content-types-section-->
+      <section class="pillars" aria-label="Content types">
+        <div class="container">
+          <div class="pillarsLayout">
+            <div class="pillarsHead">
+              <p class="kicker">Content types</p>
+              <h2 class="sectionTitle">three ways we can show up in the feed</h2>
+              <p class="sectionLead">Mix educational depth, editorial calm, and story-native energy—so your audience gets variety without losing a single cohesive brand thread.</p>
+            </div>
+            <div class="pillarsGrid">
+              <article class="pillarCard">
+                <h3>Educational</h3>
+                <p>Expert carousels that break down one idea per slide: teach, save, and share—without looking like everyone else’s template.</p>
+              </article>
+              <article class="pillarCard">
+                <h3>Aesthetic</h3>
+                <p>“Linen &amp; layout” inspired mood boards—soft texture, generous whitespace, and typography-led compositions that feel like your brand’s living lookbook.</p>
+              </article>
+              <article class="pillarCard">
+                <h3>High-impact stories</h3>
+                <p>Interactive polls, quizzes, and stickers wired for replies and DMs—so the conversation doesn’t end when the story disappears.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--package-details-section-->
+      <section class="tiers tiers--packages" aria-label="Package details">
+        <div class="container">
+          <div class="tiersLayout">
+            <div class="tiersHead">
+              <p class="kicker">Package details</p>
+              <h2 class="sectionTitle">standalone assets or paired with social management</h2>
+              <p class="sectionLead">Choose a one-time asset kit you can schedule yourself, or fold posts and stories into ongoing social media management for a fully aligned calendar, voice, and rhythm.</p>
+            </div>
+            <div class="tiersGrid tiersGrid--two">
+              <article class="tierCard">
+                <span class="tierTag">standalone</span>
+                <h3 class="tierName">Asset kit</h3>
+                <p class="tierPrice">custom scope</p>
+                <p class="tierDesc">Batches of feed posts, carousels, and story sets—delivered ready to upload on your timeline.</p>
+                <ul class="tierList">
+                  <li>Branded templates and one-off drops tailored to launches or campaigns</li>
+                  <li>Correct aspect ratios for feed, carousel, and story frames</li>
+                  <li>Ideal if you already have a scheduler or in-house poster</li>
+                </ul>
+              </article>
+              <article class="tierCard">
+                <span class="tierTag">full program</span>
+                <h3 class="tierName">With social media management</h3>
+                <p class="tierPrice">bundled service</p>
+                <p class="tierDesc">Posts and stories designed inside your broader social retainer—strategy, cadence, and creative stay in one lane.</p>
+                <ul class="tierList">
+                  <li>Ongoing feed + story design matched to your content pillars</li>
+                  <li>Room for campaigns, promos, and seasonal refreshes</li>
+                  <li>Single point of contact for creative and posting rhythm</li>
+                </ul>
+              </article>
+            </div>
+            <div class="packagesSectionFoot">
+              <a class="btn btnPrimary" href="socialmediammanagemtent.html">see social media management</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!--faq-section-->
+      <section class="faqSection" aria-label="Frequently asked questions">
+        <div class="container">
+          <div class="faqWrap">
+            <p class="kicker">FAQ</p>
+            <h2 class="sectionTitle">frequently asked questions</h2>
+            <details class="faqItem">
+              <summary class="faqQ">Do you provide captions?</summary>
+              <p class="faqA">Yes, all posts come with engagement-ready copy.</p>
+            </details>
+            <details class="faqItem">
+              <summary class="faqQ">What file types do I receive?</summary>
+              <p class="faqA">Typically high-resolution PNG or JPEG for feed and story frames. If you need layered source files for your team, we can include that in scope.</p>
+            </details>
+            <details class="faqItem">
+              <summary class="faqQ">Can I book only stories or only feed posts?</summary>
+              <p class="faqA">Yes. Asset kits can be weighted toward stories, carousels, or static posts depending on what your funnel needs next.</p>
+            </details>
+            <details class="faqItem">
+              <summary class="faqQ">How does this work with social media management?</summary>
+              <p class="faqA">When bundled, creative is planned alongside your calendar and approvals so grids and stories stay on-message. Standalone kits are yours to slot in whenever you post.</p>
+            </details>
+            <details class="faqItem">
+              <summary class="faqQ">How fast is turnaround?</summary>
+              <p class="faqA">Timelines depend on batch size and revisions; after a kickoff you’ll get a clear delivery schedule for each drop or monthly set.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!--cta-section-->
+      <section class="ctaBand" aria-label="Call to action">
+        <div class="container">
+          <div class="ctaBandInner">
+            <p class="kicker">Ready for a feed that feels like you?</p>
+            <h2 class="sectionTitle">let’s design posts people actually pause on</h2>
+            <p class="sectionLead">Whether you want a standalone story and post kit or creative folded into social media management, we can map the right mix of educational, aesthetic, and high-impact formats.</p>
+            <div class="ctaRow">
+              <a class="btn btnPrimary" href="index.html#final-cta">book an instagram consult</a>
+              <a class="btn" href="socialmediammanagemtent.html">explore social management</a>
+              <a class="btn" href="index.html#value">view all services</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div id="layout-footer"></div>
+    <script src="includes/load-includes.js"></script>
+    <script>
+      (function () {
+        var sections = document.querySelectorAll("main > section");
+        if (!sections.length) return;
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("inView");
+            }
+          });
+        }, { threshold: 0.18 });
+        sections.forEach(function (section) { observer.observe(section); });
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1818 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Brand&eacute; Legacy Design</title>
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/KeralPatel3095/Brande_Images/9cf67e094aeaa130865a33879009bbd9b97c3873/Brand%C3%A9.png">
+    <link rel="stylesheet" href="includes/site-layout.css" />
+    <style>
+      main{padding:0}
+      /* Section flow inspired by home.html */
+      main > section{
+        width:100%;
+        min-height:auto;
+        padding:68px 0;
+        scroll-margin-top:120px; /* keep anchor targets below sticky header */
+        overflow:visible;
+        background:linear-gradient(180deg, #D6E3CE 0%, #EFEEEE 55%, #ffffff 100%);
+        transition: background .45s ease;
+        position:relative;
+      }
+      main > section > .container{
+        height:auto;
+        display:block;
+        transform: translateY(0);
+        filter:none;
+      }
+
+      /* Heading transitions: from top to down */
+      main > section h1,
+      main > section .sectionTitle,
+      main > section .portfolioKicker,
+      main > section .founderKicker,
+      main > section .workflowText h2{
+        opacity:0;
+        transform: translateY(28px);
+        transition:
+          opacity 1.05s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+          transform 1.05s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      main > section.inView h1,
+      main > section.inView .sectionTitle,
+      main > section.inView .portfolioKicker,
+      main > section.inView .founderKicker,
+      main > section.inView .workflowText h2{
+        opacity:1;
+        transform: translateY(0);
+      }
+
+      /* Text transitions: from bottom to up */
+      main > section .subhead,
+      main > section .sectionLead,
+      main > section .brandText,
+      main > section .productDesc,
+      main > section .productName,
+      main > section .workflowText p,
+      main > section .workflowList li{
+        opacity:0;
+        transform: translateY(24px);
+        transition:
+          opacity 1.05s cubic-bezier(0.25, 0.46, 0.45, 0.94) .16s,
+          transform 1.05s cubic-bezier(0.25, 0.46, 0.45, 0.94) .16s;
+      }
+      main > section.inView .subhead,
+      main > section.inView .sectionLead,
+      main > section.inView .brandText,
+      main > section.inView .productDesc,
+      main > section.inView .productName,
+      main > section.inView .workflowText p,
+      main > section.inView .workflowList li{
+        opacity:1;
+        transform: translateY(0);
+      }
+
+      @media (hover: none){
+        /* No extra hover transition effects */
+      }
+      @media (prefers-reduced-motion: reduce){
+        main > section *,
+        .heroImg,
+        .heroImgBg{
+          transition:none !important;
+          animation:none !important;
+          transform:none !important;
+          opacity:1 !important;
+          filter:none !important;
+        }
+      }
+      section{padding:0}
+      .hero{
+        padding:0;
+        min-height:100svh;
+      }
+      /* Make the hero edge-to-edge wider */
+      .hero .container{
+        max-width:100%;
+        padding:0;
+      }
+      .heroGrid{
+        display:grid;
+        grid-template-columns: 1fr;
+        gap:0;
+        align-items:stretch;
+        min-height:100svh;
+      }
+      .heroCard{
+        border:0;
+        border-radius:0;
+        overflow:hidden;
+        background:
+          radial-gradient(1200px 260px at 20% 15%, rgba(255,255,255,.75), rgba(255,255,255,0)),
+          linear-gradient(120deg, rgba(0,0,0,.22), rgba(0,0,0,.0) 55%),
+          linear-gradient(0deg, rgba(0,0,0,.35), rgba(0,0,0,0) 55%),
+          linear-gradient(135deg, #cfc6bb 0%, #efe9e0 55%, #ffffff 90%);
+        position:relative;
+        min-height:0;
+        height:100%;
+      }
+      .heroImg{
+        position:absolute;
+        inset:0;
+        overflow:hidden;
+        z-index:0;
+        pointer-events:none;
+      }
+      .heroImgBg{
+        position:absolute;
+        inset:-18%;
+        background:
+          url("https://raw.githubusercontent.com/KeralPatel3095/Brande_Images/f3fb347095c43f815e14a7463cf3993e6d46682f/hero-image.png")
+          center / cover no-repeat;
+        transform:scale(1);
+        transform-origin:50% 50%;
+        will-change:transform;
+        filter:blur(0) brightness(1);
+        animation:heroZoomCycle 16s ease-in-out infinite;
+      }
+      .heroImg::after{
+        content:"";
+        position:absolute;
+        inset:0;
+        z-index:1;
+        pointer-events:none;
+        background:
+          linear-gradient(90deg, rgba(0,0,0,.42) 0%, rgba(0,0,0,0) 48%),
+          linear-gradient(0deg, rgba(0,0,0,.38) 0%, rgba(0,0,0,0) 55%);
+      }
+      /* Loop: zoomed in → zoom out (full framing) → zoom in again (seamless repeat) */
+      @keyframes heroZoomCycle{
+        0%, 100%{
+          transform:scale(1.18);
+          filter:blur(0) brightness(1);
+        }
+        50%{
+          transform:scale(1);
+          filter:blur(0) brightness(1);
+        }
+      }
+      .heroContent{
+        position:relative;
+        padding:34px 30px;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        text-align:center;
+        height:100%;
+        max-width:900px;
+        margin:0 auto;
+        width:100%;
+      }
+      .kicker{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        gap:10px;
+        font-weight:800;
+        letter-spacing:.18em;
+        text-transform:uppercase;
+        font-size:12px;
+        color: #a9be9f;
+        /* color:rgba(255,255,255,.75); */
+        margin-bottom:12px;
+      }
+      h1{
+        margin:0 0 12px;
+        font-size:64px;
+        line-height:1.05;
+        letter-spacing:-.02em;
+        color:#ffffff;
+        text-shadow:0 10px 30px rgba(0,0,0,.35);
+      }
+      .hero .heroContent h1{
+        text-align:center;
+        max-width:18ch;
+        margin-left:auto;
+        margin-right:auto;
+      }
+      .subhead{
+        margin:0 0 18px;
+        color:rgba(255,255,255,.88);
+        font-size:17px;
+        max-width:54ch;
+      }
+      .hero .heroContent .subhead{
+        margin-left:auto;
+        margin-right:auto;
+        text-align:center;
+      }
+      .heroActions{
+        display:flex;
+        gap:12px;
+        flex-wrap:wrap;
+        margin-top:6px;
+        justify-content:center;
+      }
+      .btn{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        border-radius:9px;
+        padding:11px 16px;
+        font-weight:800;
+        font-size:14px;
+        border:1px solid rgba(255,255,255,.35);
+        background:rgba(255,255,255,.12);
+        color:#fff;
+      }
+      .btn:hover{background:rgba(255,255,255,.18)}
+      .btn{
+        transition: color .2s ease, background .2s ease, border-color .2s ease, transform .2s ease;
+      }
+      .btn:hover{
+        transform: translateY(-1px);
+      }
+      .btnPrimary{
+        background:#636466;
+        border-color:var(--accent);
+        color:var(--accentText);
+      }
+
+      .sideCard{display:none}
+
+      .sectionTitle{
+        font-family:var(--font-sans);
+        font-size:44px;
+        font-weight:600;
+        line-height:1.1;
+        margin:0 0 10px;
+        letter-spacing:-.02em;
+        color:#636466;
+      }
+      .sectionLead{
+        margin:0 0 20px;
+        color:var(--muted);
+        font-size:17px;
+        max-width:70ch;
+      }
+
+      /* Brand note / cream blocks */
+      .creamBlock{
+        background:var(--cream);
+        border-top:1px solid #e6e0d6;
+        border-bottom:1px solid #e6e0d6;
+        /* Slightly taller than default main sections (~68px) */
+        padding-top:clamp(100px,10vw,104px);
+        padding-bottom:clamp(100px,10vw,104px);
+      }
+      .founderKicker{
+        font-family:var(--font-sans);
+        text-align:center;
+        letter-spacing:.14em;
+        font-weight:900;
+        font-size:12px;
+        text-transform:uppercase;
+        color: #a9be9f;
+        margin-bottom:18px;
+      }
+      .creamBlock .sectionTitle{
+        text-align:center;
+        max-width:24ch;
+        margin:0 auto 16px;
+      }
+      .brandText{
+        font-family:var(--font-sans);
+        font-weight:400;
+        text-align:center;
+        max-width:70ch;
+        margin:0 auto;
+        color:#636466;
+        font-size:17px;
+        line-height:1.6;
+      }
+      .founderSig{
+        margin-top:22px;
+        text-align:center;
+        font-weight:900;
+        color:#636466;
+      }
+
+      /* Quote strip: full-width band, centered block (#capabilities) */
+      .quoteFullBleed{
+        width:100%;
+        margin:0;
+        padding:clamp(72px,11vw,132px) clamp(20px,6vw,64px);
+        box-sizing:border-box;
+        background:#fafaf9;
+        border-top:1px solid #ecece8;
+        border-bottom:1px solid #ecece8;
+      }
+      .quoteFullBleedInner{
+        max-width:min(var(--container),100%);
+        margin:0 auto;
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        width:100%;
+      }
+      .quoteFullBleedFigure{
+        margin:0 auto;
+        max-width:min(78ch,100%);
+        width:100%;
+        text-align:center;
+        padding:0;
+        border:none;
+      }
+      .quoteFullBleed blockquote{
+        margin:0;
+        padding:0;
+        border:none;
+        position:relative;
+        text-align:center;
+      }
+      /* Large decorative quotation marks */
+      .quoteFullBleed blockquote::before{
+        content:"\201C";
+        display:block;
+        font-family:Georgia,"Times New Roman",Times,serif;
+        font-size:clamp(72px,14vw,140px);
+        line-height:.75;
+        font-weight:600;
+        color:var(--main);
+        letter-spacing:-.08em;
+        margin:0 auto clamp(4px,1.5vw,12px);
+        user-select:none;
+      }
+      .quoteFullBleed blockquote::after{
+        content:"\201D";
+        display:block;
+        font-family:Georgia,"Times New Roman",Times,serif;
+        font-size:clamp(72px,14vw,140px);
+        line-height:.75;
+        font-weight:600;
+        color:var(--main);
+        letter-spacing:-.08em;
+        margin:clamp(16px,3vw,28px) auto 0;
+        user-select:none;
+      }
+      .quoteFullBleed .quoteText{
+        margin:0;
+        font-size:clamp(22px,3.6vw,40px);
+        line-height:1.25;
+        font-weight:500;
+        letter-spacing:-.035em;
+        color:#636466;
+        text-wrap:balance;
+      }
+      .quoteFullBleed figcaption{
+        margin:clamp(28px,4vw,40px) 0 0;
+        padding:0;
+        font-size:12px;
+        font-weight:500;
+        letter-spacing:.02em;
+        text-transform:none;
+        color:#7a7a7a;
+      }
+      .quoteFullBleed figcaption::before{
+        content:"";
+        display:block;
+        width:32px;
+        height:1px;
+        background:#d0d0cc;
+        margin:0 auto 14px;
+      }
+
+      .splitMediaWrap{
+        position:relative;
+      }
+      .splitMediaWrap.splitRight{
+        padding-right:50%;
+      }
+      .splitMediaWrap.splitLeft{
+        padding-left:50%;
+      }
+      .splitMedia{
+        position:absolute;
+        top:0;
+        bottom:0;
+        width:46%;
+        border-radius:9px;
+        border:1px solid #e6e0d6;
+        background:
+          linear-gradient(135deg, rgba(0,0,0,.18), rgba(0,0,0,0) 55%),
+          radial-gradient(800px 320px at 20% 40%, rgba(255,255,255,.45), rgba(255,255,255,0) 60%),
+          linear-gradient(180deg, #f0ede7, #ffffff 70%);
+      }
+      .splitRight .splitMedia{
+        right:0;
+      }
+      .splitLeft .splitMedia{
+        left:0;
+      }
+      .splitMedia::after{
+        content:"";
+        position:absolute;
+        inset:14px;
+        border-radius:9px;
+        border:1px dashed rgba(0,0,0,.14);
+        opacity:.35;
+      }
+      .workflowSection{
+        background:#D6E3CE;
+        height:100%;
+        min-height:100svh;
+      }
+      .workflowInner{
+        display:grid;
+        grid-template-columns:1.2fr 1fr;
+        gap:0;
+        align-items:stretch;
+        min-height:100svh;
+        height:100%;
+      }
+      .workflowMedia{
+        display:flex;
+        flex-direction:column;
+        min-height:100svh;
+        align-self:stretch;
+      }
+      .workflowVisual{
+        flex:1 1 auto;
+        min-height:100svh;
+        height:100%;
+        position:relative;
+        overflow:hidden;
+      }
+      .workflowVisual .workflowImg{
+        position:absolute;
+        inset:0;
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        display:block;
+        transition: opacity .6s ease-out, transform .6s ease-out;
+      }
+      .workflowVisual .workflowImgDefault{
+        opacity:1;
+        transform:scale(1);
+      }
+      .workflowVisual .workflowImgHover{
+        opacity:0;
+        transform:scale(1.04);
+      }
+      .workflowVisual:hover .workflowImgDefault,
+      .workflowVisual.is-alt .workflowImgDefault{
+        opacity:0;
+        transform:scale(1.05);
+      }
+      .workflowVisual:hover .workflowImgHover,
+      .workflowVisual.is-alt .workflowImgHover{
+        opacity:1;
+        transform:scale(1);
+      }
+      .workflowVisualHint{
+        display:none;
+        margin:0;
+        padding:10px 16px 0;
+        font-size:11px;
+        font-weight:700;
+        letter-spacing:.12em;
+        text-transform:uppercase;
+        color:#5a6b5f;
+        text-align:center;
+      }
+      .workflowText{
+        padding:64px 56px;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+      }
+      .workflowText h2{
+        font-size:42px;
+        font-weight:600;
+        line-height:1.1;
+        margin:0 0 20px;
+        color:#636466;
+        text-transform:lowercase;
+        letter-spacing:-0.01em;
+      }
+      .workflowText p{
+        font-size:17px;
+        color:#55605f;
+        line-height:1.6;
+        margin:0 0 16px;
+        font-weight:400;
+      }
+      .workflowList{
+        list-style:none;
+        margin:0;
+        padding:0;
+      }
+      .workflowList li{
+        font-size:17px;
+        color:#636466;
+        margin-bottom:12px;
+        padding-left:26px;
+        position:relative;
+        font-weight:500;
+      }
+      .workflowList li::before{
+        content:"\2713";
+        position:absolute;
+        left:0;
+        top:0;
+        font-weight:700;
+      }
+      .workflowBtn{
+        margin-top:16px;
+        width:max-content;
+      }
+      #about{
+        min-height:100svh;
+        padding:0;
+      }
+      #about > .container{
+        max-width:100%;
+        padding:0;
+        width:100%;
+        height:100%;
+      }
+      #about .container.workflowSection{
+        max-width:100%;
+        padding:0;
+        margin:0;
+      }
+      .productCard{
+        transition: transform .35s ease, box-shadow .35s ease;
+      }
+      .productCard:hover{
+        transform: translateY(-4px);
+        box-shadow:0 12px 26px rgba(0,0,0,.08);
+      }
+      .advisoryKicker{
+        text-align:center;
+        letter-spacing:.14em;
+        font-weight:900;
+        font-size:12px;
+        color: #a9be9f;
+        text-transform:uppercase;
+        margin-bottom:10px;
+      }
+      .advisoryLead{
+        text-align:center;
+        max-width:70ch;
+        margin:0 auto 20px;
+        color:var(--muted);
+        font-weight:700;
+      }
+      .advisoryImages{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:18px;
+        margin:18px 0 16px;
+      }
+      .advisorImg{
+        height:320px;
+        border-radius:9px;
+        border:1px solid #e6e0d6;
+        background:
+          radial-gradient(520px 240px at 35% 20%, rgba(255,255,255,.45), rgba(255,255,255,0) 65%),
+          linear-gradient(180deg, #eae2d8, #f9f7f4);
+        position:relative;
+        overflow:hidden;
+      }
+      .advisorImg::before{
+        content:"";
+        position:absolute;
+        width:64%;
+        height:70%;
+        left:18%;
+        bottom:-18%;
+        border-radius:9px;
+        background:rgba(0,0,0,.08);
+        filter:blur(1px);
+      }
+      .cardGrid{
+        display:grid;
+        grid-template-columns:repeat(12, 1fr);
+        gap:16px;
+      }
+      .card{
+        border:1px solid var(--border);
+        border-radius:var(--radius);
+        background:#fff;
+        padding:20px;
+      }
+      .span7{grid-column:span 7}
+      .span5{grid-column:span 5}
+      .span6{grid-column:span 6}
+      .span12{grid-column:span 12}
+
+      .bullets{
+        margin:12px 0 0;
+        padding:0;
+        list-style:none;
+        display:grid;
+        gap:10px;
+      }
+      .bullets li{
+        padding:12px 12px;
+        border:1px solid var(--border);
+        border-radius:9px;
+        background:var(--surface);
+      }
+      .bullets li strong{
+        display:block;
+        margin-bottom:4px;
+      }
+
+      .processSteps{
+        display:grid;
+        grid-template-columns:repeat(2, minmax(0, 1fr));
+        gap:20px;
+        margin-top:30px;
+      }
+      .step{
+        border:0;
+        border-radius:0;
+        background:transparent;
+        padding:16px 10px 22px;
+        display:flex;
+        flex-direction:column;
+        gap:14px;
+        position:relative;
+        overflow:visible;
+        opacity:0;
+        transform:translateY(16px) scale(.86);
+        transition: box-shadow .3s ease, border-color .3s ease;
+      }
+      .step::after{
+        content:none;
+      }
+      .step:hover{
+        transform:translateY(0) scale(1);
+        box-shadow:none;
+      }
+      @keyframes stepReveal{
+        0%{
+          opacity:0;
+          transform:translateY(16px) scale(.9);
+        }
+        100%{
+          opacity:1;
+          transform:translateY(0) scale(1);
+        }
+      }
+      @keyframes stepOneHero{
+        0%{
+          opacity:0;
+          transform:translateY(16px) scale(.72);
+        }
+        52%{
+          opacity:1;
+          transform:translateY(0) scale(1.22);
+        }
+        100%{
+          opacity:1;
+          transform:translateY(0) scale(1);
+        }
+      }
+      #portfolio.inView .processSteps .step{
+        animation:stepReveal .8s cubic-bezier(.22,.61,.36,1) both;
+      }
+      #portfolio.inView .processSteps .step:nth-child(1){
+        animation:stepOneHero 1.7s cubic-bezier(.16,.84,.44,1) both;
+        z-index:2;
+      }
+      #portfolio.inView .processSteps .step:nth-child(2){animation-delay:1.55s}
+      #portfolio.inView .processSteps .step:nth-child(3){animation-delay:1.9s}
+      #portfolio.inView .processSteps .step:nth-child(4){animation-delay:2.25s}
+      .stepImage{
+        width:100%;
+        aspect-ratio:1 / 1;
+        border-radius:9px;
+        overflow:hidden;
+        border:0;
+        background:transparent;
+        position:relative;
+        box-shadow:0 0 0 1px rgba(214, 227, 206, .55), 0 0 24px 8px rgba(214, 227, 206, .65);
+      }
+      .stepIndex{
+        position:absolute;
+        top:10px;
+        left:10px;
+        z-index:3;
+        width:34px;
+        height:34px;
+        border-radius:9px;
+        background:#D6E3CE;
+        border:1px solid #a9be9f;
+        color:#636466;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-size:14px;
+        font-weight:700;
+      }
+      .stepImage img{
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        display:block;
+        transform:scale(1.02);
+        transition:transform .6s ease;
+      }
+      .stepImageText{
+        position:absolute;
+        left:0;
+        right:0;
+        bottom:20%;
+        z-index:2;
+        background:#D6E3CE;
+        color:#636466;
+        padding:14px 18px;
+        border-radius:0;
+        border-top:1px solid #a9be9f;
+        border-bottom:1px solid #a9be9f;
+        font-size:15px;
+        line-height:1.4;
+        box-shadow:0 10px 18px rgba(45, 66, 47, .14);
+      }
+      .stepImageText strong{
+        display:block;
+        margin:0 0 4px;
+        font-size:19px;
+        font-weight:700;
+        text-transform:lowercase;
+        letter-spacing:.01em;
+      }
+      .stepImageText p{
+        margin:0;
+        font-size:14px;
+        line-height:1.5;
+        color:#636466;
+      }
+      .step:hover .stepImage img{
+        transform:scale(1.08);
+      }
+      .portfolioGrid{
+        display:grid;
+        grid-template-columns:repeat(12, 1fr);
+        gap:16px;
+      }
+      .thumb{
+        grid-column:span 4;
+        border:1px solid var(--border);
+        border-radius:var(--radius);
+        background:var(--surface);
+        overflow:hidden;
+      }
+      .thumbImg{
+        height:170px;
+        background:
+          radial-gradient(500px 120px at 15% 15%, rgba(255,255,255,.75), rgba(255,255,255,0)),
+          linear-gradient(120deg, rgba(0,0,0,.10), rgba(0,0,0,0) 55%),
+          linear-gradient(0deg, rgba(0,0,0,.10), rgba(0,0,0,0) 45%);
+      }
+      .thumbBody{padding:16px}
+      .thumbBody h3{margin:0 0 6px; font-size:16px}
+      .thumbBody p{margin:0; color:var(--muted); font-size:14px}
+
+      /* Portfolio full-screen featured grid (reference layout) */
+      #portfolio{
+        background:var(--cream2);
+        border-top:1px solid #e6e0d6;
+        border-bottom:1px solid #e6e0d6;
+        overflow:hidden;
+      }
+      #portfolio .container{
+        max-width:100%;
+        width:100%;
+        padding-left:32px;
+        padding-right:32px;
+        padding-top:30px;
+        padding-bottom:30px;
+        justify-content:flex-start;
+        align-items:center;
+      }
+      .portfolioKicker{
+        text-align:center;
+        letter-spacing:.14em;
+        font-weight:900;
+        font-size:12px;
+        color: #a9be9f;
+        text-transform:uppercase;
+        margin-bottom:14px;
+      }
+      .portfolioTabs{
+        display:flex;
+        justify-content:center;
+        gap:28px;
+        flex-wrap:wrap;
+        margin-bottom:26px;
+      }
+      .portfolioTab{
+        font-weight:900;
+        font-size:12px;
+        letter-spacing:.06em;
+        color:#6f6f6f;
+        text-transform:uppercase;
+        padding-bottom:10px;
+        border-bottom:2px solid transparent;
+      }
+      .portfolioTabActive{
+        color:#636466;
+        border-bottom-color:#636466;
+      }
+      .featuredGrid{
+        width:100%;
+        display:grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap:18px;
+        align-items:start;
+      }
+      .productCard{
+        display:flex;
+        flex-direction:column;
+        align-items:stretch;
+        text-align:center;
+      }
+      .productImgPanel{
+        height:250px;
+        border-radius:9px;
+        background:#fff;
+        border:1px solid #e6e0d6;
+        overflow:hidden;
+        position:relative;
+      }
+      .productImgPanel img{
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        display:block;
+      }
+      .productBadge{
+        position:absolute;
+        top:14px;
+        left:14px;
+        padding:6px 10px;
+        border-radius:9px;
+        border:1px solid rgba(0,0,0,.18);
+        background:rgba(255,255,255,.9);
+        font-weight:900;
+        font-size:10px;
+        letter-spacing:.08em;
+        text-transform:uppercase;
+        color:#636466;
+        white-space:nowrap;
+      }
+      .productText{
+        margin-top:14px;
+      }
+      .productName{
+        font-weight:900;
+        font-size:12px;
+        letter-spacing:.02em;
+        margin-bottom:3px;
+        color:#636466;
+        text-transform:uppercase;
+      }
+      .productDesc{
+        font-weight:700;
+        font-size:12px;
+        color:#6f6f6f;
+      }
+      .portfolioFooterAction{
+        margin-top:26px;
+        text-align:center;
+      }
+      .portfolioShopBtn{
+        border:1px solid #636466;
+        background:transparent;
+        color:#636466 !important;
+        padding:10px 18px !important;
+      }
+      #faq{
+        background:linear-gradient(180deg, #f8fbf6, #eef5e9);
+        border-top:1px solid #dbe7d4;
+        border-bottom:1px solid #dbe7d4;
+      }
+      #faq .container{
+        max-width:980px;
+      }
+      .faqKicker{
+        text-align:center;
+        letter-spacing:.14em;
+        font-weight:900;
+        font-size:12px;
+        color: #a9be9f;
+        text-transform:uppercase;
+        margin-bottom:10px;
+      }
+      .faqLead{
+        text-align:center;
+        max-width:66ch;
+        margin:0 auto 26px;
+        color:#636466;
+        font-size:17px;
+        line-height:1.6;
+      }
+      .faqList{
+        display:grid;
+        gap:12px;
+      }
+      .faqItem{
+        border:1px solid #cfe0c5;
+        border-radius:9px;
+        background:rgba(255,255,255,.72);
+        overflow:hidden;
+      }
+      .faqItem summary{
+        list-style:none;
+        cursor:pointer;
+        padding:16px 18px;
+        font-weight:600;
+        color:#636466;
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap:14px;
+      }
+      .faqItem summary::-webkit-details-marker{
+        display:none;
+      }
+      .faqItem summary::after{
+        content:"+";
+        font-size:22px;
+        line-height:1;
+        color:#4d6453;
+        transition:transform .25s ease;
+      }
+      .faqItem[open] summary::after{
+        transform:rotate(45deg);
+      }
+      .faqAnswer{
+        padding:0 18px 16px;
+        color:#4c5b52;
+        font-size:17px;
+        line-height:1.6;
+      }
+      .faqAnswer p{
+        margin:0;
+      }
+      #final-cta{
+        background:linear-gradient(160deg, #d6e3ce 0%, #cdddc3 100%);
+        border-top:1px solid #c1d2b8;
+        border-bottom:1px solid #c1d2b8;
+        min-height:100svh;
+        padding:0;
+      }
+      #final-cta .container{
+        max-width:980px;
+        min-height:100svh;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+      }
+      .finalCtaCard{
+        border:1px solid rgba(185, 204, 176, .35);
+        background:rgba(255,255,255,.18);
+        border-radius:9px;
+        padding:40px 28px;
+        text-align:center;
+        box-shadow:0 1px 4px rgba(67, 91, 70, .035);
+        width:100%;
+      }
+      .finalCtaKicker{
+        text-align:center;
+        letter-spacing:.14em;
+        font-weight:900;
+        font-size:12px;
+        color: #a9be9f;
+        text-transform:uppercase;
+        margin-bottom:10px;
+      }
+      .finalCtaTitle{
+        margin:0 auto 12px;
+        max-width:22ch;
+        font-size:clamp(34px, 5vw, 52px);
+        line-height:1.1;
+        color:#636466;
+        text-transform:lowercase;
+        font-weight:600;
+      }
+      .finalCtaText{
+        margin:0 auto 24px;
+        max-width:64ch;
+        color:#4f6255;
+        font-size:18px;
+        line-height:1.65;
+      }
+      .finalCtaBtn{
+        min-width:200px;
+      }
+
+      /* —— Mobile: hero image, “more info” workflow, Our process —— */
+      @keyframes heroZoomCycleMobile{
+        0%, 100%{ transform:scale(1.1); filter:blur(0) brightness(1); }
+        50%{ transform:scale(1); filter:blur(0) brightness(1); }
+      }
+      @media (max-width: 768px){
+        .heroImgBg{
+          background-position:center 32%;
+          animation:heroZoomCycleMobile 14s ease-in-out infinite;
+        }
+        .heroImg::after{
+          background:
+            linear-gradient(180deg, rgba(0,0,0,.52) 0%, rgba(0,0,0,.28) 42%, rgba(0,0,0,.12) 100%),
+            linear-gradient(90deg, rgba(0,0,0,.38) 0%, rgba(0,0,0,0) 52%);
+        }
+        .heroContent{
+          padding:28px 18px 36px;
+        }
+        .hero .heroContent h1{
+          max-width:22ch;
+          font-size:clamp(30px,8.2vw,40px);
+          line-height:1.12;
+        }
+        .hero .heroContent .subhead{
+          font-size:16px;
+          max-width:42ch;
+        }
+        .heroActions{
+          gap:10px;
+        }
+
+        /* More info: same crossfade as desktop; tap toggles on touch */
+        #about{
+          min-height:auto;
+          padding:0;
+        }
+        .workflowInner{
+          grid-template-columns:1fr;
+          min-height:auto;
+          height:auto;
+        }
+        .workflowMedia{
+          min-height:0;
+        }
+        .workflowVisual{
+          min-height:min(72vw,380px);
+          height:min(72vw,380px);
+          flex:none;
+          position:relative;
+          overflow:hidden;
+          display:block;
+          cursor:pointer;
+          -webkit-tap-highlight-color:transparent;
+        }
+        .workflowVisual .workflowImg{
+          position:absolute;
+          inset:0;
+          width:100%;
+          height:100%;
+          min-height:0;
+          max-height:none;
+          object-fit:cover;
+        }
+        .workflowVisualHint{
+          display:block;
+        }
+        .workflowText{
+          padding:36px 20px 44px;
+        }
+        .workflowText h2{
+          font-size:clamp(28px,6vw,34px);
+          margin-bottom:14px;
+        }
+        .workflowText p{
+          font-size:16px;
+          margin-bottom:14px;
+        }
+        .workflowBtn{
+          width:100%;
+          max-width:100%;
+          justify-content:center;
+        }
+
+        /* Our process */
+        #portfolio .container{
+          padding:24px 16px 36px;
+        }
+        #portfolio .sectionTitle{
+          font-size:clamp(28px,6vw,36px);
+        }
+        #portfolio .sectionLead{
+          font-size:16px;
+          padding:0 4px;
+        }
+        .processSteps{
+          grid-template-columns:1fr;
+          gap:28px;
+          margin-top:22px;
+        }
+        .step{
+          padding:8px 0 18px;
+        }
+        .stepImage{
+          aspect-ratio:auto;
+          display:flex;
+          flex-direction:column;
+          overflow:visible;
+          border-radius:10px;
+        }
+        .stepImage img{
+          aspect-ratio:1/1;
+          height:auto;
+          min-height:220px;
+          max-height:min(88vw,360px);
+          object-fit:cover;
+        }
+        .stepImageText{
+          position:relative;
+          left:auto;
+          right:auto;
+          bottom:auto;
+          margin-top:0;
+          padding:16px 14px;
+          border-radius:0 0 10px 10px;
+          border-top:1px solid #a9be9f;
+          border-bottom:1px solid #a9be9f;
+          box-shadow:none;
+        }
+        .stepImageText strong{
+          font-size:18px;
+        }
+        .stepImageText p{
+          font-size:15px;
+        }
+        #portfolio.inView .processSteps .step:nth-child(2),
+        #portfolio.inView .processSteps .step:nth-child(3),
+        #portfolio.inView .processSteps .step:nth-child(4){
+          animation-delay:.12s;
+        }
+      }
+      @media (hover: none) and (min-width: 769px){
+        .workflowVisualHint{
+          display:block;
+        }
+      }
+      @media (max-width: 480px){
+        .workflowVisual{
+          min-height:min(78vw,340px);
+          height:min(78vw,340px);
+        }
+        .stepImage img{
+          min-height:200px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="headerPreNav" id="headerPreNav" style="--pre-hide:0">
+      <div class="promoStrip">
+        <div class="container">
+          <div class="promoText">Elevating Brands Through Thoughtful Design.</div>
+        </div>
+      </div>
+      <div class="SpaceInBetween" aria-hidden="true">
+        <div class="container">
+          <div class="spaceInBetweenText"></div>
+        </div>
+      </div>
+    </div>
+
+    <header class="siteHeaderBar" id="siteHeaderBar" aria-label="Main header">
+      <div class="container">
+        <div class="topbar">
+          <button
+            type="button"
+            class="menuToggleButton"
+            id="mobileMenuToggle"
+            aria-label="Open navigation menu"
+            aria-controls="mobilePrimaryNav"
+            aria-expanded="false"
+          >
+            ☰
+          </button>
+
+          <nav class="leftNav" aria-label="Primary navigation left">
+            <ul>
+              <li><a class="link" href="index.html">Home</a></li>
+              <li><a class="link" href="about.html">About</a></li>
+              <li>
+                <button
+                  type="button"
+                  class="navButton"
+                  data-mega="services"
+                  aria-haspopup="dialog"
+                  aria-controls="megaMenuOverlay"
+                >
+                  Services ▾
+                </button>
+              </li>
+
+              <li>
+                <a class="link" href="portfolio.html">Portfolio</a>
+              </li>
+            </ul>
+          </nav>
+
+          <a href="index.html" class="logoWordmark" aria-label="Brandé Legacy Design logo">Brand&eacute;</a>
+
+          <nav class="rightNav" id="mobilePrimaryNav" aria-label="Primary navigation right">
+            <ul>
+              <li><a class="ctaBtn" href="contact.html">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Full-page mega menu overlay (Services only) -->
+    <div id="megaMenuOverlay" class="overlayMenu" role="dialog" aria-modal="true" aria-hidden="true">
+
+      <div class="overlayInner">
+        <div class="overlayLeft">
+          <button type="button" class="overlayBack" id="megaMenuBack">Back</button>
+          <div class="overlayTitle" id="megaMenuTitle">Services</div>
+
+          <div class="overlayList" role="menu" aria-label="Menu items">
+            <button type="button" class="overlayItem" data-services-target="Brand-focusedmarketingwebsites.html">
+              Brand-focused marketing websites
+            </button>
+            <button type="button" class="overlayItem" data-services-target="emailcampaigndesign.html">
+              Email Campaign Design
+            </button>
+            <button type="button" class="overlayItem" data-services-target="instagramstoriesandpost.html">
+              Instagram post and stories
+            </button>
+            <button type="button" class="overlayItem" data-services-target="brandidentity.html">
+              Brand Identity
+            </button>
+            <button type="button" class="overlayItem" data-services-target="socialmediammanagemtent.html">
+              Social media management
+            </button>
+          </div>
+        </div>
+
+        <div class="overlayRight">
+          <div class="overlayPreviewGrid" aria-label="Images preview">
+            <div class="overlayPreviewTile">
+              <div class="previewBadge" style="top:12px; left:12px;">Featured</div>
+              <img
+                alt=""
+                loading="lazy"
+                src="file:///C:/Users/shiva/.cursor/projects/k-Cursor/assets/c__Users_shiva_AppData_Roaming_Cursor_User_workspaceStorage_52aabc1fadc14432643841f9afecb5cf_images_image-a9d0b53e-e56e-4e73-a24b-c5c7a6766674.png"
+                style="object-position: 16% 50%;"
+              />
+            </div>
+
+            <div class="overlayPreviewTile">
+              <div class="previewBadge" style="top:12px; left:12px;">New</div>
+              <img
+                alt=""
+                loading="lazy"
+                src="file:///C:/Users/shiva/.cursor/projects/k-Cursor/assets/c__Users_shiva_AppData_Roaming_Cursor_User_workspaceStorage_52aabc1fadc14432643841f9afecb5cf_images_image-a9d0b53e-e56e-4e73-a24b-c5c7a6766674.png"
+                style="object-position: 48% 50%;"
+              />
+            </div>
+
+            <div class="overlayPreviewTile">
+              <div class="previewBadge" style="top:12px; left:12px;">Limited</div>
+              <img
+                alt=""
+                loading="lazy"
+                src="file:///C:/Users/shiva/.cursor/projects/k-Cursor/assets/c__Users_shiva_AppData_Roaming_Cursor_User_workspaceStorage_52aabc1fadc14432643841f9afecb5cf_images_image-a9d0b53e-e56e-4e73-a24b-c5c7a6766674.png"
+                style="object-position: 74% 50%;"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <main>
+      <!-- 1. The Hero Section: First Impression -->
+      <section class="hero" id="top" aria-label="Hero section">
+        <div class="container">
+          <div class="heroGrid">
+            <div class="heroCard">
+              <div class="heroImg" aria-hidden="true">
+                <span class="heroImgBg"></span>
+              </div>
+              <div class="heroContent">
+                <div class="kicker">Dual-Expertise</div>
+                <h1>High-Performance Design. Data-Driven Growth.</h1>
+                <p class="subhead">
+                  Elevate your brand with custom static websites, scroll-stopping social media assets, and precision-managed campaigns.
+                  I don&rsquo;t just design your digital presence&mdash;I manage the strategy that scales it.
+                </p>
+                <div class="heroActions">
+                  <a class="btn btnPrimary" href="portfolio.html">View Portfolio</a>
+                  <a class="btn" href="#final-cta">Start a Project Inquiry</a>
+                </div>
+              </div>
+            </div>
+
+            <aside class="sideCard" aria-label="Quick summary">
+              <div>
+                <h2>The Full-Cycle Approach</h2>
+                <p>A stunning website is the foundation; a managed social presence is the engine.</p>
+                <div class="pillRow" aria-label="Highlights">
+                  <div class="pill">Design + Management</div>
+                  <div class="pill">Monthly Analytics</div>
+                  <div class="pill">Strategy + Execution</div>
+                </div>
+              </div>
+              <div>
+                <p><strong>Currently booking:</strong> next month.</p>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2.Brand introduction -->
+      <section id="value" aria-label="Founder note" class="creamBlock">
+        <div class="container">
+          <div class="founderKicker">BRAND INTRODUCTION</div>
+          <h2 class="sectionTitle">
+            Creative Marketing Designed for Modern Businesses
+          </h2>
+          <p class="brandText">
+            In today&rsquo;s digital landscape, brands need more than just an online presence &mdash; they need a clear strategy, compelling visuals, and consistent communication.
+            At Brand&eacute;, we help businesses strengthen their digital presence through thoughtful social media management, impactful email marketing campaigns, and professional design solutions.
+            Our goal is simple: to create marketing that not only looks exceptional but also delivers measurable results.
+          </p>
+        </div>
+      </section>
+
+      <!-- more info  -->
+      <section id="about" aria-label="About Brandé Legacy Design">
+        <div class="container workflowSection">
+          <div class="workflowInner">
+            <div class="workflowMedia">
+              <div
+                class="workflowVisual"
+                tabindex="0"
+                role="button"
+                aria-label="Switch between two brand photos"
+                aria-pressed="false"
+              >
+                <img class="workflowImg workflowImgDefault" src="images/Home1.1.png" alt="Brand presence visual" loading="lazy" />
+                <img class="workflowImg workflowImgHover" src="images/Home1.2.png" alt="Alternate brand visual" loading="lazy" />
+              </div>
+              <!-- <p class="workflowVisualHint">Tap image to see alternate view</p> -->
+            </div>
+            <div class="workflowText">
+              <h2>Strategic Brand Presence & Social Management</h2>
+              <p>
+                Build a strong and consistent presence across your social media platforms through strategic content creation and performance-driven management.
+              </p>
+             
+             
+              <a href="socialmediammanagemtent.html" class="btn workflowBtn">Discover the Difference</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 3b. Minimal quote block (between story and process) -->
+      <section id="capabilities" class="quoteFullBleed" aria-label="Brand philosophy">
+        <div class="quoteFullBleedInner">
+          <figure class="quoteFullBleedFigure">
+            <blockquote>
+              <p class="quoteText">
+                Through a balance of restraint and expression, we design experiences that feel both modern and enduring.
+              </p>
+            </blockquote>
+            <figcaption>Brand&eacute; Legacy Design</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- our Process -->
+      <section id="portfolio" aria-label="Our process">
+        <div class="container">
+          <div class="portfolioKicker">OUR PROCESS</div>
+          <h2 class="sectionTitle" style="text-align:center; max-width:20ch; margin:0 auto 14px; text-transform:lowercase;">Our Process</h2>
+          <p class="sectionLead" style="text-align:center; max-width:70ch; margin:0 auto 10px;">
+            A clear, strategic workflow that keeps every stage aligned with your business goals.
+          </p>
+
+          <div class="processSteps" aria-label="Our process steps">
+            <article class="step">
+              <div class="stepImage">
+                <span class="stepIndex">1</span>
+                <img src="images/Home.Discovery.jpg" alt="" loading="lazy" />
+                <div class="stepImageText">
+                  <strong>Discovery</strong>
+                  <p>We begin by understanding your business, target audience, and marketing goals to identify the best opportunities for growth.</p>
+                </div>
+              </div>
+            </article>
+            <article class="step">
+              <div class="stepImage">
+                <span class="stepIndex">2</span>
+                <img src="images/Home.Stratergy.jpg" alt="" loading="lazy" />
+                <div class="stepImageText">
+                  <strong>Strategy</strong>
+                  <p>A customized strategy is developed to align your social media, email marketing, and design with your business objectives.</p>
+                </div>
+              </div>
+            </article>
+            <article class="step">
+              <div class="stepImage">
+                <span class="stepIndex">3</span>
+                <img src="images/Home.Creative.jpg" alt="" loading="lazy" />
+                <div class="stepImageText">
+                  <strong>Creative Development</strong>
+                  <p>Content, campaigns, and visuals are designed to communicate your brand message clearly and effectively.</p>
+                </div>
+              </div>
+            </article>
+            <article class="step">
+              <div class="stepImage">
+                <span class="stepIndex">4</span>
+                <img src="images/Home.Launch&Optimization.jpg" alt="" loading="lazy" />
+                <div class="stepImageText">
+                  <strong>Launch &amp; Optimization</strong>
+                  <p>We don’t just launch and leave; we run full campaigns and continuously refine them using key performance data to drive long-term growth and efficiency.</p>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq" aria-label="Frequently asked questions">
+        <div class="container">
+          <div class="faqKicker">FAQ</div>
+          <h2 class="sectionTitle" style="text-align:center; max-width:18ch; margin:0 auto 12px; text-transform:lowercase;">Frequently Asked Questions</h2>
+          <p class="faqLead">
+            Answers to common questions about our social media management, email marketing, and design services.
+          </p>
+          <div class="faqList">
+            <details class="faqItem">
+              <summary>What services does Brandé Legacy Design provide?</summary>
+              <div class="faqAnswer">
+                <p>We provide social media management, strategic content planning, email marketing campaigns, and professional brand and website design tailored to your business goals.</p>
+              </div>
+            </details>
+            <details class="faqItem">
+              <summary>How do you create a strategy for my brand?</summary>
+              <div class="faqAnswer">
+                <p>We begin with discovery to understand your business, target audience, and priorities. From there, we build a custom strategy aligned with your growth goals and brand voice.</p>
+              </div>
+            </details>
+            <details class="faqItem">
+              <summary>How long does it take to launch a project?</summary>
+              <div class="faqAnswer">
+                <p>Project timelines depend on scope, but most engagements begin with planning and setup in the first 1-2 weeks, followed by launch and ongoing optimization.</p>
+              </div>
+            </details>
+            <details class="faqItem">
+              <summary>Do you provide performance reports?</summary>
+              <div class="faqAnswer">
+                <p>Yes. We share clear performance insights, including reach, engagement, and campaign outcomes, so you can see what is working and where we optimize next.</p>
+              </div>
+            </details>
+            <details class="faqItem">
+              <summary>Can I request revisions to content and designs?</summary>
+              <div class="faqAnswer">
+                <p>Absolutely. Revisions are part of the workflow to ensure the final output reflects your brand standards and communicates your message effectively.</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+<!-- Final CTA -->
+      <section id="final-cta" aria-label="Final call to action">
+        <div class="container">
+          <div class="finalCtaCard">
+            <div class="finalCtaKicker">Start a Project Inquiry</div>
+            <h2 class="finalCtaTitle">Ready to Elevate Your Brand&rsquo;s Digital Presence?</h2>
+            <p class="finalCtaText">
+              Let&rsquo;s collaborate to create marketing strategies and visual content that help your business grow.
+            </p>
+            <a class="btn btnPrimary finalCtaBtn" href="mailto:hello@yourdomain.com">Start Your Project</a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <a href="index.html" class="footerWordmarkFull" aria-label="Brandé Legacy Design — Home">
+      <h2 class="footerWordmarkLarge oneLine">Brand&eacute; Legacy Design</h2>
+    </a>
+
+    <footer class="footerMega" aria-label="Footer">
+      <div class="footerTaglineBand">
+        <div class="container">
+          <p class="footerTagline">Thoughtful design. Intentional strategy. Measurable growth.</p>
+        </div>
+      </div>
+
+      <div class="container footerMegaInner">
+        <div class="footerSplit">
+          <div class="footerSubscribe">
+            <p class="footerSubscribeKicker">Newsletter</p>
+            <h2 class="footerSubscribeTitle">Stay in the loop</h2>
+            <p class="footerSubscribeText">
+                Elevated perspectives on brand strategy and design—designed with precision and purpose.
+            </p>
+            <form class="footerSignupForm" action="#" method="post" onsubmit="return false;">
+              <input
+                type="email"
+                name="email"
+                placeholder="Email address"
+                autocomplete="email"
+                required
+                aria-label="Email address for newsletter"
+              />
+              <button type="submit">Subscribe</button>
+            </form>
+            <p class="footerSubscribeLegal">
+              By subscribing you agree to our
+              <a href="/privacy" onclick="return false;">Privacy Policy</a>.
+            </p>
+          </div>
+
+          <div class="footerColumns">
+            <div class="footerColMega">
+              <h3 class="footerColHead">Navigate</h3>
+              <ul class="footerColList">
+                <li><a href="portfolio.html">Work</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="#value">Services</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#final-cta">Inquiry</a></li>
+                <li><a href="#top">Back to top</a></li>
+              </ul>
+            </div>
+            <div class="footerColMega">
+              <h3 class="footerColHead">Social</h3>
+              <ul class="footerColList">
+                <li><a href="#" onclick="return false;">Instagram</a></li>
+                <li><a href="#" onclick="return false;">LinkedIn</a></li>
+              </ul>
+            </div>
+            <div class="footerColMega">
+              <h3 class="footerColHead">Official</h3>
+              <ul class="footerColList">
+                <li><a href="/privacy" onclick="return false;">Privacy</a></li>
+                <li><a href="/terms" onclick="return false;">Terms</a></li>
+                <li><a href="contact.html">Contact</a></li>
+              </ul>
+            </div>
+            <div class="footerColMega">
+              <h3 class="footerColHead">Support</h3>
+              <p class="footerSupportText">
+                Inquiries and consultations by appointment. We typically reply within two business days.
+              </p>
+              <ul class="footerColList">
+                <li><a href="mailto:hello@yourdomain.com">brandelegacydesign@gmail.com</a></li>
+                <li><a href="#" onclick="return false;">Cookie preferences</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footerSubBar">
+        <div class="container footerSubBarFlex">
+          <!-- <span class="footerLocale">English (US) <span class="caret" aria-hidden="true">▾</span></span>
+          <span aria-hidden="true">·</span> -->
+          <span>© Brand&eacute; Legacy Design 2026</span>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        var header = document.getElementById('siteHeaderBar');
+        var toggleBtn = document.getElementById('mobileMenuToggle');
+        if (!header || !toggleBtn) return;
+
+        var mobileQuery = window.matchMedia('(max-width: 768px)');
+        var closeSelectors = '.leftNav a, .rightNav a, .leftNav .navButton';
+
+        function setOpen(isOpen) {
+          header.classList.toggle('mobile-nav-open', isOpen);
+          toggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+          toggleBtn.setAttribute('aria-label', isOpen ? 'Close navigation menu' : 'Open navigation menu');
+          toggleBtn.textContent = isOpen ? '✕' : '☰';
+        }
+
+        toggleBtn.addEventListener('click', function () {
+          setOpen(!header.classList.contains('mobile-nav-open'));
+        });
+
+        document.querySelectorAll(closeSelectors).forEach(function (el) {
+          el.addEventListener('click', function () {
+            if (mobileQuery.matches) setOpen(false);
+          });
+        });
+
+        function syncDesktopState() {
+          if (!mobileQuery.matches) setOpen(false);
+        }
+
+        if (mobileQuery.addEventListener) {
+          mobileQuery.addEventListener('change', syncDesktopState);
+        } else if (mobileQuery.addListener) {
+          mobileQuery.addListener(syncDesktopState);
+        }
+      })();
+    </script>
+    <script>
+      (function () {
+        var overlay = document.getElementById('megaMenuOverlay');
+        if (!overlay) return;
+
+        var titleEl = document.getElementById('megaMenuTitle');
+        var closeBtn = overlay.querySelector('.overlayClose');
+        var backBtn = document.getElementById('megaMenuBack');
+        var menuButtons = document.querySelectorAll('button[data-mega]');
+        var itemButtons = overlay.querySelectorAll('.overlayItem');
+
+        function openOverlay() {
+          if (titleEl) titleEl.textContent = 'Services';
+          overlay.classList.add('open');
+          overlay.setAttribute('aria-hidden', 'false');
+          document.body.style.overflow = 'hidden';
+        }
+
+        function closeOverlay() {
+          overlay.classList.remove('open');
+          overlay.setAttribute('aria-hidden', 'true');
+          document.body.style.overflow = '';
+        }
+
+        var closeTimer = null;
+        var hoveringNav = false;
+        var hoveringOverlay = false;
+
+        function scheduleClose() {
+          if (closeTimer) window.clearTimeout(closeTimer);
+          closeTimer = window.setTimeout(function () {
+            if (!hoveringNav && !hoveringOverlay) closeOverlay();
+          }, 160);
+        }
+
+        menuButtons.forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            if (overlay.classList.contains('open')) {
+              closeOverlay();
+            } else {
+              openOverlay();
+            }
+          });
+
+          // Open on hover (desktop/tablet with a mouse/trackpad)
+          var supportsHover =
+            window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+          if (supportsHover) {
+            btn.addEventListener('mouseenter', function () {
+              hoveringNav = true;
+              if (closeTimer) window.clearTimeout(closeTimer);
+              openOverlay();
+            });
+            btn.addEventListener('mouseleave', function () {
+              hoveringNav = false;
+              scheduleClose();
+            });
+          }
+        });
+
+        overlay.addEventListener('mouseenter', function () {
+          hoveringOverlay = true;
+          if (closeTimer) window.clearTimeout(closeTimer);
+        });
+        overlay.addEventListener('mouseleave', function () {
+          hoveringOverlay = false;
+          scheduleClose();
+        });
+
+        if (closeBtn) closeBtn.addEventListener('click', closeOverlay);
+        if (backBtn) backBtn.addEventListener('click', closeOverlay);
+
+        overlay.addEventListener('click', function (e) {
+          if (e.target === overlay) closeOverlay();
+        });
+
+        window.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') closeOverlay();
+        });
+
+        itemButtons.forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var target = btn.getAttribute('data-services-target');
+            closeOverlay();
+            if (!target) return;
+            if (target.indexOf('.html') !== -1) {
+              window.location.href = target;
+            } else if (target.charAt(0) === '#') {
+              window.location.hash = target;
+            } else {
+              window.location.href = target;
+            }
+          });
+        });
+      })();
+    </script>
+    <script>
+      (function () {
+        var sections = document.querySelectorAll('main > section');
+        if (!sections || sections.length === 0) return;
+
+        var observer = new IntersectionObserver(
+          function (entries, obs) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('inView');
+                obs.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.18, rootMargin: '0px 0px -12% 0px' }
+        );
+
+        sections.forEach(function (s) {
+          observer.observe(s);
+        });
+      })();
+    </script>
+    <script>
+      (function () {
+        var pre = document.getElementById('headerPreNav');
+        var bar = document.getElementById('siteHeaderBar');
+        if (!pre || !bar) return;
+
+        var fadeRange = 480;
+        var ticking = false;
+
+        function updateHeaderMotion() {
+          ticking = false;
+          var y = window.scrollY || document.documentElement.scrollTop || 0;
+          var p = Math.min(Math.max(y / fadeRange, 0), 1);
+          pre.style.setProperty('--pre-hide', String(p));
+          pre.classList.toggle('is-collapsed', p > 0.9);
+          bar.classList.toggle('is-stuck', y > 10);
+        }
+
+        function onScroll() {
+          if (!ticking) {
+            ticking = true;
+            requestAnimationFrame(updateHeaderMotion);
+          }
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', updateHeaderMotion);
+        updateHeaderMotion();
+      })();
+    </script>
+    <script>
+      (function () {
+        var el = document.querySelector('#about .workflowVisual');
+        if (!el) return;
+
+        function allowTapToggle() {
+          return window.matchMedia('(hover: none)').matches || window.innerWidth <= 768;
+        }
+
+        function syncAria() {
+          var on = el.classList.contains('is-alt');
+          el.setAttribute('aria-pressed', on ? 'true' : 'false');
+        }
+
+        el.addEventListener('click', function () {
+          if (!allowTapToggle()) return;
+          el.classList.toggle('is-alt');
+          syncAria();
+        });
+
+        el.addEventListener('keydown', function (e) {
+          if (!allowTapToggle()) return;
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            el.classList.toggle('is-alt');
+            syncAria();
+          }
+        });
+
+        window.addEventListener('resize', function () {
+          if (!allowTapToggle() && el.classList.contains('is-alt')) {
+            el.classList.remove('is-alt');
+            syncAria();
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1161 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>About | Brand&eacute; Legacy Design</title>
+    <link rel="icon" type="image/png" href="https://raw.githubusercontent.com/KeralPatel3095/Brande_Images/9cf67e094aeaa130865a33879009bbd9b97c3873/Brand%C3%A9.png">
+    <link rel="stylesheet" href="includes/site-layout.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Inter:wght@300;400;500;600&family=Poppins:wght@400;500;600&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap");
+
+      :root{
+        --main:#D6E3CE;
+        --bg:#D6E3CE;
+        --text:#636466;
+        --muted:#636466;
+        --border:#C7D7BE;
+        --surface:#EFEEEE;
+        --cream:#EFEEEE;
+        --cream2:#F7F7F7;
+        --accent:#636466;
+        --accentText:#ffffff;
+        --radius:14px;
+        --shadow:0 10px 30px rgba(0,0,0,.06);
+        --container:1120px;
+        --font-sans:"Inter", "Poppins", "DM Sans", "Helvetica Neue", Helvetica, Arial, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+      }
+
+      *{box-sizing:border-box}
+      /* Do not set overflow-x:hidden on html/body — it breaks sticky header nav (see includes/site-layout.css) */
+      html{scroll-behavior:smooth}
+      body{
+        margin:0;
+        font-family:var(--font-sans);
+        font-size:17px;
+        color:var(--text);
+        line-height:1.5;
+        font-weight:400;
+        background:linear-gradient(180deg, #D6E3CE 0%, #EFEEEE 55%, #ffffff 100%);
+      }
+      a{color:inherit; text-decoration:none}
+      .container{max-width:var(--container); margin:0 auto; padding:0 20px}
+
+      main{padding:0}
+      section{padding:88px 0}
+      main > section{
+        width:100%;
+        position:relative;
+      }
+      main > section > .container{
+        height:auto;
+        display:block;
+        transform:translateY(0);
+        filter:none;
+      }
+
+      /* Same reveal transitions used on index */
+      main > section h1,
+      main > section .sectionTitle,
+      main > section .kicker,
+      main > section .philosophyCard h3,
+      main > section .processCard h3,
+      main > section .resultValue{
+        opacity:0;
+        transform:translateY(28px);
+        transition:
+          opacity 1.05s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+          transform 1.05s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      main > section.inView h1,
+      main > section.inView .sectionTitle,
+      main > section.inView .kicker,
+      main > section.inView .philosophyCard h3,
+      main > section.inView .processCard h3,
+      main > section.inView .resultValue{
+        opacity:1;
+        transform:translateY(0);
+      }
+      main > section .sectionLead,
+      main > section .introBody p,
+      main > section .philosophyCard p,
+      main > section .toolsLead,
+      main > section .toolsList li,
+      main > section .servicePill,
+      main > section .processCard p,
+      main > section .resultLabel{
+        opacity:0;
+        transform:translateY(24px);
+        transition:
+          opacity 1.05s cubic-bezier(0.25, 0.46, 0.45, 0.94) .16s,
+          transform 1.05s cubic-bezier(0.25, 0.46, 0.45, 0.94) .16s;
+      }
+      main > section.inView .sectionLead,
+      main > section.inView .introBody p,
+      main > section.inView .philosophyCard p,
+      main > section.inView .toolsLead,
+      main > section.inView .toolsList li,
+      main > section.inView .servicePill,
+      main > section.inView .processCard p,
+      main > section.inView .resultLabel{
+        opacity:1;
+        transform:translateY(0);
+      }
+      main > section .mediaCard{
+        opacity:0;
+        transform:translateY(30px) scale(.985);
+        transition:
+          opacity 1.05s cubic-bezier(0.25, 0.46, 0.45, 0.94) .12s,
+          transform 1.05s cubic-bezier(0.25, 0.46, 0.45, 0.94) .12s;
+      }
+      main > section.inView .mediaCard{
+        opacity:1;
+        transform:translateY(0) scale(1);
+      }
+
+      @media (prefers-reduced-motion: reduce){
+        main > section *{
+          transition:none !important;
+          animation:none !important;
+          transform:none !important;
+          opacity:1 !important;
+          filter:none !important;
+        }
+      }
+      .fullScreenSection{
+        min-height:100svh;
+        display:flex;
+        align-items:center;
+      }
+      .kicker{
+        margin:0 0 14px;
+        text-align:center;
+        letter-spacing:.14em;
+        font-weight:900;
+        font-size:12px;
+        text-transform:none;
+        color: #a9be9f;
+      }
+      .sectionTitle{
+        margin:0 auto 18px;
+        text-align:center;
+        max-width:24ch;
+        font-size:44px;
+        line-height:1.1;
+        letter-spacing:-.02em;
+        color:#636466;
+        font-weight:600;
+        text-transform:lowercase;
+      }
+      h1, h2, h3{
+        text-transform:lowercase;
+      }
+      .sectionLead{
+        margin:0 auto;
+        max-width:72ch;
+        text-align:center;
+        font-size:17px;
+        line-height:1.7;
+        color:#636466;
+      }
+      .ctaRow{
+        margin-top:26px;
+        display:flex;
+        gap:12px;
+        flex-wrap:wrap;
+      }
+      .ctaBtn{
+        display:inline-flex;
+        align-items:center;
+        justify-content:center;
+        border-radius:999px;
+        padding:12px 18px;
+        font-size:15px;
+        font-weight:600;
+        line-height:1;
+        letter-spacing:.01em;
+        border:1px solid transparent;
+        transition:transform .22s ease, background-color .22s ease, border-color .22s ease, color .22s ease;
+      }
+      .ctaBtnPrimary{
+        background:var(--accent);
+        color:var(--accentText);
+      }
+      .ctaBtnSecondary{
+        background:transparent;
+        border-color:#D6E3CE;
+        color:#9b9a80;
+      }
+      .ctaBtn:hover{
+        transform:translateY(-1px);
+      }
+      .ctaBtnPrimary:hover{
+        background:#9b9a80;
+      }
+      .ctaBtnSecondary:hover{
+        background:#dbe7d4;
+      }
+      .splitLayout{
+        display:grid;
+        grid-template-columns:1.05fr .95fr;
+        gap:24px;
+        align-items:center;
+      }
+      .splitLayout.reverse{
+        grid-template-columns:.95fr 1.05fr;
+      }
+      .splitText{
+        background:rgba(255,255,255,.72);
+        border:1px solid #dbe7d4;
+        border-radius:18px;
+        padding:clamp(22px,3vw,36px);
+      }
+      .splitText .kicker,
+      .splitText .sectionTitle,
+      .splitText .sectionLead{
+        text-align:left;
+        margin-left:0;
+        margin-right:0;
+      }
+      .splitText .sectionTitle{
+        max-width:18ch;
+      }
+      .splitText .sectionLead{
+        max-width:62ch;
+      }
+      .mediaCard{
+        border-radius:18px;
+        overflow:hidden;
+        border:1px solid #dbe7d4;
+        box-shadow:0 14px 34px rgba(53,77,55,.14);
+        min-height:clamp(320px,58vh,620px);
+        background:#fff;
+        transition:transform .45s ease, box-shadow .45s ease;
+      }
+      .mediaCard:hover{
+        transform:translateY(-4px);
+        box-shadow:0 18px 34px rgba(59,58,50,.12);
+      }
+      .mediaCard img{
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        display:block;
+      }
+
+      .introSection{
+        background:var(--main);
+        border-top:1px solid var(--border);
+        border-bottom:1px solid var(--border);
+      }
+      .introSection.fullScreenSection{
+        min-height:100svh;
+        padding:32px;
+      }
+      .introSection > .container{
+        max-width:100%;
+        padding:0;
+        height:100%;
+      }
+      .aboutWorkflowInner{
+        display:grid;
+        grid-template-columns:1.2fr 1fr;
+        gap:0;
+        align-items:stretch;
+        min-height:100svh;
+        height:100%;
+        background:var(--main);
+      }
+      .aboutWorkflowVisual{
+        min-height:460px;
+        position:relative;
+        overflow:hidden;
+      }
+      .aboutWorkflowVisual .workflowImg{
+        position:absolute;
+        inset:0;
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        display:block;
+        transition:opacity .6s ease-out, transform .6s ease-out;
+      }
+      .aboutWorkflowVisual .workflowImgDefault{
+        opacity:1;
+        transform:scale(1);
+      }
+      .aboutWorkflowVisual .workflowImgHover{
+        opacity:0;
+        transform:scale(1.04);
+      }
+      .aboutWorkflowVisual:hover .workflowImgDefault{
+        opacity:0;
+        transform:scale(1.05);
+      }
+      .aboutWorkflowVisual:hover .workflowImgHover{
+        opacity:1;
+        transform:scale(1);
+      }
+      .aboutWorkflowText{
+        padding:64px 56px;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+      }
+      .aboutWorkflowText .kicker{
+        text-align:left;
+        margin-bottom:12px;
+      }
+      .aboutWorkflowText .sectionTitle{
+        text-align:left;
+        margin:0 0 18px;
+        max-width:16ch;
+        text-transform:lowercase;
+      }
+      .aboutWorkflowText .introBody{
+        margin:0;
+        max-width:66ch;
+        gap:14px;
+      }
+      .aboutWorkflowText .introBody p{
+        text-align:left;
+      }
+      .introBody{
+        margin:28px auto 0;
+        max-width:78ch;
+        display:grid;
+        gap:16px;
+      }
+      .introBody p{
+        margin:0;
+        text-align:center;
+        color:#636466;
+        line-height:1.75;
+      }
+      .preIntroNote{
+        background:#f4f4f4;
+        min-height:100svh;
+        display:flex;
+        align-items:center;
+      }
+      .preIntroWrap{
+        max-width:78ch;
+        margin:0 auto;
+        text-align:center;
+      }
+      .preIntroWrap .kicker{
+        margin-bottom:14px;
+      }
+      .preIntroWrap .sectionTitle{
+        margin:0 auto 14px;
+        max-width:18ch;
+        text-align:center;
+      }
+      .preIntroWrap .sectionLead{
+        margin:0 auto;
+        max-width:56ch;
+        text-align:center;
+      }
+      .preIntroWrap .ctaRow{
+        justify-content:center;
+        margin-top:20px;
+      }
+
+      .philosophySection{
+        background:linear-gradient(180deg, #fbfbf8, #f4f4ef);
+        border-top:1px solid #ecece8;
+        border-bottom:1px solid #ecece8;
+        min-height:100svh;
+        display:flex;
+        align-items:center;
+      }
+      .philosophyLayout{
+        display:grid;
+        grid-template-columns:.92fr 1.08fr;
+        gap:clamp(26px,3vw,42px);
+        align-items:stretch;
+      }
+      .philosophyIntro{
+        background:transparent;
+        border:none;
+        border-radius:0;
+        padding:0;
+        box-shadow:none;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+      }
+      .philosophyIntro .kicker,
+      .philosophyIntro .sectionTitle,
+      .philosophyIntro .sectionLead{
+        text-align:left;
+        margin-left:0;
+        margin-right:0;
+      }
+      .philosophyIntro .sectionTitle{
+        max-width:14ch;
+        margin-bottom:14px;
+      }
+      .philosophyIntro .sectionLead{
+        max-width:44ch;
+      }
+      .philosophyGrid{
+        display:grid;
+        grid-template-columns:1fr;
+        gap:22px;
+      }
+      .philosophyCard{
+        background:transparent;
+        border:none;
+        border-radius:0;
+        padding:0 0 0 22px;
+        box-shadow:none;
+        transition:transform .22s ease;
+        position:relative;
+        overflow:hidden;
+      }
+      .philosophyCard::before{
+        content:"";
+        position:absolute;
+        left:0;
+        top:0;
+        bottom:0;
+        width:2px;
+        background:#bdbba6;
+      }
+      .philosophyCard:hover{
+        transform:translateY(-1px);
+      }
+      .philosophyCard h3{
+        margin:0 0 12px;
+        font-size:clamp(26px,2.5vw,34px);
+        line-height:1.2;
+        color:#636466;
+        font-weight:600;
+        letter-spacing:-.01em;
+      }
+      .philosophyCard p{
+        margin:0;
+        color:#636466;
+        font-size:17px;
+        line-height:1.72;
+      }
+
+      .toolsSection{
+        background:#ffffff;
+        border-top:1px solid var(--border);
+        border-bottom:1px solid var(--border);
+        min-height:100svh;
+        display:flex;
+        align-items:center;
+      }
+      .toolsLayout{
+        display:grid;
+        grid-template-columns:1.1fr .9fr;
+        gap:clamp(24px,3vw,42px);
+        align-items:center;
+      }
+      .toolsIntro{
+        border-right:2px solid #bdbba6;
+        padding-right:18px;
+      }
+      .toolsIntro .kicker,
+      .toolsIntro .sectionTitle,
+      .toolsIntro .toolsLead{
+        text-align:right;
+        margin-left:0;
+        margin-right:0;
+      }
+      .toolsIntro .sectionTitle{
+        max-width:14ch;
+        margin-bottom:12px;
+      }
+      .toolsLead{
+        margin:0;
+        max-width:44ch;
+        color:#636466;
+        line-height:1.7;
+      }
+      .toolsList{
+        list-style:none;
+        margin:0;
+        padding:0;
+        display:grid;
+        grid-template-columns:1fr;
+        gap:14px;
+      }
+      .toolsList li{
+        background:transparent;
+        border:none;
+        border-bottom:1px solid rgba(110,108,94,.28);
+        border-radius:0;
+        padding:0 0 10px;
+        font-size:17px;
+        font-weight:500;
+        color:#636466;
+        display:block;
+      }
+      .toolRow{
+        display:flex;
+        align-items:center;
+        justify-content:flex-start;
+        gap:12px;
+      }
+      .toolRow::before{
+        content:"";
+        display:inline-block;
+        width:8px;
+        height:8px;
+        border-radius:999px;
+        background:var(--main);
+        flex-shrink:0;
+      }
+      .toolsList li span{
+        display:inline-flex;
+        align-items:center;
+        width:100%;
+      }
+      .toolDesc{
+        margin:6px 0 0 20px;
+        font-size:13px;
+        line-height:1.4;
+        color:#636466;
+        max-height:0;
+        opacity:0;
+        overflow:hidden;
+        transition:max-height .26s ease, opacity .26s ease;
+      }
+      .toolsList li:hover .toolDesc{
+        max-height:40px;
+        opacity:1;
+      }
+      .toolsSubGrid{
+        margin-top:18px;
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        gap:10px 16px;
+      }
+      .toolsSubItem{
+        border-top:1px solid rgba(110,108,94,.22);
+        padding-top:8px;
+      }
+      .toolsSubItem h4{
+        margin:0 0 4px;
+        font-size:12px;
+        letter-spacing:.08em;
+        text-transform:none;
+        color:#636466;
+        font-weight:600;
+      }
+      .toolsSubItem p{
+        margin:0;
+        font-size:14px;
+        line-height:1.45;
+        color:#636466;
+      }
+
+      .servicesSection{
+        background:#D6E3CE;
+        border-top:1px solid #ecece8;
+        border-bottom:1px solid #ecece8;
+        min-height:100svh;
+        display:flex;
+        align-items:center;
+        padding:clamp(18px, 2.6vw, 32px);
+      }
+      .servicesSection > .container{
+        width:100%;
+        max-width:100%;
+        padding:0;
+      }
+      .servicesLayout{
+        display:grid;
+        grid-template-columns:1fr;
+        gap:0;
+      }
+      .servicesIntro{
+        border-left:none;
+        border-top:none;
+        padding:0;
+      }
+      .servicesGrid{
+        display:grid;
+        grid-template-columns:1fr;
+        gap:0;
+      }
+      .serviceSplit{
+        --service-gap: 0px;
+        display:grid;
+        grid-template-columns:50% 50%;
+        gap:var(--service-gap);
+        width:100%;
+        min-height:100svh;
+        background:var(--main);
+      }
+      .serviceSplit.reverse .servicesPanel{
+        order:1;
+      }
+      .serviceSplit.reverse .serviceVisual{
+        order:2;
+        margin-top:0;
+        margin-left:0;
+        width:100%;
+      }
+      .servicesPanel{
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        height:100%;
+        padding:64px clamp(30px, 4vw, 56px);
+        align-items:flex-end;
+      }
+      .serviceVisual{
+        position:relative;
+        width:100%;
+        min-height:100svh;
+        border-radius:0;
+        overflow:hidden;
+        border:none;
+        margin-left:0;
+      }
+      .serviceSplit .servicesIntro,
+      .serviceSplit .servicesGrid{
+        width:min(640px, 100%);
+        margin-left:auto;
+      }
+      .serviceSplit .servicesIntro .kicker{
+        text-align:left;
+        margin:0 0 12px;
+      }
+      .serviceSplit .servicesIntro .sectionTitle{
+        text-align:left;
+        margin:0 0 16px;
+        max-width:16ch;
+      }
+      .serviceSplit .servicesIntro .sectionLead{
+        text-align:left;
+        margin:0;
+        max-width:62ch;
+      }
+      .serviceVisual .serviceImg{
+        position:absolute;
+        inset:0;
+        width:100%;
+        height:100%;
+        display:block;
+        object-fit:cover;
+        object-position:left center;
+        transition:opacity .6s ease-out, transform .6s ease-out;
+      }
+      .serviceVisual .serviceImgDefault{
+        opacity:1;
+        transform:scale(1);
+      }
+      .serviceVisual .serviceImgHover{
+        opacity:0;
+        transform:scale(1.04);
+      }
+      .serviceSplit:first-child .serviceVisual .serviceImg{
+        object-position:14% center;
+      }
+      .serviceVisual:hover .serviceImgDefault{
+        opacity:0;
+        transform:scale(1.05);
+      }
+      .serviceVisual:hover .serviceImgHover{
+        opacity:1;
+        transform:scale(1);
+      }
+      .serviceOverview{
+        background:transparent;
+        border:none;
+        border-radius:0;
+        padding:8px 0 12px;
+        border-bottom:1px solid rgba(91,101,86,.2);
+      }
+      .serviceTitle{
+        margin:0 0 8px;
+        font-size:20px;
+        line-height:1.24;
+        color:#636466;
+        font-weight:600;
+      }
+      .serviceBrief{
+        margin:0;
+        color:#636466;
+        font-size:15px;
+        line-height:1.55;
+      }
+
+      .processSection{
+        background:linear-gradient(180deg, #f5f3ea, #ece9dc);
+        border-top:1px solid var(--border);
+        border-bottom:1px solid var(--border);
+      }
+      .processLayout{
+        display:grid;
+        grid-template-columns:.95fr 1.05fr;
+        gap:20px;
+        align-items:stretch;
+        margin-top:24px;
+      }
+      .processGrid{
+        display:grid;
+        grid-template-columns:1fr;
+        gap:14px;
+      }
+      .processCard{
+        background:#fff;
+        border:1px solid var(--border);
+        border-radius:14px;
+        padding:18px 16px;
+      }
+      .processStep{
+        display:inline-flex;
+        width:28px;
+        height:28px;
+        align-items:center;
+        justify-content:center;
+        border-radius:999px;
+        background:var(--main);
+        color:#636466;
+        font-size:14px;
+        font-weight:700;
+        margin-bottom:10px;
+      }
+      .processCard h3{
+        margin:0 0 8px;
+        font-size:22px;
+        line-height:1.2;
+        font-weight:600;
+        color:#636466;
+      }
+      .processCard p{
+        margin:0;
+        color:#636466;
+        line-height:1.6;
+        font-size:16px;
+      }
+
+      .resultsSection{
+        background:#D6E3CE;
+        border-top:1px solid #ecece8;
+        border-bottom:1px solid #ecece8;
+        min-height:100svh;
+        display:flex;
+        align-items:center;
+      }
+      .resultsLayout{
+        display:grid;
+        grid-template-columns:1fr;
+        gap:clamp(26px, 4vw, 44px);
+        align-items:center;
+      }
+      .resultsIntro{
+        text-align:center;
+        max-width:72ch;
+        margin:0 auto;
+        color:#636466;
+      }
+      .resultsIntro .sectionTitle{
+        margin:0 auto 12px;
+        max-width:18ch;
+      }
+      .resultsIntro .sectionLead{
+        max-width:62ch;
+        margin:0 auto;
+      }
+      .resultsGrid{
+        display:grid;
+        grid-template-columns:repeat(3, minmax(0, 1fr));
+        gap:clamp(12px, 2vw, 22px);
+      }
+      .resultItem{
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        gap:10px;
+        text-align:center;
+        padding:22px 10px 8px;
+        border-top:1px solid rgba(91,101,86,.26);
+      }
+      .resultValue{
+        margin:0;
+        font-size:clamp(34px, 5vw, 54px);
+        line-height:1.05;
+        font-weight:600;
+        color:#636466;
+        letter-spacing:-.02em;
+      }
+      .resultLabel{
+        margin:0;
+        font-size:15px;
+        color:#636466;
+        max-width:26ch;
+      }
+
+      @media (max-width: 980px){
+        .fullScreenSection{min-height:auto}
+        .splitLayout,
+        .splitLayout.reverse,
+        .processLayout{grid-template-columns:1fr}
+        .introSection.fullScreenSection{padding:52px 20px}
+        .aboutWorkflowInner{grid-template-columns:1fr; min-height:auto}
+        .aboutWorkflowVisual{min-height:340px}
+        .aboutWorkflowText{padding:40px 24px}
+        .aboutWorkflowText .kicker,
+        .aboutWorkflowText .sectionTitle,
+        .aboutWorkflowText .introBody p{
+          text-align:center;
+        }
+        .aboutWorkflowText .sectionTitle{
+          max-width:20ch;
+          margin:0 auto 16px;
+        }
+        .aboutWorkflowText .introBody{
+          margin:0 auto;
+        }
+        .splitText .kicker,
+        .splitText .sectionTitle,
+        .splitText .sectionLead{
+          text-align:center;
+          margin-left:auto;
+          margin-right:auto;
+        }
+        .splitText .sectionTitle{max-width:22ch}
+        .splitText .sectionLead{max-width:72ch}
+        .philosophySection{
+          min-height:auto;
+          display:block;
+        }
+        .philosophyLayout{grid-template-columns:1fr}
+        .philosophyIntro .kicker,
+        .philosophyIntro .sectionTitle,
+        .philosophyIntro .sectionLead{
+          text-align:center;
+          margin-left:auto;
+          margin-right:auto;
+        }
+        .philosophyIntro .sectionTitle{max-width:20ch}
+        .philosophyIntro .sectionLead{max-width:72ch}
+        .toolsSection{
+          min-height:auto;
+          display:block;
+        }
+        .toolsLayout{
+          grid-template-columns:1fr;
+        }
+        .toolsIntro{
+          border-right:none;
+          border-top:2px solid #bdbba6;
+          padding-right:0;
+          padding-top:14px;
+        }
+        .toolsIntro .kicker,
+        .toolsIntro .sectionTitle,
+        .toolsIntro .toolsLead{
+          text-align:center;
+          margin-left:auto;
+          margin-right:auto;
+        }
+        .toolsIntro .sectionTitle{max-width:20ch}
+        .toolsIntro .toolsLead{max-width:72ch}
+        .servicesLayout{grid-template-columns:1fr}
+        .serviceSplit{grid-template-columns:1fr}
+        .servicesPanel{
+          padding:40px 24px;
+          align-items:stretch;
+        }
+        .serviceVisual{
+          min-height:clamp(320px, 52svh, 520px);
+        }
+        .serviceSplit .servicesIntro,
+        .serviceSplit .servicesGrid{
+          width:100%;
+          margin-left:0;
+        }
+        .serviceSplit .servicesIntro .kicker,
+        .serviceSplit .servicesIntro .sectionTitle,
+        .serviceSplit .servicesIntro .sectionLead{
+          text-align:center;
+          margin-left:auto;
+          margin-right:auto;
+        }
+        .serviceSplit .servicesIntro .sectionTitle{max-width:20ch}
+        .serviceSplit .servicesIntro .sectionLead{max-width:72ch}
+        .servicesSection{
+          min-height:100svh;
+          display:flex;
+          align-items:center;
+        }
+        .resultsLayout{grid-template-columns:1fr}
+        .resultsIntro .kicker,
+        .resultsIntro .sectionTitle,
+        .resultsIntro .sectionLead{
+          text-align:center;
+          margin-left:auto;
+          margin-right:auto;
+        }
+        .resultsIntro .sectionTitle{max-width:20ch}
+        .resultsIntro .sectionLead{max-width:72ch}
+        .resultsSection{
+          min-height:100svh;
+          display:flex;
+          align-items:center;
+        }
+        .resultsGrid{grid-template-columns:repeat(2, minmax(0, 1fr))}
+      }
+      @media (max-width: 620px){
+        .container{padding:0 14px}
+        section{padding:64px 0}
+        .introSection.fullScreenSection{padding:52px 14px}
+        .philosophyCard{
+          padding-left:16px;
+        }
+        .sectionTitle{font-size:34px}
+        .sectionLead, .introBody p{font-size:16px}
+        .ctaRow{justify-content:center}
+        .toolsList li{
+          font-size:16px;
+          padding-bottom:10px;
+        }
+        .toolDesc{
+          max-height:40px;
+          opacity:1;
+          margin-left:20px;
+        }
+        .toolsSubGrid{
+          grid-template-columns:1fr;
+        }
+        .serviceVisual{min-height:300px}
+        .resultsGrid{grid-template-columns:1fr}
+        .resultItem{padding-top:16px}
+      }
+    </style>
+  </head>
+  <body>
+    <div id="layout-header"></div>
+    <!--about-intro-->
+    <main>
+      <section class="preIntroNote" aria-label="Closing note">
+        <div class="container">
+          <div class="preIntroWrap">
+            <p class="kicker">A Different Perspective</p>
+            <h2 class="sectionTitle">Built to elevate your digital presence</h2>
+            <p class="sectionLead">At Brand&eacute; Legacy Design, we combine strategy and creative execution to help businesses build meaningful, lasting digital growth.</p>
+            <div class="ctaRow">
+              <!-- <a class="ctaBtn ctaBtnPrimary" href="./index.html#final-cta">Shop Now</a> -->
+              <a class="ctaBtn ctaBtnSecondary" style="background-color:#a9be9f; color: #9b9a80;" href="portfolio.html">View Work</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
+      <section class="introSection fullScreenSection" aria-label="Introduction">
+        <div class="container">
+          <div class="aboutWorkflowInner">
+            <div class="aboutWorkflowVisual" aria-hidden="true">
+              <img class="workflowImg workflowImgDefault" src="https://i.pinimg.com/1200x/1a/29/e0/1a29e00eca8db2a8226c1c51a42f6f8a.jpg" alt="" loading="lazy" />
+              <img class="workflowImg workflowImgHover" src="https://images.unsplash.com/photo-1581091215367-59ab6dcef473?w=1200&h=1200&fit=crop" alt="" loading="lazy" />
+            </div>
+            <div class="aboutWorkflowText">
+              <p class="kicker">Introduction</p>
+              <h2 class="sectionTitle">About Brand&eacute; Legacy Design</h2>
+              <div class="introBody">
+                <p>Brand&eacute; Legacy Design is a social media management and creative design studio dedicated to helping businesses grow through thoughtful strategy and compelling visuals.</p>
+                <p>Our expertise lies in combining social media management, email marketing, and creative design to create cohesive brand experiences that resonate with audiences.</p>
+                <p>We believe effective marketing is built on three pillars: clarity, consistency, and creativity.</p>
+              </div>
+              <div class="ctaRow">
+                <a class="ctaBtn ctaBtnPrimary" href="./index.html#portfolio">Learn More</a>
+                <a class="ctaBtn ctaBtnSecondary" href="./index.html#final-cta">Start Inquiry</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- our philosophy -->
+      <section class="philosophySection fullScreenSection" aria-label="Our philosophy">
+        <div class="container">
+          <div class="philosophyLayout">
+            <article class="philosophyIntro">
+              <p class="kicker">Our Philosophy</p>
+              <h2 class="sectionTitle">Principles that shape every decision</h2>
+              <p class="sectionLead">A refined framework that keeps strategy clear, execution intentional, and outcomes measurable.</p>
+
+            </article>
+            <div class="philosophyGrid">
+              <article class="philosophyCard">
+                <h3>Strategy First</h3>
+                <p>Successful marketing begins with a clear understanding of your audience, brand positioning, and communication goals.</p>
+              </article>
+              <article class="philosophyCard">
+                <h3>Creative Excellence</h3>
+                <p>Strong design and visual storytelling allow brands to capture attention and leave a lasting impression.</p>
+              </article>
+              <article class="philosophyCard">
+                <h3>Measurable Growth</h3>
+                <p>Every campaign is developed with a focus on delivering measurable engagement and business growth.</p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- tools and platforms -->
+      <section class="toolsSection fullScreenSection" aria-label="Tools and platforms">
+        <div class="container">
+          <div class="toolsLayout">
+            <ul class="toolsList">
+              <li>
+                <div class="toolRow"><span>Canva</span></div>
+                <p class="toolDesc">Fast visual content production for social campaigns.</p>
+              </li>
+              <li>
+                <div class="toolRow"><span>Figma</span></div>
+                <p class="toolDesc">Structured design systems and collaborative brand assets.</p>
+              </li>
+              <li>
+                <div class="toolRow"><span>Mailchimp</span></div>
+                <p class="toolDesc">Targeted email campaigns with segmentation and automation.</p>
+              </li>
+              <li>
+                <div class="toolRow"><span>Hootsuite</span></div>
+                <p class="toolDesc">Content scheduling, publishing, and channel monitoring.</p>
+              </li>
+              <!-- <li>
+                <div class="toolRow"><span>Buffer</span></div>
+                <p class="toolDesc">Simple publishing queues and lightweight scheduling workflows.</p>
+              </li>
+              <li>
+                <div class="toolRow"><span>Klaviyo</span></div>
+                <p class="toolDesc">Advanced email segmentation and lifecycle campaign automation.</p>
+              </li>
+              <li>
+                <div class="toolRow"><span>Sprout Social</span></div>
+                <p class="toolDesc">Social performance tracking with reporting and team workflows.</p>
+              </li> -->
+              <li>
+                <div class="toolRow"><span>Notion Planning Systems</span></div>
+                <p class="toolDesc">Campaign planning, calendars, and content approvals.</p>
+              </li>
+              <li>
+                <div class="toolRow"><span>Analytics &amp; reporting platforms</span></div>
+                <p class="toolDesc">Weekly dashboards with actionable optimization insights.</p>
+              </li>
+            </ul>
+            <div class="toolsIntro">
+              <p class="kicker">Tools &amp; Platforms</p>
+              <h2 class="sectionTitle">The stack behind our creative system</h2>
+              <p class="toolsLead">We use industry-standard platforms to keep design quality high, execution consistent, and reporting clear.</p>
+              <p class="toolsLead" style="margin-top:10px;">From concept to publishing and performance analysis, every workflow is built to keep your brand identity cohesive and measurable.</p>
+              <!-- <p class="toolsLead" style="margin-top:10px;">Each platform is selected based on your growth stage and business goals, so creative output, campaign delivery, and performance insights stay connected in one streamlined workflow.</p> -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- service focus -->
+      <section class="servicesSection" aria-label="Service focus">
+        <div class="container">
+          <div class="servicesLayout">
+            <div class="serviceSplit">
+              <figure class="serviceVisual" aria-label="Creative direction workspace">
+                <img class="serviceImg serviceImgDefault" src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1400&h=1900&fit=crop" alt="Brand strategy planning boards and visual references" loading="lazy" />
+                <img class="serviceImg serviceImgHover" src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=1400&h=1900&fit=crop" alt="Team collaborating on digital campaign planning" loading="lazy" />
+              </figure>
+              <div class="servicesPanel">
+                <div class="servicesIntro">
+                  <p class="kicker">Core Service Focus</p>
+                  <h2 class="sectionTitle">Service overview</h2>
+                  <p class="sectionLead">A concise look at our core services. Complete deliverables and execution scope are detailed on the Services page.</p>
+                </div>
+                <div class="servicesGrid">
+                  <article class="serviceOverview">
+                    <h3 class="serviceTitle">Social Media Management</h3>
+                    <p class="serviceBrief">Planning, posting, and optimization across your active channels.</p>
+                  </article>
+                  <article class="serviceOverview">
+                    <h3 class="serviceTitle">Email Marketing Campaigns</h3>
+                    <p class="serviceBrief">Targeted campaign design, copy, and audience-focused delivery.</p>
+                  </article>
+                  <article class="serviceOverview">
+                    <h3 class="serviceTitle">Creative Design Systems</h3>
+                    <p class="serviceBrief">Visual templates and brand assets for consistent communication.</p>
+                  </article>
+                </div>
+              </div>
+            </div>
+            <div class="serviceSplit reverse">
+              <div class="servicesPanel">
+                <div class="servicesGrid">
+                  <article class="serviceOverview">
+                    <h3 class="serviceTitle">Brand Messaging &amp; Positioning</h3>
+                    <p class="serviceBrief">Clear value-driven messaging aligned with your ideal audience.</p>
+                  </article>
+                  <article class="serviceOverview">
+                    <h3 class="serviceTitle">Content Direction &amp; Planning</h3>
+                    <p class="serviceBrief">Structured content calendars tied to campaigns and goals.</p>
+                  </article>
+                  <article class="serviceOverview">
+                    <h3 class="serviceTitle">Performance Optimization</h3>
+                    <p class="serviceBrief">Ongoing analysis and refinements for stronger campaign outcomes.</p>
+                  </article>
+                </div>
+              </div>
+              <figure class="serviceVisual" aria-label="Campaign production workflow">
+                <img class="serviceImg serviceImgDefault" src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1400&h=1900&fit=crop" alt="Creative team reviewing campaign performance and planning content" loading="lazy" />
+                <img class="serviceImg serviceImgHover" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1400&h=1900&fit=crop" alt="Performance analytics dashboard and content strategy review" loading="lazy" />
+              </figure>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- impact highlights -->
+      <section class="resultsSection fullScreenSection" aria-label="Impact highlights">
+        <div class="container">
+          <div class="resultsLayout">
+            <div class="resultsIntro">
+              <p class="kicker">Impact Highlights</p>
+              <h2 class="sectionTitle">Results that stay consistent</h2>
+              <p class="sectionLead">A snapshot of how we structure brand growth: aligned execution, consistent identity, and optimization grounded in performance data.</p>
+            </div>
+            <div class="resultsGrid">
+              <div class="resultItem">
+                <p class="resultValue">360&deg;</p>
+                <p class="resultLabel">Integrated brand management across social, email, and design touchpoints.</p>
+              </div>
+              <div class="resultItem">
+                <p class="resultValue">Consistent</p>
+                <p class="resultLabel">Unified visuals and messaging that strengthen brand recall over time.</p>
+              </div>
+              <div class="resultItem">
+                <p class="resultValue">Data-led</p>
+                <p class="resultLabel">Creative and campaign decisions continuously refined through reporting insights.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <div id="layout-footer"></div>
+    <script src="includes/load-includes.js"></script>
+    <script>
+      (function () {
+        var sections = document.querySelectorAll('main > section');
+        if (!sections.length) return;
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('inView');
+            }
+          });
+        }, { threshold: 0.18 });
+        sections.forEach(function (section) { observer.observe(section); });
+      })();
+    </script>
+  </body>
+</html>
