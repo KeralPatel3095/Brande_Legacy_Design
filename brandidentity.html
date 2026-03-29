@@ -50,11 +50,9 @@
       main > section h1,
       main > section .sectionTitle,
       main > section .kicker,
-      main > section .startingAt,
       main > section .pillarCard h3,
       main > section .industryCard h3,
-      main > section .tierName,
-      main > section .tierPrice{
+      main > section .tierName{
         opacity:0;
         transform:translateY(28px);
         transition:
@@ -85,11 +83,9 @@
       main > section.inView h1,
       main > section.inView .sectionTitle,
       main > section.inView .kicker,
-      main > section.inView .startingAt,
       main > section.inView .pillarCard h3,
       main > section.inView .industryCard h3,
       main > section.inView .tierName,
-      main > section.inView .tierPrice,
       main > section.inView .sectionLead,
       main > section.inView .pillarCard p,
       main > section.inView .industryCardReveal,
@@ -108,7 +104,8 @@
         font-size:12px;
         letter-spacing:.12em;
         font-weight:700;
-        color: #a9be9f;      }
+        color:var(--text);
+      }
       .sectionTitle{
         margin:0 0 16px;
         font-size:44px;
@@ -448,13 +445,14 @@
         margin:0 auto;
         max-width:48ch;
       }
-      .tiersHead .startingAt{
-        margin:6px 0 0;
-        font-size:14px;
-        letter-spacing:.08em;
-        font-weight:700;
-        text-transform:uppercase;
-        color:var(--text);
+      .tiersCta{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        flex-wrap:wrap;
+        gap:12px;
+        margin-top:clamp(12px,3vw,28px);
+        padding-top:clamp(4px,1.5vw,12px);
       }
       .tiersGrid{
         display:grid;
@@ -492,17 +490,6 @@
         font-size:22px;
         line-height:1.12;
         font-weight:600;
-      }
-      .tierPrice{
-        margin:0;
-        font-size:44px;
-        line-height:1.05;
-        font-weight:600;
-      }
-      .tierPrice .per{
-        font-size:clamp(18px,2.2vw,22px);
-        font-weight:600;
-        margin-left:.12em;
       }
       .tierDesc{
         margin:0;
@@ -715,8 +702,8 @@
             </div>
             <div class="pillarsGrid">
               <article class="pillarCard">
-                <h3>Flexible pricing</h3>
-                <p>Pay for what fits your brand size and goals—Starter, Growth, or Premium—without paying for assets you will not use.</p>
+                <h3>Scope-aligned plans</h3>
+                <p>Engagements are shaped to your brand size and goals—Starter, Growth, or Premium—so you invest in deliverables you will actually use.</p>
               </article>
               <article class="pillarCard">
                 <h3>High-impact assets</h3>
@@ -732,20 +719,18 @@
       </section>
 
       <!--tiers-section-->
-      <section class="tiers" aria-label="Service tiers and pricing">
+      <section class="tiers" aria-label="Service tiers">
         <div class="container">
           <div class="tiersLayout">
             <div class="tiersHead">
-              <p class="kicker">Service tiers &amp; pricing</p>
-              <p class="startingAt">Starting at</p>
+              <p class="kicker">Service tiers</p>
               <h2 class="sectionTitle">monthly design retainers by asset volume</h2>
-              <p class="sectionLead">Choose the tier that matches how many high-fidelity assets you need each month—static, motion, print-ready files, and presentation design included by scope.</p>
+              <p class="sectionLead">Choose the tier that matches how many high-fidelity assets you need each month—static, motion, print-ready files, and presentation design included by scope. <strong>Rates are not listed here</strong>; after we align on scope, you will receive a tailored quote.</p>
             </div>
             <div class="tiersGrid">
               <article class="tierCard">
                 <span class="tierTag">starter plan</span>
                 <h3 class="tierName">Starter</h3>
-                <p class="tierPrice">$500<span class="per">/mo</span></p>
                 <p class="tierDesc">Steady creative support for brands building a consistent look across channels.</p>
                 <ul class="tierList">
                   <li>5–8 design assets per month</li>
@@ -758,7 +743,6 @@
               <article class="tierCard">
                 <span class="tierTag">growth plan</span>
                 <h3 class="tierName">Growth</h3>
-                <p class="tierPrice">$900<span class="per">/mo</span></p>
                 <p class="tierDesc">More formats and motion for teams that live in both feed and boardroom.</p>
                 <ul class="tierList">
                   <li>10–12 design assets per month</li>
@@ -771,7 +755,6 @@
               <article class="tierCard">
                 <span class="tierTag">premium plan</span>
                 <h3 class="tierName">Premium</h3>
-                <p class="tierPrice">$1,500<span class="per">/mo</span></p>
                 <p class="tierDesc">Full brand-forward output: kits, reels, print suites, and investor-ready decks.</p>
                 <ul class="tierList">
                   <li>15–20+ design assets per month</li>
@@ -781,6 +764,9 @@
                   <li>Pitch decks &amp; professional presentations</li>
                 </ul>
               </article>
+            </div>
+            <div class="tiersCta">
+              <a class="btn btnPrimary" href="contact.html">Contact us for pricing</a>
             </div>
           </div>
         </div>
@@ -931,7 +917,7 @@
             </details>
             <details class="faqItem">
               <summary class="faqQ">How does pricing work?</summary>
-              <p class="faqA">Pricing is flexible and based on the volume and type of design work. Plans start at a base rate and are customized per brand.</p>
+              <p class="faqA">Investment depends on the volume and type of design work in your plan. After we clarify scope, you receive a clear proposal—no public rate card on this site.</p>
             </details>
             <details class="faqItem">
               <summary class="faqQ">Can I mix different types of design work?</summary>
@@ -956,9 +942,9 @@
           <div class="ctaBandInner">
             <p class="kicker">Ready when you are</p>
             <h2 class="sectionTitle">let’s align your brand across every asset</h2>
-            <p class="sectionLead">Book a call to choose a tier or mix industry-specific deliverables into your monthly plan.</p>
+            <p class="sectionLead">Reach out to discuss a tier or mix industry-specific deliverables into your monthly plan.</p>
             <div class="ctaRow">
-              <a class="btn btnPrimary" href="index.html#final-cta">book a project call</a>
+              <a class="btn btnPrimary" href="contact.html">Contact us for pricing</a>
               <a class="btn" href="index.html#value">view all services</a>
             </div>
           </div>

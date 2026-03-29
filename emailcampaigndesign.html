@@ -51,8 +51,7 @@
       main > section .sectionTitle,
       main > section .kicker,
       main > section .pillarCard h3,
-      main > section .tierName,
-      main > section .tierPrice{
+      main > section .tierName{
         opacity:0;
         transform:translateY(28px);
         transition:
@@ -83,7 +82,6 @@
       main > section.inView .kicker,
       main > section.inView .pillarCard h3,
       main > section.inView .tierName,
-      main > section.inView .tierPrice,
       main > section.inView .sectionLead,
       main > section.inView .pillarCard p,
       main > section.inView .tierDesc,
@@ -100,7 +98,7 @@
         font-size:12px;
         letter-spacing:.18em;
         font-weight:800;
-        color: #a9be9f;
+        color:var(--text);
       }
       .sectionTitle{
         font-family:var(--font-sans);
@@ -280,6 +278,15 @@
         margin:0 auto;
         max-width:46ch;
       }
+      .tiersCta{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        flex-wrap:wrap;
+        gap:12px;
+        margin-top:clamp(12px,3vw,28px);
+        padding-top:clamp(4px,1.5vw,12px);
+      }
       .tiersGrid{
         display:grid;
         grid-template-columns:repeat(3, minmax(0, 1fr));
@@ -315,12 +322,6 @@
         margin:0;
         font-size:22px;
         line-height:1.12;
-        font-weight:600;
-      }
-      .tierPrice{
-        margin:0;
-        font-size:44px;
-        line-height:1.05;
         font-weight:600;
       }
       .tierDesc{
@@ -547,19 +548,18 @@
       </section>
 
       <!--tiers-section-->
-      <section class="tiers" aria-label="Investment tiers">
+      <section class="tiers" aria-label="Email service tiers">
         <div class="container">
           <div class="tiersLayout">
             <div class="tiersHead">
               <p class="kicker">Email service tiers</p>
               <h2 class="sectionTitle">choose your email campaign package</h2>
-              <p class="sectionLead">Pick the level of email support that fits how you market today: a single campaign and template, steady monthly campaigns with automations, or full strategy with segmentation and reporting—all focused on list health and conversion.</p>
+              <p class="sectionLead">Pick the level of email support that fits how you market today: a single campaign and template, steady monthly campaigns with automations, or full strategy with segmentation and reporting—all focused on list health and conversion. <strong>Rates are not listed here</strong>; contact us for a quote after we align on scope.</p>
             </div>
             <div class="tiersGrid">
               <article class="tierCard">
                 <span class="tierTag">starter focus</span>
                 <h3 class="tierName">Starter</h3>
-                <p class="tierPrice">$300/month</p>
                 <p class="tierDesc">Perfect if you are just getting started with email marketing.</p>
                 <ul class="tierList">
                   <li>1 email campaign designed for your brand</li>
@@ -570,7 +570,6 @@
               <article class="tierCard">
                 <span class="tierTag">growth system</span>
                 <h3 class="tierName">Growth</h3>
-                <p class="tierPrice">$700/month</p>
                 <p class="tierDesc">Ideal for businesses that want consistent communication and lead nurturing.</p>
                 <ul class="tierList">
                   <li>4 email campaigns per month</li>
@@ -581,7 +580,6 @@
               <article class="tierCard">
                 <span class="tierTag">premium scale</span>
                 <h3 class="tierName">Premium</h3>
-                <p class="tierPrice">$1,200/month</p>
                 <p class="tierDesc">Best for brands ready to scale with a complete email strategy.</p>
                 <ul class="tierList">
                   <li>Full email marketing strategy tailored to your business</li>
@@ -589,6 +587,9 @@
                   <li>Monthly performance insights and growth tracking</li>
                 </ul>
               </article>
+            </div>
+            <div class="tiersCta">
+              <a class="btn btnPrimary" href="contact.html">Contact us for pricing</a>
             </div>
           </div>
         </div>
@@ -630,9 +631,9 @@
           <div class="ctaBandInner">
             <p class="kicker">Ready to send better email?</p>
             <h2 class="sectionTitle">let your next campaign earn the open</h2>
-            <p class="sectionLead">If you want email that matches your brand, lands in the inbox, and nudges people toward your offer—not spammy blasts or broken templates—let’s talk about Starter, Growth, or Premium.</p>
+            <p class="sectionLead">If you want email that matches your brand, lands in the inbox, and nudges people toward your offer—not spammy blasts or broken templates—let’s map the right tier together.</p>
             <div class="ctaRow">
-              <a class="btn btnPrimary" href="index.html#final-cta">book an email consult</a>
+              <a class="btn btnPrimary" href="contact.html">Contact us for pricing</a>
               <a class="btn" href="index.html#value">view all services</a>
             </div>
           </div>

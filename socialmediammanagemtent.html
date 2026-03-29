@@ -51,8 +51,7 @@
       main > section .sectionTitle,
       main > section .kicker,
       main > section .pillarCard h3,
-      main > section .tierName,
-      main > section .tierPrice{
+      main > section .tierName{
         opacity:0;
         transform:translateY(28px);
         transition:
@@ -84,7 +83,6 @@
       main > section.inView .kicker,
       main > section.inView .pillarCard h3,
       main > section.inView .tierName,
-      main > section.inView .tierPrice,
       main > section.inView .sectionLead,
       main > section.inView .pillarCard p,
       main > section.inView .pillarBulletList li,
@@ -102,7 +100,7 @@
         font-size:12px;
         letter-spacing:.12em;
         font-weight:700;
-        color: #a9be9f;
+        color:var(--text);
       }
       .sectionTitle{
         margin:0 0 16px;
@@ -309,6 +307,15 @@
         margin:0 auto;
         max-width:46ch;
       }
+      .tiersCta{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        flex-wrap:wrap;
+        gap:12px;
+        margin-top:clamp(12px,3vw,28px);
+        padding-top:clamp(4px,1.5vw,12px);
+      }
       .tiersGrid{
         display:grid;
         grid-template-columns:repeat(3, minmax(0, 1fr));
@@ -345,17 +352,6 @@
         font-size:22px;
         line-height:1.12;
         font-weight:600;
-      }
-      .tierPrice{
-        margin:0;
-        font-size:44px;
-        line-height:1.05;
-        font-weight:600;
-      }
-      .tierPrice .per{
-        font-size:clamp(18px,2.2vw,22px);
-        font-weight:600;
-        margin-left:.12em;
       }
       .tierDesc{
         margin:0;
@@ -535,7 +531,7 @@
             <h2 class="sectionTitle">more than posts and likes</h2>
             <p class="sectionLead">Social media is more than posts and likes—it’s a powerful tool to build awareness, engage your audience, and establish authority. Our Social Media Management services create consistent, high-quality content that elevates your brand, drives engagement, and keeps your audience connected.</p>
             <div class="ctaRow">
-              <a class="btn btnPrimary" href="index.html#final-cta">book a discovery call</a>
+              <a class="btn btnPrimary" href="contact.html">Contact us for pricing</a>
             </div>
           </div>
         </div>
@@ -614,13 +610,12 @@
             <div class="tiersHead">
               <p class="kicker">Service tiers</p>
               <h2 class="sectionTitle">choose the level of support you need</h2>
-              <p class="sectionLead">Starter, Growth, and Premium scale volume, creative formats, and hands-on management—so you only pay for the engine you actually need.</p>
+              <p class="sectionLead">Starter, Growth, and Premium scale volume, creative formats, and hands-on management. <strong>Rates are not listed here</strong>; reach out for a proposal matched to your scope.</p>
             </div>
             <div class="tiersGrid">
               <article class="tierCard">
                 <span class="tierTag">starter plan</span>
                 <h3 class="tierName">Starter</h3>
-                <p class="tierPrice">$500<span class="per">/mo</span></p>
                 <p class="tierDesc">A focused monthly rhythm for brands getting serious about showing up consistently.</p>
                 <ul class="tierList">
                   <li>8 high-fidelity posts per month</li>
@@ -632,7 +627,6 @@
               <article class="tierCard">
                 <span class="tierTag">growth plan</span>
                 <h3 class="tierName">Growth</h3>
-                <p class="tierPrice">$900<span class="per">/mo</span></p>
                 <p class="tierDesc">More volume, richer storytelling, and active engagement support.</p>
                 <ul class="tierList">
                   <li>12 posts per month</li>
@@ -645,7 +639,6 @@
               <article class="tierCard">
                 <span class="tierTag">premium plan</span>
                 <h3 class="tierName">Premium</h3>
-                <p class="tierPrice">$1,500<span class="per">/mo</span></p>
                 <p class="tierDesc">Full-scale creative and community oversight for brands that live on social.</p>
                 <ul class="tierList">
                   <li>20 posts per month</li>
@@ -656,6 +649,9 @@
                   <li>Advanced performance reporting</li>
                 </ul>
               </article>
+            </div>
+            <div class="tiersCta">
+              <a class="btn btnPrimary" href="contact.html">Contact us for pricing</a>
             </div>
           </div>
         </div>
@@ -751,9 +747,9 @@
           <div class="ctaBandInner">
             <p class="kicker">Ready to reclaim your time?</p>
             <h2 class="sectionTitle">let’s run your social like the asset it is</h2>
-            <p class="sectionLead">Book a call to choose Starter, Growth, or Premium—or pair management with custom posts and stories designed for your brand.</p>
+            <p class="sectionLead">Get in touch to choose Starter, Growth, or Premium—or pair management with custom posts and stories designed for your brand.</p>
             <div class="ctaRow">
-              <a class="btn btnPrimary" href="index.html#final-cta">book a discovery call</a>
+              <a class="btn btnPrimary" href="contact.html">Contact us for pricing</a>
               <a class="btn" href="instagramstoriesandpost.html">instagram posts &amp; stories</a>
               <a class="btn" href="index.html#value">view all services</a>
             </div>

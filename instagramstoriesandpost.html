@@ -51,8 +51,7 @@
       main > section .sectionTitle,
       main > section .kicker,
       main > section .pillarCard h3,
-      main > section .tierName,
-      main > section .tierPrice{
+      main > section .tierName{
         opacity:0;
         transform:translateY(28px);
         transition:
@@ -83,7 +82,6 @@
       main > section.inView .kicker,
       main > section.inView .pillarCard h3,
       main > section.inView .tierName,
-      main > section.inView .tierPrice,
       main > section.inView .sectionLead,
       main > section.inView .pillarCard p,
       main > section.inView .tierDesc,
@@ -100,7 +98,7 @@
         font-size:12px;
         letter-spacing:.18em;
         font-weight:800;
-        color: #a9be9f;
+        color:var(--text);
       }
       .sectionTitle{
         font-family:var(--font-sans);
@@ -317,12 +315,6 @@
         line-height:1.12;
         font-weight:600;
       }
-      .tierPrice{
-        margin:0;
-        font-size:44px;
-        line-height:1.05;
-        font-weight:600;
-      }
       .tierDesc{
         margin:0;
         font-size:16px;
@@ -361,14 +353,22 @@
         background:transparent;
         border-color:rgba(199,215,190,.95);
       }
-      .tiers--packages .tierPrice{
-        font-size:clamp(26px,3.6vw,34px);
+      .tiersCta{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        flex-wrap:wrap;
+        gap:12px;
+        margin-top:clamp(12px,3vw,28px);
+        padding-top:clamp(4px,1.5vw,12px);
       }
       .packagesSectionFoot{
         margin-top:clamp(32px,4vw,48px);
         padding-top:8px;
         display:flex;
         justify-content:center;
+        flex-wrap:wrap;
+        gap:12px;
       }
       .packagesSectionFoot .btn{
         min-width:min(100%, 280px);
@@ -584,13 +584,12 @@
             <div class="tiersHead">
               <p class="kicker">Package details</p>
               <h2 class="sectionTitle">standalone assets or paired with social management</h2>
-              <p class="sectionLead">Choose a one-time asset kit you can schedule yourself, or fold posts and stories into ongoing social media management for a fully aligned calendar, voice, and rhythm.</p>
+              <p class="sectionLead">Choose a one-time asset kit you can schedule yourself, or fold posts and stories into ongoing social media management for a fully aligned calendar, voice, and rhythm. <strong>Rates are not listed here</strong>; contact us for a quote after scope is clear.</p>
             </div>
             <div class="tiersGrid tiersGrid--two">
               <article class="tierCard">
                 <span class="tierTag">standalone</span>
                 <h3 class="tierName">Asset kit</h3>
-                <p class="tierPrice">custom scope</p>
                 <p class="tierDesc">Batches of feed posts, carousels, and story sets—delivered ready to upload on your timeline.</p>
                 <ul class="tierList">
                   <li>Branded templates and one-off drops tailored to launches or campaigns</li>
@@ -601,7 +600,6 @@
               <article class="tierCard">
                 <span class="tierTag">full program</span>
                 <h3 class="tierName">With social media management</h3>
-                <p class="tierPrice">bundled service</p>
                 <p class="tierDesc">Posts and stories designed inside your broader social retainer—strategy, cadence, and creative stay in one lane.</p>
                 <ul class="tierList">
                   <li>Ongoing feed + story design matched to your content pillars</li>
@@ -610,8 +608,11 @@
                 </ul>
               </article>
             </div>
+            <div class="tiersCta">
+              <a class="btn btnPrimary" href="contact.html">Contact us for pricing</a>
+            </div>
             <div class="packagesSectionFoot">
-              <a class="btn btnPrimary" href="socialmediammanagemtent.html">see social media management</a>
+              <a class="btn" href="socialmediammanagemtent.html">see social media management</a>
             </div>
           </div>
         </div>
@@ -655,7 +656,7 @@
             <h2 class="sectionTitle">let’s design posts people actually pause on</h2>
             <p class="sectionLead">Whether you want a standalone story and post kit or creative folded into social media management, we can map the right mix of educational, aesthetic, and high-impact formats.</p>
             <div class="ctaRow">
-              <a class="btn btnPrimary" href="index.html#final-cta">book an instagram consult</a>
+              <a class="btn btnPrimary" href="contact.html">Contact us for pricing</a>
               <a class="btn" href="socialmediammanagemtent.html">explore social management</a>
               <a class="btn" href="index.html#value">view all services</a>
             </div>
