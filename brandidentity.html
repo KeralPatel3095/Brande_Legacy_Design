@@ -659,7 +659,128 @@
     </style>
   </head>
   <body>
-    <div id="layout-header"></div>
+    <div class="headerPreNav" id="headerPreNav" style="--pre-hide:0">
+      <div class="promoStrip">
+        <div class="container">
+          <div class="promoText">Elevating Brands Through Thoughtful Design.</div>
+        </div>
+      </div>
+      <div class="SpaceInBetween" aria-hidden="true">
+        <div class="container">
+          <div class="spaceInBetweenText"></div>
+        </div>
+      </div>
+    </div>
+
+    <header class="siteHeaderBar" id="siteHeaderBar" aria-label="Main header">
+      <div class="container">
+        <div class="topbar">
+          <button
+            type="button"
+            class="menuToggleButton"
+            id="mobileMenuToggle"
+            aria-label="Open navigation menu"
+            aria-controls="mobilePrimaryNav"
+            aria-expanded="false"
+          >
+            ☰
+          </button>
+
+          <nav class="leftNav" aria-label="Primary navigation left">
+            <ul>
+              <li><a class="link" href="index.html">Home</a></li>
+              <li><a class="link" href="about.html">About</a></li>
+              <li>
+                <button
+                  type="button"
+                  class="navButton"
+                  data-mega="services"
+                  aria-haspopup="dialog"
+                  aria-controls="megaMenuOverlay"
+                >
+                  Services ▾
+                </button>
+              </li>
+
+              <li>
+                <a class="link" href="portfolio.html">Portfolio</a>
+              </li>
+            </ul>
+          </nav>
+
+          <a href="index.html" class="logoWordmark" aria-label="Brandé Legacy Design logo">Brand&eacute;</a>
+
+          <nav class="rightNav" id="mobilePrimaryNav" aria-label="Primary navigation right">
+            <ul>
+              <li><a class="ctaBtn" href="contact.html">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Full-page mega menu overlay (Services only) -->
+    <div id="megaMenuOverlay" class="overlayMenu" role="dialog" aria-modal="true" aria-hidden="true">
+
+      <div class="overlayInner">
+        <div class="overlayLeft">
+          <button type="button" class="overlayBack" id="megaMenuBack">Back</button>
+          <div class="overlayTitle" id="megaMenuTitle">Services</div>
+
+          <div class="overlayList" role="menu" aria-label="Menu items">
+            <button type="button" class="overlayItem" data-services-target="Brand-focusedmarketingwebsites.html">
+              Brand-focused marketing websites
+            </button>
+            <button type="button" class="overlayItem" data-services-target="emailcampaigndesign.html">
+              Email Campaign Design
+            </button>
+            <button type="button" class="overlayItem" data-services-target="instagramstoriesandpost.html">
+              Instagram post and stories
+            </button>
+            <button type="button" class="overlayItem" data-services-target="brandidentity.html">
+              Brand Identity
+            </button>
+            <button type="button" class="overlayItem" data-services-target="socialmediammanagemtent.html">
+              Social media management
+            </button>
+          </div>
+        </div>
+
+        <div class="overlayRight">
+          <div class="overlayPreviewGrid" aria-label="Images preview">
+            <div class="overlayPreviewTile">
+              <div class="previewBadge" style="top:12px; left:12px;">Featured</div>
+              <img
+                alt=""
+                loading="lazy"
+                src="file:///C:/Users/shiva/.cursor/projects/k-Cursor/assets/c__Users_shiva_AppData_Roaming_Cursor_User_workspaceStorage_52aabc1fadc14432643841f9afecb5cf_images_image-a9d0b53e-e56e-4e73-a24b-c5c7a6766674.png"
+                style="object-position: 16% 50%;"
+              />
+            </div>
+
+            <div class="overlayPreviewTile">
+              <div class="previewBadge" style="top:12px; left:12px;">New</div>
+              <img
+                alt=""
+                loading="lazy"
+                src="file:///C:/Users/shiva/.cursor/projects/k-Cursor/assets/c__Users_shiva_AppData_Roaming_Cursor_User_workspaceStorage_52aabc1fadc14432643841f9afecb5cf_images_image-a9d0b53e-e56e-4e73-a24b-c5c7a6766674.png"
+                style="object-position: 48% 50%;"
+              />
+            </div>
+
+            <div class="overlayPreviewTile">
+              <div class="previewBadge" style="top:12px; left:12px;">Limited</div>
+              <img
+                alt=""
+                loading="lazy"
+                src="file:///C:/Users/shiva/.cursor/projects/k-Cursor/assets/c__Users_shiva_AppData_Roaming_Cursor_User_workspaceStorage_52aabc1fadc14432643841f9afecb5cf_images_image-a9d0b53e-e56e-4e73-a24b-c5c7a6766674.png"
+                style="object-position: 74% 50%;"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <!--hero-section-->
     <main>
       <section class="preIntroNote" aria-label="Introduction">
