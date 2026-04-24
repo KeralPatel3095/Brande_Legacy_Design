@@ -734,6 +734,47 @@
       }
       .standoutList li:last-child{border-bottom:1px solid rgba(99,100,102,.15)}
 
+      /* No real hover (touch / coarse pointer): disable sticky :hover motion while scrolling */
+      @media (hover: none), (pointer: coarse){
+        .btn:hover{
+          transform:none;
+          box-shadow:none;
+        }
+        .serviceFocusCard:hover,
+        .serviceFocusCard.is-active{
+          transform:none;
+        }
+        .serviceFocusCard:hover .serviceFocusThumb img{
+          transform:none;
+          filter:saturate(1.04) contrast(1.03);
+        }
+        .filterChip:hover:not(.is-active){
+          border-color:rgba(99,100,102,.25);
+        }
+        .portfolioCard:hover{
+          transform:none;
+          box-shadow:
+            0 0 0 1px rgba(255,255,255,.65),
+            0 4px 12px rgba(45,55,48,.07),
+            0 18px 42px rgba(45,55,48,.14);
+        }
+        .portfolioCard:hover img{
+          transform:none;
+          filter:saturate(1.04) contrast(1.03);
+        }
+        .portfolioCard:hover .portfolioCardOverlay{
+          opacity:0;
+        }
+        .approachCard:hover{
+          border-color:rgba(99,100,102,.12);
+          box-shadow:0 6px 24px rgba(45,55,48,.06);
+        }
+        .lightboxClose:hover,
+        .lightboxNav:hover{
+          background:rgba(0,0,0,.35);
+        }
+      }
+
       /* —— CTA —— */
       .portfolioCta{
         padding:88px 0;
@@ -1380,6 +1421,9 @@
         var chips = document.querySelectorAll(".filterChip");
         var serviceCards = document.querySelectorAll(".serviceFocusCard");
         var statusEl = document.getElementById("filter-status");
+        var supportsHover =
+          window.matchMedia &&
+          window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
         var labels = {
           all: "Showing all categories.",
@@ -1419,9 +1463,21 @@
           });
         });
         serviceCards.forEach(function (sc) {
+          var filterHoverTimer = null;
           sc.addEventListener("mouseenter", function () {
-            var f = sc.getAttribute("data-filter") || "all";
-            setFilter(f);
+            if (!supportsHover) return;
+            if (filterHoverTimer) clearTimeout(filterHoverTimer);
+            filterHoverTimer = window.setTimeout(function () {
+              filterHoverTimer = null;
+              var f = sc.getAttribute("data-filter") || "all";
+              setFilter(f);
+            }, 140);
+          });
+          sc.addEventListener("mouseleave", function () {
+            if (filterHoverTimer) {
+              clearTimeout(filterHoverTimer);
+              filterHoverTimer = null;
+            }
           });
           sc.addEventListener("click", function () {
             var f = sc.getAttribute("data-filter") || "all";
@@ -1441,9 +1497,6 @@
         var lbNext = document.getElementById("lb-next");
         var urls = [];
         var idx = 0;
-        var supportsHover =
-          window.matchMedia &&
-          window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
         function renderDots() {
           lbDots.innerHTML = "";
@@ -1502,12 +1555,21 @@
             .filter(Boolean);
           var originalSrc = previewImg ? previewImg.getAttribute("src") : "";
 
-          // Desktop hover preview: show next image without clicking.
-          if (previewImg && imageList.length > 1) {
+          // Desktop hover preview: second image only after brief dwell (avoids flicker while scrolling).
+          if (supportsHover && previewImg && imageList.length > 1) {
+            var previewTimer = null;
             card.addEventListener("mouseenter", function () {
-              previewImg.setAttribute("src", imageList[1]);
+              if (previewTimer) clearTimeout(previewTimer);
+              previewTimer = window.setTimeout(function () {
+                previewTimer = null;
+                previewImg.setAttribute("src", imageList[1]);
+              }, 120);
             });
             card.addEventListener("mouseleave", function () {
+              if (previewTimer) {
+                clearTimeout(previewTimer);
+                previewTimer = null;
+              }
               previewImg.setAttribute("src", originalSrc || imageList[0]);
             });
           }
@@ -1528,21 +1590,6 @@
             if (!list.length) return;
             openLb(title, desc, list);
           });
-          if (supportsHover) {
-            card.addEventListener("mouseenter", function () {
-              var title = card.getAttribute("data-title") || "";
-              var desc = card.getAttribute("data-desc") || "";
-              var raw = card.getAttribute("data-images") || "";
-              var list = raw
-                .split("|")
-                .map(function (s) {
-                  return s.trim();
-                })
-                .filter(Boolean);
-              if (!list.length) return;
-              openLb(title, desc, list);
-            });
-          }
         });
 
         lbClose.addEventListener("click", closeLb);
