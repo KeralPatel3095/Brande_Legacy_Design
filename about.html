@@ -83,7 +83,8 @@
       main > section .toolsList li,
       main > section .servicePill,
       main > section .processCard p,
-      main > section .resultLabel{
+      main > section .resultLabel,
+      main > section .aboutResultsCta .ctaRow{
         opacity:0;
         transform:translateY(24px);
         transition:
@@ -97,7 +98,8 @@
       main > section.inView .toolsList li,
       main > section.inView .servicePill,
       main > section.inView .processCard p,
-      main > section.inView .resultLabel{
+      main > section.inView .resultLabel,
+      main > section.inView .aboutResultsCta .ctaRow{
         opacity:1;
         transform:translateY(0);
       }
@@ -794,6 +796,55 @@
         max-width:26ch;
       }
 
+      .aboutResultsCta{
+        background:linear-gradient(180deg, #eef5e9 0%, #ffffff 100%);
+        border-top:1px solid #dbe7d4;
+        padding:140px 0 32px 0;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+      }
+      .aboutResultsCta .container{
+        width:100%;
+        display:flex;
+        justify-content:center;
+      }
+      .aboutResultsCtaInner{
+        width:100%;
+        max-width:52ch;
+        margin:0 auto;
+        text-align:center;
+        padding:0;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+      }
+      .aboutResultsCta .kicker{
+        margin:0 0 14px;
+        color:#7b9472;
+        width:100%;
+      }
+      .aboutResultsCta .sectionTitle{
+        max-width:none;
+        width:100%;
+        margin:0 0 16px;
+        text-transform:none;
+      }
+      .aboutResultsCta .sectionLead{
+        max-width:none;
+        width:100%;
+        margin:0 auto 28px;
+      }
+      .aboutResultsCta .ctaRow{
+        margin-top:4px;
+        justify-content:center;
+        width:100%;
+      }
+      .aboutResultsCta .ctaBtnPrimary{
+        min-width:190px;
+        padding:13px 22px;
+      }
+
       @media (max-width: 980px){
         .fullScreenSection{min-height:auto}
         .splitLayout,
@@ -904,6 +955,12 @@
           align-items:center;
         }
         .resultsGrid{grid-template-columns:repeat(2, minmax(0, 1fr))}
+        .aboutResultsCta{
+          padding:96px 0 88px;
+        }
+        .aboutResultsCtaInner{
+          max-width:46ch;
+        }
       }
       @media (max-width: 620px){
         .container{padding:0 14px}
@@ -1009,12 +1066,12 @@
             <button type="button" class="overlayItem" data-services-target="emailcampaigndesign.html">
               Email Campaign Design
             </button>
-            <button type="button" class="overlayItem" data-services-target="instagramstoriesandpost.html">
+            <!-- <button type="button" class="overlayItem" data-services-target="instagramstoriesandpost.html">
               Instagram post and stories
             </button>
             <button type="button" class="overlayItem" data-services-target="brandidentity.html">
               Brand Identity
-            </button>
+            </button> -->
             <button type="button" class="overlayItem" data-services-target="socialmediammanagemtent.html">
               Social media management
             </button>
@@ -1062,8 +1119,8 @@
         <div class="container">
           <div class="preIntroWrap">
             <p class="kicker">A Different Perspective</p>
-            <h2 class="sectionTitle">Built to elevate your digital presence</h2>
-            <p class="sectionLead">At Brand&eacute; Legacy Design, we combine strategy and creative execution to help businesses build meaningful, lasting digital growth.</p>
+            <h2 class="sectionTitle">Built for businesses that are ready to be taken seriously</h2>
+            <p class="sectionLead">At Brandé Legacy Design, we believe your brand should work as hard as you do. We combine strategic thinking with intentional design to help small businesses and startups build a presence that attracts better clients, commands better prices, and grows with purpose.</p>
             <div class="ctaRow">
               <!-- <a class="ctaBtn ctaBtnPrimary" href="./index.html#final-cta">Shop Now</a> -->
               <a class="ctaBtn ctaBtnSecondary" style="background-color:#a9be9f; color: #9b9a80;" href="portfolio.html">View Work</a>
@@ -1110,15 +1167,15 @@
             <div class="philosophyGrid">
               <article class="philosophyCard">
                 <h3>Strategy First</h3>
-                <p>Successful marketing begins with a clear understanding of your audience, brand positioning, and communication goals.</p>
+                <p>Great design without strategy is just decoration. Before we open a single design file, we get clear on who you're talking to, what you're saying, and why it matters. That clarity is what makes everything else work.</p>
               </article>
               <article class="philosophyCard">
                 <h3>Creative Excellence</h3>
-                <p>Strong design and visual storytelling allow brands to capture attention and leave a lasting impression.</p>
+                <p>We hold our work to a high standard because your brand deserves more than a template. Every visual, every word, every touchpoint is crafted to make your business look as good as it truly is.</p>
               </article>
               <article class="philosophyCard">
                 <h3>Measurable Growth</h3>
-                <p>Every campaign is developed with a focus on delivering measurable engagement and business growth.</p>
+                <p>Beautiful branding means nothing if it doesn't move the needle. Every campaign and strategy we build is tied to real outcomes more visibility, more enquiries, more revenue. We track it so you can see it.</p>
               </article>
             </div>
           </div>
@@ -1169,9 +1226,9 @@
             </ul>
             <div class="toolsIntro">
               <p class="kicker">Tools &amp; Platforms</p>
-              <h2 class="sectionTitle">The stack behind our creative system</h2>
-              <p class="toolsLead">We use industry-standard platforms to keep design quality high, execution consistent, and reporting clear.</p>
-              <p class="toolsLead" style="margin-top:10px;">From concept to publishing and performance analysis, every workflow is built to keep your brand identity cohesive and measurable.</p>
+              <h2 class="sectionTitle">Industry-standard tools. Professionally delivered results.</h2>
+              <p class="toolsLead">We work with the same tools used by the world's leading creative studios — so you get agency-quality output without the agency price tag. From design to delivery to performance tracking, every platform we use is chosen to keep your brand sharp and your results visible.</p>
+              <!-- <p class="toolsLead" style="margin-top:10px;">From concept to publishing and performance analysis, every workflow is built to keep your brand identity cohesive and measurable.</p> -->
               <!-- <p class="toolsLead" style="margin-top:10px;">Each platform is selected based on your growth stage and business goals, so creative output, campaign delivery, and performance insights stay connected in one streamlined workflow.</p> -->
             </div>
           </div>
@@ -1190,21 +1247,21 @@
               <div class="servicesPanel">
                 <div class="servicesIntro">
                   <p class="kicker">Core Service Focus</p>
-                  <h2 class="sectionTitle">Service overview</h2>
-                  <p class="sectionLead">A concise look at our core services. Complete deliverables and execution scope are detailed on the Services page.</p>
+                  <h2 class="sectionTitle">Everything your brand needs. Nothing it doesn't.</h2>
+                  <p class="sectionLead">We keep our services focused so we can deliver them exceptionally. Here's a snapshot of what we do head to our Services page for full details and packages.</p>
                 </div>
                 <div class="servicesGrid">
                   <article class="serviceOverview">
                     <h3 class="serviceTitle">Social Media Management</h3>
-                    <p class="serviceBrief">Planning, posting, and optimization across your active channels.</p>
+                    <p class="serviceBrief">Consistent, on-brand content planned, designed, and posted for you so your social presence grows while you focus on running your business.</p>
                   </article>
                   <article class="serviceOverview">
                     <h3 class="serviceTitle">Email Marketing Campaigns</h3>
-                    <p class="serviceBrief">Targeted campaign design, copy, and audience-focused delivery.</p>
+                    <p class="serviceBrief">Strategic email sequences and newsletters that nurture your audience, build loyalty, and convert subscribers into paying clients.</p>
                   </article>
                   <article class="serviceOverview">
                     <h3 class="serviceTitle">Creative Design Systems</h3>
-                    <p class="serviceBrief">Visual templates and brand assets for consistent communication.</p>
+                    <p class="serviceBrief"> brand guides, social templates, and visual assets — all built to work together so your brand looks cohesive everywhere it shows up.</p>
                   </article>
                 </div>
               </div>
@@ -1214,15 +1271,15 @@
                 <div class="servicesGrid">
                   <article class="serviceOverview">
                     <h3 class="serviceTitle">Brand Messaging &amp; Positioning</h3>
-                    <p class="serviceBrief">Clear value-driven messaging aligned with your ideal audience.</p>
+                    <p class="serviceBrief">A clear, compelling brand voice that speaks directly to your ideal client and sets you apart from competitors.</p>
                   </article>
                   <article class="serviceOverview">
                     <h3 class="serviceTitle">Content Direction &amp; Planning</h3>
-                    <p class="serviceBrief">Structured content calendars tied to campaigns and goals.</p>
+                    <p class="serviceBrief"> A structured monthly content calendar built around your goals, so you always know what's going out and why.</p>
                   </article>
                   <article class="serviceOverview">
                     <h3 class="serviceTitle">Performance Optimization</h3>
-                    <p class="serviceBrief">Ongoing analysis and refinements for stronger campaign outcomes.</p>
+                    <p class="serviceBrief">Ongoing analysis of what's working, what isn't, and what to do next so your results improve every single month.</p>
                   </article>
                 </div>
               </div>
@@ -1241,22 +1298,35 @@
           <div class="resultsLayout">
             <div class="resultsIntro">
               <p class="kicker">Impact Highlights</p>
-              <h2 class="sectionTitle">Results that stay consistent</h2>
-              <p class="sectionLead">A snapshot of how we structure brand growth: aligned execution, consistent identity, and optimization grounded in performance data.</p>
+              <h2 class="sectionTitle">This is what consistent, strategic branding looks like.</h2>
+              <p class="sectionLead">We don't just deliver great-looking work we deliver work that performs. Here's the framework behind every client engagement.</p>
             </div>
             <div class="resultsGrid">
               <div class="resultItem">
                 <p class="resultValue">360&deg;</p>
-                <p class="resultLabel">Integrated brand management across social, email, and design touchpoints.</p>
+                <p class="resultLabel">Full-circle brand management from your visual identity and social content to email campaigns and performance reporting. Everything connected, nothing left to chance.</p>
               </div>
               <div class="resultItem">
                 <p class="resultValue">Consistent</p>
-                <p class="resultLabel">Unified visuals and messaging that strengthen brand recall over time.</p>
+                <p class="resultLabel">Your brand shows up the same way everywhere same voice, same visuals, same quality. That consistency is what turns strangers into followers and followers into loyal clients.</p>
               </div>
               <div class="resultItem">
                 <p class="resultValue">Data-led</p>
-                <p class="resultLabel">Creative and campaign decisions continuously refined through reporting insights.</p>
+                <p class="resultLabel">Every creative decision is backed by real performance data. We don't guess what's working. We measure it, learn from it, and use it to make your next campaign even stronger.</p>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="aboutResultsCta" aria-label="Next step">
+        <div class="container">
+          <div class="aboutResultsCtaInner">
+            <p class="kicker">Ready For Your Next Move?</p>
+            <h2 class="sectionTitle">Liked what you see? Let&apos;s build something together.</h2>
+            <p class="sectionLead">If your brand is ready to look sharper, connect better, and convert more consistently, let&apos;s map out the right next steps together.</p>
+            <div class="ctaRow">
+              <a class="ctaBtn ctaBtnPrimary" href="contact.html">Book a Free Call</a>
             </div>
           </div>
         </div>

@@ -422,13 +422,14 @@
       .workGrid{
         display:grid;
         grid-template-columns:repeat(3,minmax(0,1fr));
-        grid-auto-rows:auto;
-        align-items:stretch;
+        grid-auto-rows:1fr;
+        align-items:start;
         justify-items:stretch;
         gap:clamp(18px,2.2vw,26px);
         row-gap:clamp(22px,2.6vw,30px);
         padding:clamp(4px,0.8vw,10px) 0 0;
       }
+      .portfolioCard{width:100%}
       @media (max-width:900px){
         .workGrid{grid-template-columns:repeat(2,minmax(0,1fr))}
       }
@@ -468,13 +469,13 @@
       .portfolioCard[hidden]{display:none !important}
       .portfolioCard img{
         position:absolute;
-        left:6px;
-        right:6px;
-        top:6px;
-        bottom:6px;
-        width:auto;
-        height:auto;
+        inset:6px;
+        width:calc(100% - 12px);
+        height:calc(100% - 12px);
+        max-width:none;
+        max-height:none;
         object-fit:cover;
+        object-position:center;
         display:block;
         border-radius:var(--radius-showcase-inner);
         box-shadow:
@@ -969,12 +970,12 @@
             <button type="button" class="overlayItem" data-services-target="emailcampaigndesign.html">
               Email Campaign Design
             </button>
-            <button type="button" class="overlayItem" data-services-target="instagramstoriesandpost.html">
+            <!-- <button type="button" class="overlayItem" data-services-target="instagramstoriesandpost.html">
               Instagram post and stories
             </button>
             <button type="button" class="overlayItem" data-services-target="brandidentity.html">
               Brand Identity
-            </button>
+            </button> -->
             <button type="button" class="overlayItem" data-services-target="socialmediammanagemtent.html">
               Social media management
             </button>
@@ -1022,10 +1023,10 @@
       <section class="portfolioHero" aria-labelledby="portfolio-title">
         <div class="container portfolioHeroInner">
           <p class="heroEyebrow">Portfolio</p>
-          <h1 id="portfolio-title" style="text-transform: lowercase;">Work that speaks before words</h1>
-          <p class="heroSub">A Curated Selection</p>
+          <h1 id="portfolio-title" style="text-transform: lowercase;">The work doesn't need an introduction. But here's one anyway.</h1>
+          <p class="heroSub">Selected Work</p>
           <p class="heroDesc">
-            A collection of projects across website design, email campaigns, social media, and brand identity, crafted with clarity, intention, and a focus on results.
+            A curated selection of projects built around one standard every deliverable had to earn its place. Strategy-led, brand-locked, and designed to perform beyond the presentation layer.
           </p>
           <div class="btnRow">
             <a class="btn btnPrimary" href="#services-focus">Explore services</a>
@@ -1039,43 +1040,42 @@
         <div class="container">
           <div class="sectionHead">
             <p class="kicker" style="text-transform: lowercase;">Services in focus</p>
-            <h2 class="sectionTitle" id="services-heading" style="text-transform: lowercase;">Choose a lane to explore work</h2>
+            <h2 class="sectionTitle" id="services-heading" style="text-transform: lowercase;">Explore by discipline.</h2>
             <p class="sectionLead">
-              Select a service to filter the gallery below. Each piece is tagged so you can review the full set of visuals for that discipline.
-            </p>
+Filter by service or browse the full body of work. Every project is categorised click any tile to see the thinking behind it.            </p>
           </div>
           <div class="serviceCardGrid" role="tablist" aria-label="Filter portfolio by service">
             <button type="button" class="serviceFocusCard is-active" data-filter="all" role="tab" aria-selected="true" id="tab-all">
               <div class="serviceFocusThumb">
-                <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=800&h=500&fit=crop" alt="" loading="lazy" />
+                <img src="images/brandcover1.1.jpg" alt="" loading="lazy" />
               </div>
               <div class="serviceFocusBody">
                 <span class="serviceFocusMeta">All work</span>
                 <h3>Full portfolio</h3>
-                <p>Every project across web, email, social, identity, and campaigns in one view.</p>
+                <p>Every project across all disciplines the full scope of what we build and why it works.</p>
               </div>
             </button>
             <button type="button" class="serviceFocusCard" data-filter="website" role="tab" aria-selected="false" id="tab-website">
               <div class="serviceFocusThumb">
-                <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=500&fit=crop" alt="" loading="lazy" />
+                <img src="images/websitecover1.1.jpg" alt="" loading="lazy" />
               </div>
               <div class="serviceFocusBody">
-                <span class="serviceFocusMeta">Static websites</span>
+                <span class="serviceFocusMeta">Static website Design</span>
                 <h3>Static Website Design</h3>
-                <p>Clean, conversion-focused layouts designed to elevate your digital presence.</p>
+                <p>Brand-focused, conversion-engineered websites built to position, persuade, and perform.</p>
               </div>
             </button>
             <button type="button" class="serviceFocusCard" data-filter="email" role="tab" aria-selected="false" id="tab-email">
               <div class="serviceFocusThumb">
-                <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&h=500&fit=crop" alt="" loading="lazy" />
+                <img src="" alt="" loading="lazy" />
               </div>
               <div class="serviceFocusBody">
                 <span class="serviceFocusMeta">Email</span>
-                <h3>Email Campaign Design</h3>
-                <p>Strategic, visually refined creatives built to engage and convert.</p>
+                <h3>Email Campaigns </h3>
+                <p>Strategic campaign design that turns an owned audience into a measurable revenue channel.</p>
               </div>
             </button>
-            <button type="button" class="serviceFocusCard" data-filter="instagram" role="tab" aria-selected="false" id="tab-instagram">
+            <!-- <button type="button" class="serviceFocusCard" data-filter="instagram" role="tab" aria-selected="false" id="tab-instagram">
               <div class="serviceFocusThumb">
                 <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=500&fit=crop" alt="" loading="lazy" />
               </div>
@@ -1094,15 +1094,15 @@
                 <h3>Brand Identity</h3>
                 <p>Visual systems&mdash;logos, color, and assets&mdash;for a cohesive presence.</p>
               </div>
-            </button>
+            </button> -->
             <button type="button" class="serviceFocusCard" data-filter="social" role="tab" aria-selected="false" id="tab-social">
               <div class="serviceFocusThumb">
-                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=500&fit=crop" alt="" loading="lazy" />
+                <img src="" alt="" loading="lazy" />
               </div>
               <div class="serviceFocusBody">
                 <span class="serviceFocusMeta">Management</span>
                 <h3>Social Media Management</h3>
-                <p>Planning, creation, and execution for consistent growth.</p>
+                <p>Content systems, creative direction, and managed presence built to compound over time.</p>
               </div>
             </button>
           </div>
@@ -1114,23 +1114,22 @@
         <div class="container">
           <div class="sectionHead portfolioBridgeHeadSimple">
             <p class="kicker">What I do</p>
-            <h2 class="sectionTitle" id="bridge-heading" style="text-transform: lowercase;">From Concept to Execution</h2>
+            <h2 class="sectionTitle" id="bridge-heading" style="text-transform: lowercase;">Every project starts with a brief. It ends with something that performs.</h2>
             <p class="sectionLead">
-              I help brands move from ideas to consistent results through design, social media management, and campaign-focused creative execution.
-            </p>
+            Three disciplines. One standard of execution. Each service is built on the same foundation strategy first, creative second, results always.            </p>
           </div>
           <div class="bridgeRows">
             <div class="bridgeRow">
               <p class="bridgeRowLabel">Plan</p>
-              <p class="bridgeRowText">Define the right direction with clear brand positioning, content priorities, and campaign goals.</p>
+              <p class="bridgeRowText">Every engagement begins with a strategic framework audience mapping, competitive positioning, and a content or conversion architecture built around your specific goals. No assumptions. No shortcuts.</p>
             </div>
             <div class="bridgeRow">
-              <p class="bridgeRowLabel">Create</p>
-              <p class="bridgeRowText">Design cohesive visuals across website, email, social media, and brand identity touchpoints.</p>
+              <p class="bridgeRowLabel">Design</p>
+              <p class="bridgeRowText">Creative executed to brief websites, email campaigns, and social content built with precision and reviewed against the strategy, not just gut feel. Every asset earns its place.</p>
             </div>
             <div class="bridgeRow">
-              <p class="bridgeRowLabel">Manage</p>
-              <p class="bridgeRowText">Execute and optimize content with structured posting, campaign support, and ongoing performance review.</p>
+              <p class="bridgeRowLabel">Analyse</p>
+              <p class="bridgeRowText">Post-launch isn't the finish line. Performance data is reviewed continuously what's working is scaled, what isn't is refined. The work compounds because the thinking never stops.</p>
             </div>
           </div>
         </div>
@@ -1142,39 +1141,49 @@
           <div class="sectionHead">
             <p class="kicker">Featured work</p>
             <h2 class="sectionTitle" id="work-heading" style="text-transform: lowercase;">Selected visuals by category</h2>
-            <p class="sectionLead">Hover for context; click any tile to open the full image set and description.</p>
+            <p class="sectionLead">Hover for context. Click to see the full project and the thinking behind it.</p>
           </div>
 
           <div class="filterBar" id="filter-chips" role="tablist" aria-label="Quick filters">
             <button type="button" class="filterChip is-active" data-filter="all">All</button>
             <button type="button" class="filterChip" data-filter="website">Website layouts</button>
             <button type="button" class="filterChip" data-filter="email">Email campaigns</button>
-            <button type="button" class="filterChip" data-filter="instagram">Instagram</button>
-            <button type="button" class="filterChip" data-filter="branding">Branding kits</button>
-            <button type="button" class="filterChip" data-filter="social">Social campaigns</button>
+            <!-- <button type="button" class="filterChip" data-filter="instagram">Instagram</button>
+            <button type="button" class="filterChip" data-filter="branding">Branding kits</button> -->
+            <button type="button" class="filterChip" data-filter="social">Social Media</button>
           </div>
 
           <div class="workGrid" id="work-grid">
             <!-- Website -->
-            <article class="portfolioCard" data-category="website" data-title="Clinical homepage refresh" data-desc="Structured sections, trust-forward typography, and clear patient journeys." data-images="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1200&h=1500&fit=crop|https://images.unsplash.com/photo-1547658719-911cbfab34d2?w=1200&h=1500&fit=crop|https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=1500&fit=crop">
+            <article class="portfolioCard" data-category="website" data-title="Clinical homepage refresh" data-desc="Structured sections, trust-forward typography, and clear patient journeys." data-images="">
               <span class="portfolioCardBadge">Website</span>
-              <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=800&h=1000&fit=crop" alt="Website layout mockup" loading="lazy" />
+              <img src="images/websitecover1.1.jpg" alt="Website layout mockup" loading="lazy" />
               <div class="portfolioCardOverlay">
                 <h3>Clinical homepage refresh</h3>
                 <p>Structured hierarchy, calm palette, conversion-led modules.</p>
               </div>
             </article>
-            <article class="portfolioCard" data-category="website" data-title="Services &amp; pricing hub" data-desc="Modular blocks for offers, FAQs, and lead capture without clutter." data-images="https://images.unsplash.com/photo-1547658719-911cbfab34d2?w=1200&h=1500&fit=crop|https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&h=1500&fit=crop">
+            <article class="portfolioCard" data-category="website" data-title="Services &amp; pricing hub" data-desc="Modular blocks for offers, FAQs, and lead capture without clutter." data-images="">
               <span class="portfolioCardBadge">Website</span>
-              <img src="https://images.unsplash.com/photo-1547658719-911cbfab34d2?w=800&h=1000&fit=crop" alt="Website services page" loading="lazy" />
+              <img src="images/Website2.1.jpg" alt="Website services page" loading="lazy" />
               <div class="portfolioCardOverlay">
                 <h3>Services &amp; pricing hub</h3>
                 <p>Scannable layouts with strong CTAs and social proof.</p>
               </div>
             </article>
-            <article class="portfolioCard" data-category="website" data-title="Portfolio case study page" data-desc="Editorial pacing for project stories and outcomes." data-images="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=1200&h=1500&fit=crop|https://images.unsplash.com/photo-1499951360447-b19be0fe6f13?w=1200&h=1500&fit=crop|https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=1200&h=1500&fit=crop">
+            
+            <article class="portfolioCard" data-category="website" data-title="Landing &amp; lead capture" data-desc="Focused hero, proof, and a single CTA path for paid and organic traffic." data-images="">
               <span class="portfolioCardBadge">Website</span>
-              <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=1000&fit=crop" alt="Developer portfolio website" loading="lazy" />
+              <img src="images/website4.3.jpg" alt="Landing page design with laptop" loading="lazy" />
+              <div class="portfolioCardOverlay">
+                <h3>Landing &amp; lead capture</h3>
+                <p>One page, one goal—fast load, clear story, measurable conversions.</p>
+              </div>
+            </article>
+
+            <article class="portfolioCard" data-category="website" data-title="Portfolio case study page" data-desc="Editorial pacing for project stories and outcomes." data-images="">
+              <span class="portfolioCardBadge">Website</span>
+              <img src="images/websitecover3.1.jpg" alt="Developer portfolio website" loading="lazy" />
               <div class="portfolioCardOverlay">
                 <h3>Portfolio case study page</h3>
                 <p>Long-form narrative with image rhythm and clear outcomes.</p>
@@ -1182,17 +1191,17 @@
             </article>
 
             <!-- Email -->
-            <article class="portfolioCard" data-category="email" data-title="Launch sequence" data-desc="Three-part story-driven emails with shared visual language." data-images="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=1200&h=1500&fit=crop|https://images.unsplash.com/photo-1551434678-e076c223a692?w=1200&h=1500&fit=crop">
+            <article class="portfolioCard" data-category="email" data-title="Launch sequence" data-desc="Three-part story-driven emails with shared visual language." data-images="">
               <span class="portfolioCardBadge">Email</span>
-              <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=800&h=1000&fit=crop" alt="Email campaign design" loading="lazy" />
+              <img src="images/emailcover1.1.jpg" alt="Email campaign design" loading="lazy" />
               <div class="portfolioCardOverlay">
                 <h3>Launch sequence</h3>
                 <p>Hero, story body, and CTA tuned for clicks.</p>
               </div>
             </article>
-            <article class="portfolioCard" data-category="email" data-title="Newsletter editorial" data-desc="Typography-led layout for monthly insights and offers." data-images="https://images.unsplash.com/photo-1551434678-e076c223a692?w=1200&h=1500&fit=crop|https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1200&h=1500&fit=crop|https://images.unsplash.com/photo-1553877522-43269d4ea984?w=1200&h=1500&fit=crop">
+            <article class="portfolioCard" data-category="email" data-title="Newsletter editorial" data-desc="Typography-led layout for monthly insights and offers." data-images="">
               <span class="portfolioCardBadge">Email</span>
-              <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&h=1000&fit=crop" alt="Newsletter template" loading="lazy" />
+              <img src="images/emailcover2.1.jpg" alt="Newsletter template" loading="lazy" />
               <div class="portfolioCardOverlay">
                 <h3>Newsletter editorial</h3>
                 <p>Readable columns, accent rules, mobile-safe spacing.</p>
@@ -1200,7 +1209,7 @@
             </article>
 
             <!-- Instagram -->
-            <article class="portfolioCard" data-category="instagram" data-title="Feed carousel series" data-desc="Cohesive grid story with educational and promotional beats." data-images="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200&h=1500&fit=crop|https://images.unsplash.com/photo-1611926653458-09294b3142bf?w=1200&h=1500&fit=crop|https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1200&h=1500&fit=crop">
+            <!-- <article class="portfolioCard" data-category="instagram" data-title="Feed carousel series" data-desc="Cohesive grid story with educational and promotional beats." data-images="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1200&h=1500&fit=crop|https://images.unsplash.com/photo-1611926653458-09294b3142bf?w=1200&h=1500&fit=crop|https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1200&h=1500&fit=crop">
               <span class="portfolioCardBadge">Instagram</span>
               <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=1000&fit=crop" alt="Instagram feed content" loading="lazy" />
               <div class="portfolioCardOverlay">
@@ -1215,10 +1224,10 @@
                 <h3>Story frames</h3>
                 <p>9:16 safe zones, legible type, on-brand stickers.</p>
               </div>
-            </article>
+            </article> -->
 
             <!-- Branding -->
-            <article class="portfolioCard" data-category="branding" data-title="Logo &amp; color system" data-desc="Primary mark, secondary lockups, and usage rules." data-images="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=1200&h=1500&fit=crop|https://images.unsplash.com/photo-1558655146-d09347e92766?w=1200&h=1500&fit=crop|https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&h=1500&fit=crop">
+            <!-- <article class="portfolioCard" data-category="branding" data-title="Logo &amp; color system" data-desc="Primary mark, secondary lockups, and usage rules." data-images="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=1200&h=1500&fit=crop|https://images.unsplash.com/photo-1558655146-d09347e92766?w=1200&h=1500&fit=crop|https://images.unsplash.com/photo-1561070791-2526d30994b5?w=1200&h=1500&fit=crop">
               <span class="portfolioCardBadge">Branding</span>
               <img src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=800&h=1000&fit=crop" alt="Brand identity guidelines" loading="lazy" />
               <div class="portfolioCardOverlay">
@@ -1233,33 +1242,26 @@
                 <h3>Brand toolkit</h3>
                 <p>Coordinated assets for teams to deploy quickly.</p>
               </div>
-            </article>
+            </article> -->
 
             <!-- Social management -->
-            <article class="portfolioCard" data-category="social" data-title="Campaign calendar creative" data-desc="Monthly themes aligned to launches and audience behavior." data-images="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=1500&fit=crop|https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&h=1500&fit=crop|https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&h=1500&fit=crop">
+            <article class="portfolioCard" data-category="social" data-title="Campaign calendar creative" data-desc="Monthly themes aligned to launches and audience behavior." data-images="">
               <span class="portfolioCardBadge">Social</span>
-              <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=1000&fit=crop" alt="Social media campaign planning" loading="lazy" />
+              <img src="images/instagramcover1.2.jpg" alt="Social media campaign planning" loading="lazy" />
               <div class="portfolioCardOverlay">
                 <h3>Campaign calendar creative</h3>
                 <p>Cross-format assets with one strategic thread.</p>
               </div>
             </article>
-            <article class="portfolioCard" data-category="social" data-title="Community &amp; engagement kit" data-desc="Reply-ready visuals and story prompts for consistent voice." data-images="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&h=1500&fit=crop|https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&h=1500&fit=crop">
+            <article class="portfolioCard" data-category="social" data-title="Community &amp; engagement kit" data-desc="Reply-ready visuals and story prompts for consistent voice." data-images="">
               <span class="portfolioCardBadge">Social</span>
-              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=1000&fit=crop" alt="Team social collaboration" loading="lazy" />
+              <img src="images/instagramcover2.1.jpg" alt="Team social collaboration" loading="lazy" />
               <div class="portfolioCardOverlay">
                 <h3>Community &amp; engagement</h3>
                 <p>Assets that support replies, DMs, and saves.</p>
               </div>
             </article>
-            <article class="portfolioCard" data-category="website" data-title="Landing &amp; lead capture" data-desc="Focused hero, proof, and a single CTA path for paid and organic traffic." data-images="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&h=1500&fit=crop|https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=1200&h=1500&fit=crop">
-              <span class="portfolioCardBadge">Website</span>
-              <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&h=1000&fit=crop" alt="Landing page design with laptop" loading="lazy" />
-              <div class="portfolioCardOverlay">
-                <h3>Landing &amp; lead capture</h3>
-                <p>One page, one goal—fast load, clear story, measurable conversions.</p>
-              </div>
-            </article>
+            
           </div>
           <p class="workHint" id="filter-status" aria-live="polite">Showing all categories.</p>
         </div>
@@ -1270,7 +1272,7 @@
         <div class="container">
           <div class="sectionHead">
             <p class="kicker">Selected projects</p>
-            <h2 class="sectionTitle" id="highlights-heading" style="text-transform: lowercase;">Highlight examples</h2>
+            <h2 class="sectionTitle" id="highlights-heading" style="text-transform: lowercase;">Work that moved the needle.</h2>
             <p class="sectionLead">A snapshot of objectives and outcomes, the kind of clarity we bring to every engagement.</p>
           </div>
           <div class="highlightGrid">
@@ -1313,36 +1315,36 @@
         <div class="container approachSplit">
           <header class="approachSticky">
             <p class="kicker">The approach</p>
-            <h2 class="sectionTitle" id="approach-heading" style="text-transform: lowercase;">How work comes together</h2>
-            <p class="sectionLead">A disciplined flow from insight to shipped assets&mdash;so results stay intentional at every step.</p>
+            <h2 class="sectionTitle" id="approach-heading" style="text-transform: lowercase;">Disciplined from first brief to final file.</h2>
+            <p class="sectionLead">A structured flow from insight to execution with every decision tied to a stated outcome and every output reviewed against the brief before it leaves our hands.</p>
           </header>
           <div class="approachStack">
             <article class="approachCard">
               <span class="approachCardNum" aria-hidden="true">01</span>
               <div class="approachCardBody">
                 <h3>Strategy</h3>
-                <p>Understanding your brand, audience, and what “success” looks like on each channel.</p>
+                <p>Identifying the market position, audience profile, and "campaign anchor" the single theme that unifies every asset in the project.</p>
               </div>
             </article>
             <article class="approachCard">
               <span class="approachCardNum" aria-hidden="true">02</span>
               <div class="approachCardBody">
                 <h3>Structure</h3>
-                <p>Organizing content for clarity, flow, and conversion&mdash;before pixels.</p>
+                <p>Defining the right tone, format, and conversion flow without losing brand cohesion. Every section mapped before a single pixel moves.</p>
               </div>
             </article>
             <article class="approachCard">
               <span class="approachCardNum" aria-hidden="true">03</span>
               <div class="approachCardBody">
                 <h3>Design</h3>
-                <p>Refined, high-end visuals aligned to your positioning and industry norms.</p>
+                <p>High-quality creative delivered to scope with structured revision rounds so the final output reflects the brief exactly as agreed.</p>
               </div>
             </article>
             <article class="approachCard">
               <span class="approachCardNum" aria-hidden="true">04</span>
               <div class="approachCardBody">
                 <h3>Execution</h3>
-                <p>Delivering consistent, production-ready assets with review loops built in.</p>
+                <p>Refining on performance data after launch. Scheduled reviews ensure the work keeps performing — not just at delivery, but over time.</p>
               </div>
             </article>
           </div>
@@ -1354,13 +1356,13 @@
         <div class="container">
           <div class="sectionHead">
             <p class="kicker">Why this work stands out</p>
-            <h2 class="sectionTitle" id="standout-heading" style="text-transform: lowercase;">Built for brands that care how they show up</h2>
+            <h2 class="sectionTitle" id="standout-heading" style="text-transform: lowercase;">Built for businesses that hold their brand to a high standard.</h2>
           </div>
           <ul class="standoutList">
-            <li>Clean, minimal, and modern aesthetic</li>
-            <li>Designed for both beauty and performance</li>
-            <li>Consistency across platforms and touchpoints</li>
-            <li>Tailored to each brand and industry</li>
+            <li>Distinctive, precise creative nothing generic, nothing disposable.</li>
+            <li>Every asset is built to perform as well as it presents aesthetics and outcomes aren't separate considerations.</li>
+            <li>Tailored to your business not adapted from someone else's template.</li>
+            <li>Built for your market, your audience, and the standards your industry actually holds creative to.</li>
           </ul>
         </div>
       </section>
@@ -1368,9 +1370,9 @@
       <!-- CTA -->
       <section class="portfolioCta" id="start-project" aria-labelledby="cta-heading">
         <div class="container">
-          <p class="kicker">Next step</p>
-          <h2 class="sectionTitle" id="cta-heading" style="text-transform: lowercase;">Let your visuals do the talking</h2>
-          <p class="sectionLead">Ready to elevate your brand? Start with a focused conversation about goals, timeline, and the right mix of services.</p>
+          <p class="kicker">Ready To Start</p>
+          <h2 class="sectionTitle" id="cta-heading" style="text-transform: lowercase;">You've seen the standard. Let's apply it to your business.</h2>
+          <p class="sectionLead">If the work in this portfolio reflects the level your brand should be operating at then the next step is a conversation. </p>
           <div class="btnRow">
             <a class="btn btnPrimary" href="index.html#final-cta">Start a project</a>
             <a class="btn" href="about.html">About the studio</a>

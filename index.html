@@ -209,6 +209,19 @@
         margin-right:auto;
         text-align:center;
       }
+      .heroWhoFor{
+        margin:0 0 16px;
+        color:rgba(255,255,255,.9);
+        font-size:15px;
+        font-weight:600;
+        text-align:center;
+      }
+      .heroPricing{
+        margin:0 0 14px;
+        color:rgba(255,255,255,.84);
+        font-size:14px;
+        text-align:center;
+      }
       .heroActions{
         display:flex;
         gap:12px;
@@ -895,6 +908,119 @@
         color:#636466 !important;
         padding:10px 18px !important;
       }
+      #testimonials{
+        background:linear-gradient(180deg, #ffffff 0%, #f3f8ef 100%);
+        border-top:1px solid #dbe7d4;
+        border-bottom:1px solid #dbe7d4;
+      }
+      #testimonials .container{
+        max-width:980px;
+      }
+      .testimonialsKicker{
+        text-align:center;
+        letter-spacing:.14em;
+        font-weight:900;
+        font-size:12px;
+        color:#7c9473;
+        text-transform:uppercase;
+        margin-bottom:10px;
+      }
+      .testimonialsLead{
+        text-align:center;
+        max-width:66ch;
+        margin:0 auto 28px;
+        color:#5e6f65;
+        font-size:17px;
+        line-height:1.6;
+      }
+      .testimonialsCarousel{
+        max-width:760px;
+        margin:0 auto;
+      }
+      .testimonialsViewport{
+        overflow:hidden;
+      }
+      .testimonialsTrack{
+        display:flex;
+        transition:transform .35s ease;
+        will-change:transform;
+      }
+      .testimonialCard{
+        min-width:100%;
+        border:none;
+        border-radius:0;
+        background:transparent;
+        padding:10px 4px;
+        box-shadow:none;
+        position:relative;
+        text-align:center;
+      }
+      .testimonialCard::before{
+        content:"\201C";
+        position:absolute;
+        top:-2px;
+        left:50%;
+        transform:translateX(-50%);
+        font-size:40px;
+        line-height:1;
+        color:#a9be9f;
+        font-family:Georgia, "Times New Roman", serif;
+      }
+      .testimonialQuote{
+        margin:28px auto 14px;
+        color:#405247;
+        font-size:17px;
+        line-height:1.65;
+        font-weight:600;
+        max-width:62ch;
+      }
+      .testimonialByline{
+        margin:0;
+        color:#636466;
+        font-size:13px;
+        font-weight:700;
+        text-transform:uppercase;
+        letter-spacing:.06em;
+      }
+      .testimonialsControls{
+        margin-top:10px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        gap:10px;
+      }
+      .testimonialNavBtn{
+        width:38px;
+        height:38px;
+        border:1px solid #c9dac0;
+        border-radius:999px;
+        background:#fff;
+        color:#4f6554;
+        font-size:18px;
+        line-height:1;
+        cursor:pointer;
+      }
+      .testimonialNavBtn:hover{
+        background:#f4faf0;
+      }
+      .testimonialDots{
+        display:flex;
+        align-items:center;
+        gap:8px;
+      }
+      .testimonialDot{
+        width:9px;
+        height:9px;
+        border-radius:999px;
+        border:none;
+        background:#c7d8bf;
+        cursor:pointer;
+        padding:0;
+      }
+      .testimonialDot.is-active{
+        background:#5f775f;
+        transform:scale(1.18);
+      }
       #faq{
         background:linear-gradient(180deg, #f8fbf6, #eef5e9);
         border-top:1px solid #dbe7d4;
@@ -1177,7 +1303,7 @@
     <div class="headerPreNav" id="headerPreNav" style="--pre-hide:0">
       <div class="promoStrip">
         <div class="container">
-          <div class="promoText">Elevating Brands Through Thoughtful Design.</div>
+          <div class="promoText" style="text-transform: lowercase;">Helping Small Businesses Look Like the Brand They Were Always Meant to Be</div>
         </div>
       </div>
       <div class="SpaceInBetween" aria-hidden="true">
@@ -1249,12 +1375,12 @@
             <button type="button" class="overlayItem" data-services-target="emailcampaigndesign.html">
               Email Campaign Design
             </button>
-            <button type="button" class="overlayItem" data-services-target="instagramstoriesandpost.html">
+            <!-- <button type="button" class="overlayItem" data-services-target="instagramstoriesandpost.html">
               Instagram post and stories
             </button>
             <button type="button" class="overlayItem" data-services-target="brandidentity.html">
               Brand Identity
-            </button>
+            </button> -->
             <button type="button" class="overlayItem" data-services-target="socialmediammanagemtent.html">
               Social media management
             </button>
@@ -1308,10 +1434,15 @@
               </div>
               <div class="heroContent">
                 <div class="kicker">dual expertise</div>
-                <h1>high performance design. data driven growth.</h1>
+                <h1>Your brand should open doors not make people scroll past.</h1>
                 <p class="subhead">
-                  Elevate your brand with custom static websites, scroll-stopping social media assets, and precision-managed campaigns.
-                  I don&rsquo;t just design your digital presence. I manage the strategy that scales it.
+                  Brandé Legacy Design creates strategic websites, thoughtful brand systems, email campaigns, and digital content designed to help businesses strengthen their presence, connect with the right audience, and grow with intention.
+                </p>
+                <p class="heroWhoFor">
+                  <strong>Perfect for:</strong> coaches, boutique shops, service providers, and startups.
+                </p>
+                <p class="heroPricing">
+                  Signature Brand Starter <strong>starting from $1,500</strong> | Website Refresh <strong>starting from $2,500</strong>
                 </p>
                 <div class="heroActions">
                   <a class="btn btnPrimary" href="portfolio.html">View Portfolio</a>
@@ -1343,8 +1474,7 @@
         <div class="container">
           <div class="founderKicker">BRAND INTRODUCTION</div>
           <h2 class="sectionTitle" style="text-transform: lowercase;">
-            Creative Marketing Designed for Modern Businesses
-          </h2>
+            Your brand isn't just a logo. It's the reason someone chooses you over everyone else.          </h2>
           <p class="brandText">
             In today&rsquo;s digital landscape, brands need more than just an online presence. They need a clear strategy, compelling visuals, and consistent communication.
             At Brand&eacute;, we help businesses strengthen their digital presence through thoughtful social media management, impactful email marketing campaigns, and professional design solutions.
@@ -1373,8 +1503,8 @@
             <div class="workflowText">
               <h2>Strategic Brand Presence & Social Management</h2>
               <p>
-                Build a strong and consistent presence across your social media platforms through strategic content creation and performance-driven management.
-              </p>
+                Showing up inconsistently online is costing you clients you'll never know you lost. We build and manage your social presence the right way content that's on-brand, strategic, and designed to convert followers into paying customers.
+                From content planning and design to caption writing and performance tracking, we handle it all so you can run your business while your brand works in the background. </p>
              
              
               <a href="socialmediammanagemtent.html" class="btn workflowBtn">Discover the Difference</a>
@@ -1389,8 +1519,7 @@
           <figure class="quoteFullBleedFigure">
             <blockquote>
               <p class="quoteText">
-                Through a balance of restraint and expression, we design experiences that feel both modern and enduring.
-              </p>
+                We don't just make things look good. We make sure your brand says the right thing, to the right people, at exactly the right moment.</p>
             </blockquote>
             <figcaption>Brand&eacute; Legacy Design</figcaption>
           </figure>
@@ -1400,7 +1529,7 @@
       <!-- our Process -->
       <section id="portfolio" aria-label="Our process">
         <div class="container">
-          <div class="portfolioKicker">OUR PROCESS</div>
+          <div class="portfolioKicker">How We Build Brands That Last</div>
           <h2 class="sectionTitle" style="text-align:center; max-width:20ch; margin:0 auto 14px; text-transform:lowercase;">Our Process</h2>
           <p class="sectionLead" style="text-align:center; max-width:70ch; margin:0 auto 10px;">
             A clear, strategic workflow that keeps every stage aligned with your business goals.
@@ -1451,25 +1580,56 @@
         </div>
       </section>
 
+      <!-- Client Testimonials -->
+      <section id="testimonials" aria-label="Client testimonials">
+        <div class="container">
+          <div class="testimonialsKicker">Client Love</div>
+          <h2 class="sectionTitle" style="text-align:center; max-width:24ch; margin:0 auto 12px; text-transform:lowercase;">Results real clients talk about</h2>
+          <p class="testimonialsLead">A few words from businesses that trusted us to elevate their brand and digital presence.</p>
+          <div class="testimonialsCarousel" data-testimonials>
+            <div class="testimonialsViewport">
+              <div class="testimonialsTrack">
+                <article class="testimonialCard">
+                  <p class="testimonialQuote">"We doubled our inquiries within a month of the rebrand."</p>
+                  <p class="testimonialByline">Coaching business owner</p>
+                </article>
+                <article class="testimonialCard">
+                  <p class="testimonialQuote">"Our website finally reflects the quality of our services and clients noticed immediately."</p>
+                  <p class="testimonialByline">Boutique service provider</p>
+                </article>
+                <article class="testimonialCard">
+                  <p class="testimonialQuote">"The content strategy gave us consistency, confidence, and measurable growth."</p>
+                  <p class="testimonialByline">Startup founder</p>
+                </article>
+              </div>
+            </div>
+            <div class="testimonialsControls" aria-label="Testimonial controls">
+              <button class="testimonialNavBtn" type="button" data-testimonial-prev aria-label="Previous testimonial">&#8592;</button>
+              <div class="testimonialDots" data-testimonial-dots></div>
+              <button class="testimonialNavBtn" type="button" data-testimonial-next aria-label="Next testimonial">&#8594;</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- FAQ -->
       <section id="faq" aria-label="Frequently asked questions">
         <div class="container">
           <div class="faqKicker">FAQ</div>
-          <h2 class="sectionTitle" style="text-align:center; max-width:18ch; margin:0 auto 12px; text-transform:lowercase;">Frequently Asked Questions</h2>
+          <h2 class="sectionTitle" style="text-align:center; max-width:18ch; margin:0 auto 12px; text-transform:lowercase;">Got Questions? We've Got Answers</h2>
           <p class="faqLead">
-            Answers to common questions about our social media management, email marketing, and design services.
-          </p>
+Here's        what most of our clients want to know before we start working together.          </p>
           <div class="faqList">
             <details class="faqItem">
               <summary>What services does Brandé Legacy Design provide?</summary>
               <div class="faqAnswer">
-                <p>We provide social media management, strategic content planning, email marketing campaigns, and professional brand and website design tailored to your business goals.</p>
+                <p>We offer brand identity design, brand strategy, social media management, email marketing campaigns, and design services — all tailored for small businesses and startups who want to grow with intention.</p>
               </div>
             </details>
             <details class="faqItem">
               <summary>How do you create a strategy for my brand?</summary>
               <div class="faqAnswer">
-                <p>We begin with discovery to understand your business, target audience, and priorities. From there, we build a custom strategy aligned with your growth goals and brand voice.</p>
+                <p>Every strategy starts with a discovery session where we learn your business inside out your audience, your goals, your competitors. From there, we build a brand roadmap that's custom to you, not copied from a template.</p>
               </div>
             </details>
             <details class="faqItem">
@@ -1498,11 +1658,11 @@
         <div class="container">
           <div class="finalCtaCard">
             <div class="finalCtaKicker">Start a Project Inquiry</div>
-            <h2 class="finalCtaTitle">Ready to Elevate Your Brand&rsquo;s Digital Presence?</h2>
+            <h2 class="finalCtaTitle">You've built something worth showing off.Let's make sure the world sees it that way.</h2>
             <p class="finalCtaText">
-              Let&rsquo;s collaborate to create marketing strategies and visual content that help your business grow.
+             Your competitors aren't waiting. Every day without a strong brand is a day of clients lost to someone who looks the part even if your offer is better. Let's fix that.
             </p>
-            <a class="btn btnPrimary finalCtaBtn" href="mailto:brandelegacydesign@gmail.com">Start Your Project</a>
+            <a class="btn btnPrimary finalCtaBtn" href="mailto:brandelegacydesign@gmail.com">Start My Project</a>
           </div>
         </div>
       </section>
@@ -1560,7 +1720,7 @@
             <div class="footerColMega">
               <h3 class="footerColHead">Social</h3>
               <ul class="footerColList">
-                <li><a href="#" onclick="return false;">Instagram</a></li>
+                <li><a href="https://www.instagram.com/brandelegacydesign/?hl=en" onclick="return false;">Instagram</a></li>
                 <li><a href="#" onclick="return false;">LinkedIn</a></li>
               </ul>
             </div>
@@ -1815,6 +1975,51 @@
             syncAria();
           }
         });
+      })();
+    </script>
+    <script>
+      (function () {
+        var root = document.querySelector('[data-testimonials]');
+        if (!root) return;
+
+        var track = root.querySelector('.testimonialsTrack');
+        var slides = root.querySelectorAll('.testimonialCard');
+        var prevBtn = root.querySelector('[data-testimonial-prev]');
+        var nextBtn = root.querySelector('[data-testimonial-next]');
+        var dotsWrap = root.querySelector('[data-testimonial-dots]');
+        if (!track || !slides.length || !prevBtn || !nextBtn || !dotsWrap) return;
+
+        var index = 0;
+        var dots = [];
+
+        function render() {
+          track.style.transform = 'translateX(-' + (index * 100) + '%)';
+          dots.forEach(function (dot, i) {
+            var active = i === index;
+            dot.classList.toggle('is-active', active);
+            dot.setAttribute('aria-current', active ? 'true' : 'false');
+          });
+        }
+
+        function goTo(i) {
+          index = (i + slides.length) % slides.length;
+          render();
+        }
+
+        slides.forEach(function (_, i) {
+          var dot = document.createElement('button');
+          dot.type = 'button';
+          dot.className = 'testimonialDot' + (i === 0 ? ' is-active' : '');
+          dot.setAttribute('aria-label', 'Go to testimonial ' + (i + 1));
+          dot.addEventListener('click', function () { goTo(i); });
+          dotsWrap.appendChild(dot);
+          dots.push(dot);
+        });
+
+        prevBtn.addEventListener('click', function () { goTo(index - 1); });
+        nextBtn.addEventListener('click', function () { goTo(index + 1); });
+
+        render();
       })();
     </script>
   </body>

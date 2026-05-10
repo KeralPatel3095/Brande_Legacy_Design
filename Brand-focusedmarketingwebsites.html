@@ -102,9 +102,16 @@
         color: #a9be9f;
       }
       .sectionTitle{
-        margin:0 0 16px;
+        /* margin:0 0 16px;
         font-size:clamp(28px, 4.2vw + 14px, 44px);
         line-height:1.08;
+        letter-spacing:-.02em;
+        color:var(--text);
+        font-weight:600; */
+         font-family:var(--font-sans);
+        margin:0 0 10px;
+        font-size:44px;
+        line-height:1.1;
         letter-spacing:-.02em;
         color:var(--text);
         font-weight:600;
@@ -274,7 +281,9 @@
       }
       .tiersHead .sectionTitle{
         margin:0 auto 14px;
-        max-width:32ch;
+        /* max-width:32ch; */
+        max-width:26ch;
+
       }
       .tiersHead .sectionLead{
         margin:0 auto;
@@ -429,6 +438,7 @@
       .ctaBandInner .sectionTitle{
         margin:0 auto 14px;
         max-width:16ch;
+        /* max-width: 26ch; */
       }
       .ctaRow{
         margin-top:22px;
@@ -592,12 +602,12 @@
             <button type="button" class="overlayItem" data-services-target="emailcampaigndesign.html">
               Email Campaign Design
             </button>
-            <button type="button" class="overlayItem" data-services-target="instagramstoriesandpost.html">
+            <!-- <button type="button" class="overlayItem" data-services-target="instagramstoriesandpost.html">
               Instagram post and stories
             </button>
             <button type="button" class="overlayItem" data-services-target="brandidentity.html">
               Brand Identity
-            </button>
+            </button> -->
             <button type="button" class="overlayItem" data-services-target="socialmediammanagemtent.html">
               Social media management
             </button>
@@ -644,9 +654,9 @@
       <section class="preIntroNote" aria-label="Intro note">
         <div class="container">
           <div class="preIntroWrap">
-            <p class="kicker">A Different Perspective</p>
-            <h2 class="sectionTitle">your website should sell before you speak</h2>
-            <p class="sectionLead">This service is designed for brands that need more than visuals. We create conversion-led website experiences that communicate authority, attract qualified leads, and drive business decisions with clarity.</p>
+            <p class="kicker">Web Design & Conversion Architecture</p>
+            <h2 class="sectionTitle">Your website is working right now.The question is whether it's working for you.</h2>
+            <p class="sectionLead">Every visitor makes a decision within seconds of landing. We build websites where every section, every interaction, and every line of copy is engineered to make that decision go in your favour not toward the back button.</p>
             <div class="ctaRow">
               <a class="btn" href="index.html#portfolio">view work</a>
             </div>
@@ -660,12 +670,12 @@
           <div class="heroLayout">
             <div class="heroCopy">
               <p class="kicker">Brand-Focused Marketing Websites</p>
-              <h1>stop letting a generic website cost you clients.</h1>
-              <p class="sectionLead">We design high-performance, brand-centric websites that do more than exist online. Every page and interaction is shaped to convert casual visitors into high-ticket clients through strategy, storytelling, and intentional design execution.</p>
+              <h1>Generic websites don't lose clients dramatically. They lose them quietly.</h1>
+              <p class="sectionLead">A layout that doesn't establish authority. A structure that buries the offer. A design that looks like it came from a $29 template pack. No single moment drives them away the whole experience just doesn't hold.<br> We build websites where brand narrative, visual precision, and conversion architecture operate as a single, deliberate system so the right visitors stay, engage, and reach out.</p>
             </div>
             <figure class="heroVisual" aria-label="Brand-centric website design visual">
-              <img class="heroImg heroImgDefault" src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1400&h=1800&fit=crop" alt="Modern desk setup showing website design on large screen" loading="lazy" />
-              <img class="heroImg heroImgHover" src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1400&h=1800&fit=crop" alt="Code workspace and website development environment" loading="lazy" />
+              <img class="heroImg heroImgDefault" src="images/" alt="Modern desk setup showing website design on large screen" loading="lazy" />
+              <img class="heroImg heroImgHover" src="images/" alt="Code workspace and website development environment" loading="lazy" />
             </figure>
           </div>
         </div>
@@ -683,15 +693,15 @@
             <div class="pillarsGrid">
               <article class="pillarCard">
                 <h3>Strategic Storytelling</h3>
-                <p>Your website is your narrative. Every section reflects your brand story and positions you as a trusted authority in your category.</p>
+                <p>Your website is a narrative not a brochure. Every section is mapped to a specific moment in your visitor's decision journey, guiding them from first impression to taking action without friction.</p>
               </article>
               <article class="pillarCard">
-                <h3>Performance Without Compromise</h3>
-                <p>Speed and reliability are non-negotiable. Clean architecture delivers a seamless experience that keeps visitors engaged.</p>
+                <h3>Built to Perform</h3>
+                <p>Speed, responsiveness, and technical integrity are non-negotiable. A site that looks exceptional but loads slowly or breaks on mobile isn't doing its job. Ours don't have that problem.</p>
               </article>
               <article class="pillarCard">
-                <h3>Conversion-First Design</h3>
-                <p>Every visual cue and interaction is intentionally placed to guide visitors toward your key calls-to-action and increase conversion.</p>
+                <h3>Conversion-First Architecture</h3>
+                <p>Visual hierarchy, CTA placement, section sequencing every decision is interrogated against one question: does this move the visitor closer to reaching out? If not, it changes.</p>
               </article>
             </div>
           </div>
@@ -704,40 +714,42 @@
           <div class="tiersLayout">
             <div class="tiersHead">
               <p class="kicker">Investment Tiers</p>
-              <h2 class="sectionTitle">choose your website growth framework</h2>
+              <h2 class="sectionTitle">Your Website Framework</h2>
               <p class="sectionLead">
-               Clear options built around outcomes, so you can choose the level of website support that matches your current stage and goals. Reach out and we’ll discuss your needs and create a plan that works for you.
+               Three engagement models built around your current stage and scope. We'll identify which fits your goals in the first conversation.
               </p>
             </div>
             <div class="tiersGrid">
               <article class="tierCard">
                 <span class="tierTag">starter focus</span>
                 <h3 class="tierName">The Signature Landing Page</h3>
-                <p class="tierDesc">A single-page powerhouse built for one high-value objective: lead generation or direct conversion.</p>
+                <p class="tierDesc">One page. One objective. No compromise.</p>
                 <ul class="tierList">
-                  <li>One high-converting page</li>
+                  <li>Single high-converting page</li>
                   <li>Mobile-first responsive build</li>
-                  <li>Conversion-focused section flow</li>
+                  <li>Conversion-focused section architecture</li>
+                  <li>Ideal for launches, lead generation, or campaign-specific destinations</li>
                 </ul>
               </article>
               <article class="tierCard">
                 <span class="tierTag">growth system</span>
                 <h3 class="tierName">The Brand Authority Suite</h3>
-                <p class="tierDesc">A multi-page ecosystem (up to 5 pages) for brands ready to strengthen authority and scale with confidence.</p>
+                <p class="tierDesc">A multi-page ecosystem built for brands serious about</p>
                 <ul class="tierList">
-                  <li>Up to five strategic pages</li>
-                  <li>Unified brand messaging structure</li>
-                  <li>Scalable architecture for growth</li>
+                  <li>Up to 5 strategically structured pages</li>
+                  <li>Unified brand narrative across every section</li>
+                  <li>Scalable architecture designed to grow with your business</li>
                 </ul>
               </article>
               <article class="tierCard">
                 <span class="tierTag">expanded scope</span>
                 <h3 class="tierName">The Extended Build</h3>
-                <p class="tierDesc">A structured engagement for broader site architecture and additional pages over time. Scope and investment are defined and agreed before work begins.</p>
+                <p class="tierDesc">For businesses whose offer is complex enough to demand it.</p>
                 <ul class="tierList">
-                  <li>Structured for more pages over time</li>
-                  <li>Layouts and CTAs planned per page</li>
-                  <li>Suited to complex offers, regions, or long-form journeys</li>
+                  <li>Broader page architecture defined in scoping</li>
+                  <li>Layouts and CTAs planned per page and per audience journey</li>
+                  <li>Suited to multi-service businesses, regional operations, or long-form conversion paths</li>
+                  <li>Full scope and investment agreed before work begins</li>
                 </ul>
               </article>
             </div>
@@ -753,30 +765,30 @@
         <div class="container">
           <div class="faqWrap">
             <p class="kicker">FAQ</p>
-            <h2 class="sectionTitle">frequently asked questions</h2>
+            <h2 class="sectionTitle">The Questions Worth Asking</h2>
             <!-- <details class="faqItem">
               <summary class="faqQ">Can I update it?</summary>
               <p class="faqA">Yes, I provide a simple guide or a CMS integration if needed.</p>
             </details> -->
             <details class="faqItem">
-              <summary class="faqQ">How long does a website project take?</summary>
-              <p class="faqA">Most projects are completed in 2 to 4 weeks depending on scope, content readiness, and revision rounds.</p>
+              <summary class="faqQ">What's the typical project timeline?</summary>
+              <p class="faqA">Most projects are completed within 2–6 weeks, depending on the project scope, complexity, and content readiness. A clear timeline and delivery schedule are confirmed before we begin no open-ended engagements.</p>
             </details>
             <details class="faqItem">
-              <summary class="faqQ">Do you write the website content too?</summary>
-              <p class="faqA">Yes. I can support messaging direction and conversion focused copy structure so your pages read clearly and sell effectively.</p>
+              <summary class="faqQ">Do you handle the copy as well?</summary>
+              <p class="faqA">Yes. Messaging direction and conversion-focused copy structure are included. Full copywriting is available as an add-on for clients who want every word written from scratch.</p>
             </details>
             <details class="faqItem">
-              <summary class="faqQ">Will my website be mobile responsive?</summary>
-              <p class="faqA">Absolutely. Every website is designed and optimized for mobile, tablet, and desktop screens.</p>
+              <summary class="faqQ">Is mobile responsiveness guaranteed?</summary>
+              <p class="faqA">Every site is built mobile-first. It's not a feature or an upgrade it's a baseline requirement on every project we take on.</p>
             </details>
             <details class="faqItem">
-              <summary class="faqQ">Can you redesign my current site instead of starting over?</summary>
-              <p class="faqA">Yes. If your current site has strong foundations, I can rebuild the experience with better structure, visuals, and conversion flow.</p>
+              <summary class="faqQ">Can you rebuild an existing site rather than starting from scratch?</summary>
+              <p class="faqA">Yes and often that's the sharper move. We audit the current structure, identify what's working against you, and rebuild with better architecture rather than discarding what doesn't need to go.</p>
             </details>
             <details class="faqItem">
-              <summary class="faqQ">Do you provide support after launch?</summary>
-              <p class="faqA">Yes. Post launch support is available for updates, performance checks, and guidance as your brand grows.</p>
+              <summary class="faqQ">What happens after the site goes live?</summary>
+              <p class="faqA">Post-launch support covers updates, performance checks, and strategic guidance as your business evolves. You won't be handed a set of files and left to manage it alone.</p>
             </details>
           </div>
         </div>
@@ -787,10 +799,10 @@
         <div class="container">
           <div class="ctaBandInner">
             <p class="kicker">Ready To Build?</p>
-            <h2 class="sectionTitle">let your website become your strongest sales asset</h2>
-            <p class="sectionLead">If you are ready to move beyond templates and launch a brand-focused website designed to convert, this is where we begin.</p>
+            <h2 class="sectionTitle">Your next client is already searching. Make sure your website is the reason they stop.</h2>
+            <p class="sectionLead">If you're ready to move beyond a site that simply exists and build one that actively performs this is where that starts.</p>
             <div class="ctaRow">
-              <a class="btn btnPrimary" href="index.html#final-cta">book a project call</a>
+              <a class="btn btnPrimary" href="index.html#final-cta">Contact Us for Pricing</a>
               <a class="btn" href="index.html#value">view more services</a>
             </div>
           </div>
