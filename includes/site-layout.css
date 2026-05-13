@@ -1021,7 +1021,11 @@
           padding:clamp(56px,14vw,88px) 20px;
         }
         .workflowInner{grid-template-columns:1fr}
-        .workflowVisual{min-height:340px}
+        /* .workflowVisual{min-height:340px} */
+        .workflowVisual{
+          min-height:clamp(300px, 62svh, 560px);
+          height:clamp(300px, 62svh, 560px);
+        }
         .workflowText{padding:40px 24px}
         .workflowText h2{font-size:32px}
         #about{min-height:auto; padding:52px 20px}
