@@ -1178,6 +1178,13 @@
           min-height:auto;
           padding:0;
         }
+
+           /* Match laptop visual weight: tall column from viewport height, not only width */
+        #about .container.workflowSection,
+        .workflowSection{
+          min-height:0;
+          height:auto;
+        }
         .workflowInner{
           grid-template-columns:1fr;
           min-height:auto;
@@ -1187,8 +1194,10 @@
           min-height:0;
         }
         .workflowVisual{
-          min-height:min(72vw,380px);
-          height:min(72vw,380px);
+          /* min-height:min(72vw,380px);
+          height:min(72vw,380px); */
+           min-height:clamp(300px, 62svh, 560px);
+          height:clamp(300px, 62svh, 560px);
           flex:none;
           position:relative;
           overflow:hidden;
@@ -1248,14 +1257,20 @@
           aspect-ratio:auto;
           display:flex;
           flex-direction:column;
-          overflow:visible;
+          /* overflow:visible; */
+                    overflow:hidden;
+
           border-radius:10px;
         }
         .stepImage img{
-          aspect-ratio:1/1;
+          /* aspect-ratio:1/1; */
+          width:100%;
+          aspect-ratio:1 / 1;
           height:auto;
-          min-height:220px;
-          max-height:min(88vw,360px);
+          /* min-height:220px;
+          max-height:min(88vw,360px); */
+           min-height:clamp(260px, 72vw, 420px);
+          max-height:min(92vw, 460px);
           object-fit:cover;
         }
         .stepImageText{
@@ -1289,11 +1304,15 @@
       }
       @media (max-width: 480px){
         .workflowVisual{
-          min-height:min(78vw,340px);
-          height:min(78vw,340px);
+          /* min-height:min(78vw,340px);
+          height:min(78vw,340px); */
+           min-height:clamp(280px, 56svh, 500px);
+          height:clamp(280px, 56svh, 500px);
         }
         .stepImage img{
-          min-height:200px;
+          /* min-height:200px; */
+           min-height:clamp(240px, 78vw, 400px);
+          max-height:min(94vw, 440px);
         }
       }
     </style>
